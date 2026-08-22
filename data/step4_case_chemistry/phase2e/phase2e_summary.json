@@ -1,0 +1,8 @@
+{
+  "decision": "PASS_AND_CLOSE_PHASE_2",
+  "case_decisions": 6,
+  "linker_atom_mapping": false,
+  "site_level_repeat_charge_validated": true,
+  "new_linker_localization_recommended": false,
+  "next_phase": "PHASE_3_FALSIFICATION_DESIGN_AUDIT"
+}

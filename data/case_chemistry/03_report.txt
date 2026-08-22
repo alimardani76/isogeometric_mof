@@ -1,0 +1,10 @@
+PROJECT 7B2 SELECTED-CASE CHARGE FEASIBILITY
+========================================================================
+Decision: PASS
+Frozen cases: 6
+Frameworks audited: 12
+Exact charge-row mappings: 12
+Atom rows extracted: 2836
+
+Permitted use: element-level and metal-element charge summaries for the six selected examples.
+Not permitted: automatic linker assignment, adsorption-site maps, oxidation states, causal mechanism, or global charge rule.

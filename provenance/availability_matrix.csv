@@ -1,0 +1,9 @@
+object,status,reason
+shuffled_chemistry_negative_controls,NOT_COMPUTED,No dependence-preserving shuffled-label control was executed; same-chemistry controls are the implemented falsification baseline.
+loose_match_negative_controls,NOT_COMPUTED,"No dedicated loose-match null was executed; fixed caliper tiers were used as sensitivity analyses, not null controls."
+true_held_out_family_transfer,NOT_COMPUTED,"Reciprocal matching and topology filtering test robustness within observed support, not prediction into unseen families."
+permutation_p_values_and_fdr,NOT_COMPUTED,The frozen analysis reports effect estimates and dependence-aware bootstrap intervals rather than a formal p-value family.
+accessible_heteroatom_intervention,NOT_COMPUTED,No outcome-independent accessible-heteroatom intervention class was validated.
+charge_localization_intervention,NOT_COMPUTED,"Charge data were used for selected-case fingerprints only, not as a global intervention class."
+higher_fidelity_mechanism_validation,NOT_AVAILABLE,"No adsorption-density map, energy decomposition, site scan, or new experimental validation was performed."
+directional_rule_cards,NOT_APPLICABLE,Primary chemistry transitions are unordered and do not support universal directional substitution rules.

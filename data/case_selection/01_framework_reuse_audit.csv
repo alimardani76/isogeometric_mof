@@ -1,0 +1,13 @@
+framework_id,pair_key,selection_category,role_label,endpoint,recommended_pair_count,framework_reused
+DB0-m2_o23_o28_f0_nbo.sym.21,DB0-m2_o23_o28_f0_nbo.sym.21 || DB0-m2_o23_o28_f0_nbo.sym.4,near_null_comparison,Near-null comparison,a,1,False
+DB0-m2_o23_o28_f0_nbo.sym.4,DB0-m2_o23_o28_f0_nbo.sym.21 || DB0-m2_o23_o28_f0_nbo.sym.4,near_null_comparison,Near-null comparison,b,1,False
+DB0-m2_o6_o27_f0_nbo.sym.30,DB0-m2_o6_o27_f0_nbo.sym.30 || DB0-m3_o6_o27_f0_nbo.sym.33,cu_zn_pressure_exception,Cu-Zn pressure exception,b,1,False
+DB0-m2_o7_o7_f0_nbo.sym.45,DB0-m2_o7_o7_f0_nbo.sym.45 || DB0-m3_o7_o7_f0_nbo.sym.48,strong_metal_process_aligned,Strong metal / process aligned,b,1,False
+DB0-m3_o11_o17_f0_pcu.sym.32,DB0-m3_o11_o17_f0_pcu.sym.32 || DB0-m3_o12_o20_f0_pcu.sym.24,strong_linker_process_aligned,Strong linker / process aligned,a,1,False
+DB0-m3_o12_o20_f0_pcu.sym.24,DB0-m3_o11_o17_f0_pcu.sym.32 || DB0-m3_o12_o20_f0_pcu.sym.24,strong_linker_process_aligned,Strong linker / process aligned,b,1,False
+DB0-m3_o152_o155_f0_fsc.sym.27,DB0-m3_o152_o155_f0_fsc.sym.27 || DB0-m3_o440_o155_f0_fsc.sym.26,process_discordant_comparison,Process-discordant comparison,b,1,False
+DB0-m3_o440_o155_f0_fsc.sym.26,DB0-m3_o152_o155_f0_fsc.sym.27 || DB0-m3_o440_o155_f0_fsc.sym.26,process_discordant_comparison,Process-discordant comparison,a,1,False
+DB0-m3_o6_o27_f0_nbo.sym.33,DB0-m2_o6_o27_f0_nbo.sym.30 || DB0-m3_o6_o27_f0_nbo.sym.33,cu_zn_pressure_exception,Cu-Zn pressure exception,a,1,False
+DB0-m3_o7_o7_f0_nbo.sym.48,DB0-m2_o7_o7_f0_nbo.sym.45 || DB0-m3_o7_o7_f0_nbo.sym.48,strong_metal_process_aligned,Strong metal / process aligned,a,1,False
+DB0-m9_o17_o27_f0_sra.sym.116,DB0-m9_o17_o27_f0_sra.sym.116 || DB0-m9_o17_o27_f0_sra.sym.117,functional_motif_example,Functional-motif example,b,1,False
+DB0-m9_o17_o27_f0_sra.sym.117,DB0-m9_o17_o27_f0_sra.sym.116 || DB0-m9_o17_o27_f0_sra.sym.117,functional_motif_example,Functional-motif example,a,1,False

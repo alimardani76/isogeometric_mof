@@ -1,0 +1,5 @@
+evidence_object,allowed_claim,prohibited_claim
+robust two-setting CrystalNN + ChemEnv + mapped REPEAT charge,case-level local coordination/electrostatic structural context,"adsorption site, oxidation state, charge transfer, causal mechanism"
+whole-framework / heteroatom charge-distribution Wasserstein distance,descriptive electrostatic fingerprint separation between the two frozen structures,directional linker polarity rule or site-specific binding mechanism
+heteroatom number density from CIF composition and cell volume,whole-cell composition density descriptor,pore-accessible heteroatom density
+linker-case preserved metal coordination,the selected case does not require an obvious metal-node coordination change to exhibit the reported adsorption contrast,therefore a specific linker atom or electrostatic mechanism caused the effect

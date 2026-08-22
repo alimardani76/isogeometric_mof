@@ -1,0 +1,7 @@
+quantity,intervention,measure,comparisons,median_CO2_greater,median_intervals_above_zero,median_intervals_below_zero,median_fraction_groups_CO2_greater,minimum_paired_groups
+adsorption_separation,linker_family_change,absolute_log_difference,8,7,7,1,0.7279622209502004,3491
+adsorption_separation,linker_family_change,standardized_absolute_difference,8,3,3,5,0.4639381797366915,3491
+adsorption_separation,metal_substitution,absolute_log_difference,8,7,7,1,0.7759381898454746,452
+adsorption_separation,metal_substitution,standardized_absolute_difference,8,5,5,1,0.6346578366445916,452
+heat_contrast,linker_family_change,absolute_hoa_difference,8,8,8,0,0.7881134201168529,3491
+heat_contrast,metal_substitution,absolute_hoa_difference,8,8,8,0,0.8419899783156537,452

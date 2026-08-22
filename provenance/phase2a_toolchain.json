@@ -1,0 +1,43 @@
+{
+  "python": "3.13.13 (tags/v3.13.13:01104ce, Apr  7 2026, 19:25:48) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26220-SP0",
+  "project_root": "C:\\Users\\KaraPardazesh\\Desktop\\7B2",
+  "frozen_package": "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\Paper7B_Hosein_to_Shayan_Frozen_Source_Package",
+  "packages": {
+    "pandas": {
+      "available": true,
+      "version": "2.3.2",
+      "error": null
+    },
+    "numpy": {
+      "available": true,
+      "version": "1.26.4",
+      "error": null
+    },
+    "pymatgen": {
+      "available": true,
+      "version": "2025.10.7",
+      "error": null
+    },
+    "gemmi": {
+      "available": false,
+      "version": null,
+      "error": "ModuleNotFoundError: No module named 'gemmi'"
+    },
+    "CrystalNN": {
+      "available": true,
+      "error": null
+    },
+    "ChemEnv_LocalGeometryFinder": {
+      "available": true,
+      "error": null
+    }
+  },
+  "executables": {
+    "network": null,
+    "zeo++": null,
+    "raspa3": null,
+    "simulate": null,
+    "raspa": null
+  }
+}

@@ -1,0 +1,22 @@
+PROJECT 7B2 FIGURE-SOURCE PACKAGE
+========================================================================
+Decision: SOURCE DATA PACKAGED FOR FIGURES 1-6
+
+Figure 1: 4 source table(s) packaged
+Figure 2: 4 source table(s) packaged
+Figure 3: 3 source table(s) packaged
+Figure 4: 6 source table(s) packaged
+Figure 5: 8 source table(s) packaged
+Figure 6: 3 source table(s) packaged
+
+Frozen cases represented: 6
+Missing optional sources: 0
+
+Boundaries:
+- no scientific estimate was recalculated
+- case-level candidate tables were filtered only by frozen pair_key
+- all other tables were copied byte-for-byte
+- every packaged file retains its upstream path and SHA-256 hash
+
+Next action:
+Use 04_figure_index.csv and the six figure folders to design and render Figures 1-6.

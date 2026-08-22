@@ -1,0 +1,12 @@
+{
+  "decision": "PASS",
+  "frozen_pairs": 6,
+  "selected_frameworks": 12,
+  "framework_summaries": 12,
+  "pair_cards": 6,
+  "pairs_with_any_method_sensitive_metal_site": 1,
+  "robust_metal_local_chemistry_cases": 1,
+  "fatal": [],
+  "warnings": [],
+  "next_decision": "REVIEW_CASE_CARDS_BEFORE_ANY_FIGURE_OR_GLOBAL_CHEMISTRY_EXTENSION"
+}

@@ -1,0 +1,7 @@
+object,status,main_use,boundary
+two-setting CrystalNN coordination,PASS_SELECTED_CASES,selected-case local coordination context,8/88 metal sites were method-sensitive; one frozen pair contains all method-sensitive sites
+ChemEnv cross-check,PASS_SELECTED_CASES,independent coordination-geometry context,"algorithmic structural classification, not adsorption mechanism"
+site-level REPEAT charge attachment,PASS_SELECTED_CASES,validated selected-case partial-charge fingerprints,"not oxidation states, charge transfer, or binding-site evidence"
+linker family,PASS_PAIR_CLASSIFICATION_ONLY,existing linker-family intervention definition,no molecular linker identity or atom mapping exists in Project 7B
+linker-local electrostatics,NOT_ESTABLISHED,none,would require a genuinely new linker atom-localization method
+whole-structure charge Wasserstein distance,DESCRIPTIVE_SELECTED_CASE_ONLY,compact electrostatic fingerprint for the frozen examples,"not a fitted predictor, causal mediator, or population-wide rule"

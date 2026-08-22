@@ -1,0 +1,16 @@
+PROJECT 7B2 FINAL STRUCTURE CASE SET
+========================================================================
+Decision: SIX CASES FROZEN FOR PRODUCTION
+
+- Strong linker / process aligned: DB0-m3_o11_o17_f0_pcu.sym.32 || DB0-m3_o12_o20_f0_pcu.sym.24 | -49301 <-> -6941 | median |Delta log q|=0.811851
+- Strong metal / process aligned: DB0-m2_o7_o7_f0_nbo.sym.45 || DB0-m3_o7_o7_f0_nbo.sym.48 | Cu <-> Zn | median |Delta log q|=0.306692
+- Cu-Zn pressure exception: DB0-m2_o6_o27_f0_nbo.sym.30 || DB0-m3_o6_o27_f0_nbo.sym.33 | Cu <-> Zn | median |Delta log q|=0.0820322
+- Near-null comparison: DB0-m2_o23_o28_f0_nbo.sym.21 || DB0-m2_o23_o28_f0_nbo.sym.4 | 40141 <-> 43459 | median |Delta log q|=0.0124777
+- Process-discordant comparison: DB0-m3_o152_o155_f0_fsc.sym.27 || DB0-m3_o440_o155_f0_fsc.sym.26 | 55140 <-> 60577 | median |Delta log q|=0.0641002
+- Functional-motif example: DB0-m9_o17_o27_f0_sra.sym.116 || DB0-m9_o17_o27_f0_sra.sym.117 | -2360 <-> 15980 | median |Delta log q|=0.0596149
+
+Boundaries:
+- cases communicate strong, null, exceptional, discordant, and exploratory outcomes
+- no case establishes a general mechanism or directional substitution rule
+- the functional-motif case remains illustrative because class support is insufficient
+- later visual inspection may change panel orientation or camera, not pair membership

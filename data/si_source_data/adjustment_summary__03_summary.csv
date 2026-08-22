@@ -1,0 +1,3 @@
+effect_measure,conditions,unadjusted_positive,unadjusted_intervals_above_zero,adjusted_positive,adjusted_intervals_above_zero,median_relative_adjustment_change,maximum_absolute_relative_adjustment_change,maximum_condition_number
+absolute_log_difference,18,18,18,18,13,-0.35734302324376355,0.7964505310288922,11.806935635574932
+standardized_absolute_difference,18,18,17,17,15,-0.40439889483567204,1.1186038326462642,11.806935635574932

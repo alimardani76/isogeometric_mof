@@ -1,0 +1,24 @@
+{
+  "stage": "Project 7B2 consolidated figure-source packaging",
+  "created": "2026-08-02T21:56:36",
+  "script": "04_build_figure_source_package.py",
+  "frozen_case_input": {
+    "path": "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\case_selection\\02_final_case_set.csv",
+    "sha256": "5e8cc002b767848321067febeb857823c615118533d0c17830e5e43c02dac24b"
+  },
+  "figure_count": 6,
+  "packaged_source_count": 28,
+  "missing_optional_count": 0,
+  "new_scientific_analysis": false,
+  "scientific_values_changed": false,
+  "case_filter": "exact frozen pair_key only",
+  "outputs": [
+    "04_source_registry.csv",
+    "04_missing_optional_sources.csv",
+    "04_figure_index.csv",
+    "04_report.txt",
+    "Figure_01/ ... Figure_06/"
+  ],
+  "python": "3.13.13 (tags/v3.13.13:01104ce, Apr  7 2026, 19:25:48) [MSC v.1944 64 bit (AMD64)]",
+  "pandas": "2.3.2"
+}

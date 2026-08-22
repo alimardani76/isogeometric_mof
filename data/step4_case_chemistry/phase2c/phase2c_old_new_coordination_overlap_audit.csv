@@ -1,0 +1,5 @@
+mof_id,old_rows,old_signature_like_columns,new_crystalnn_robust_fraction,new_method_sensitive_sites,status,old_default_signature,old_geometry_signature,old_default_warning_count
+DB0-m2_o6_o27_f0_nbo.sym.30,1,"[""default_signature"", ""geometry_signature"", ""default_warning_count""]",0.6666666666666666,4,OVERLAP_PRESENT_SCHEMA_PROFILED_NOT_FORCED,"[""4;4;4;4;4;4;4;4;5;5;5;5""]","[""4;4;4;4;4;4;4;4;4;4;4;4""]","[""324""]"
+DB0-m2_o7_o7_f0_nbo.sym.45,1,"[""default_signature"", ""geometry_signature"", ""default_warning_count""]",1.0,0,OVERLAP_PRESENT_SCHEMA_PROFILED_NOT_FORCED,"[""4;4;4;4;4;4;4;4;4;4;4;4""]","[""4;4;4;4;4;4;4;4;4;4;4;4""]","[""324""]"
+DB0-m3_o6_o27_f0_nbo.sym.33,1,"[""default_signature"", ""geometry_signature"", ""default_warning_count""]",0.6666666666666666,4,OVERLAP_PRESENT_SCHEMA_PROFILED_NOT_FORCED,"[""4;4;4;4;4;4;4;4;5;5;5;5""]","[""4;4;4;4;4;4;4;4;4;4;4;4""]","[""286""]"
+DB0-m3_o7_o7_f0_nbo.sym.48,1,"[""default_signature"", ""geometry_signature"", ""default_warning_count""]",1.0,0,OVERLAP_PRESENT_SCHEMA_PROFILED_NOT_FORCED,"[""4;4;4;4;4;4;4;4;4;4;4;4""]","[""4;4;4;4;4;4;4;4;4;4;4;4""]","[""276""]"

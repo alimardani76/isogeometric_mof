@@ -1,0 +1,5 @@
+intervention,measure,conditions,positive_rho,intervals_above_zero,median_rho,maximum_absolute_rho
+Linker family,absolute_log_difference,18,18,18,0.24060635762505414,0.5214950893776962
+Linker family,standardized_absolute_difference,18,14,14,0.2393953370736101,0.4607953687912802
+Metal substitution,absolute_log_difference,18,16,13,0.23653746259619723,0.5104923423198972
+Metal substitution,standardized_absolute_difference,18,14,11,0.15509593754784357,0.475722080330256

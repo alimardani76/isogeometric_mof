@@ -1,0 +1,30 @@
+{
+  "stage": "Project 7B2 final structure-case freeze",
+  "created": "2026-08-02T21:38:55",
+  "script": "02_freeze_final_case_selection.py",
+  "input": {
+    "path": "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\case_selection\\01_recommended_review_set.csv",
+    "sha256": "55ac058d91c45e6abe22d6945cda647dbb96c0caf7b941f9a6d21acb8d3f80ef"
+  },
+  "final_pairs": {
+    "strong_linker_process_aligned": "DB0-m3_o11_o17_f0_pcu.sym.32 || DB0-m3_o12_o20_f0_pcu.sym.24",
+    "strong_metal_process_aligned": "DB0-m2_o7_o7_f0_nbo.sym.45 || DB0-m3_o7_o7_f0_nbo.sym.48",
+    "cu_zn_pressure_exception": "DB0-m2_o6_o27_f0_nbo.sym.30 || DB0-m3_o6_o27_f0_nbo.sym.33",
+    "near_null_comparison": "DB0-m2_o23_o28_f0_nbo.sym.21 || DB0-m2_o23_o28_f0_nbo.sym.4",
+    "process_discordant_comparison": "DB0-m3_o152_o155_f0_fsc.sym.27 || DB0-m3_o440_o155_f0_fsc.sym.26",
+    "functional_motif_example": "DB0-m9_o17_o27_f0_sra.sym.116 || DB0-m9_o17_o27_f0_sra.sym.117"
+  },
+  "case_count": 6,
+  "framework_count": 12,
+  "pair_membership_changed": false,
+  "scientific_values_changed": false,
+  "mechanism_claim_authorized": false,
+  "directional_chemistry_assigned": false,
+  "outputs": [
+    "02_final_case_set.csv",
+    "02_final_case_frameworks.csv",
+    "02_report.txt"
+  ],
+  "python": "3.13.13 (tags/v3.13.13:01104ce, Apr  7 2026, 19:25:48) [MSC v.1944 64 bit (AMD64)]",
+  "pandas": "2.3.2"
+}

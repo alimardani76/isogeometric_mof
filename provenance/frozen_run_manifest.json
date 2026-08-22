@@ -1,0 +1,13 @@
+{
+  "package": "Paper7B_Hosein_to_Shayan_Frozen_Source_Package",
+  "created": "2026-08-14T17:33:01",
+  "builder": "10_build_lean_si_package.py",
+  "frozen": true,
+  "selected_case_pairs": 6,
+  "selected_frameworks": 12,
+  "selected_cifs": 12,
+  "packaged_files": 107,
+  "unavailable_objects": 8,
+  "scientific_values_changed": false,
+  "new_analysis": false
+}

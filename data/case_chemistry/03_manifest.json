@@ -1,0 +1,25 @@
+{
+  "stage": "selected-case REPEAT-charge feasibility",
+  "created": "2026-08-02T21:44:26",
+  "script": "03_audit_selected_case_charges.py",
+  "inputs": {
+    "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\case_selection\\02_final_case_set.csv": "5e8cc002b767848321067febeb857823c615118533d0c17830e5e43c02dac24b",
+    "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\raw\\ARCMOF_20241004.tar.gz": "7a2a6bcf0760d9406cb25776a0cfecf9c4c98ce5de318931d9c4ead58e2130a3"
+  },
+  "case_count": 6,
+  "framework_count": 12,
+  "mapping_failures": 0,
+  "imputation": false,
+  "site_or_linker_assignment": false,
+  "mechanism_claim": false,
+  "outputs": [
+    "03_charge_mapping_audit.csv",
+    "03_atom_charge_rows.csv",
+    "03_framework_charge_summaries.csv",
+    "03_element_charge_summaries.csv",
+    "03_pair_charge_contrasts.csv",
+    "03_report.txt"
+  ],
+  "python": "3.13.13 (tags/v3.13.13:01104ce, Apr  7 2026, 19:25:48) [MSC v.1944 64 bit (AMD64)]",
+  "pandas": "2.3.2"
+}
