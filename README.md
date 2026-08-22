@@ -1,52 +1,286 @@
-# isogeometric_mof
+isogeometric_mof: Reproducibility and Transparency Record
+Purpose
+This document provides a detailed record of the computational workflow
+behind the isogeometric MOF adsorption analysis.
+The goal is to make the analysis traceable from:
+raw source data → preprocessing → chemistry extraction → pair
+construction → statistical analysis → figure generation → supplementary
+tables.
+This repository contains the reproducibility assets generated from the
+audited Project 7B2 workflow. It focuses on Steps 1--4 of the analysis
+pipeline. Exploratory future validation work is maintained separately
+and is not part of this repository.
+---
+1. Project scope
+The analysis investigates adsorption contrasts between chemically
+modified MOF frameworks while attempting to control structural and
+geometric differences through systematic framework comparison and
+matched analyses.
+The computational workflow was developed as a staged pipeline:
+Dataset construction and chemistry extraction.
+Chemistry-controlled adsorption analysis.
+Production analysis, figures, and supplementary tables.
+Additional chemistry interpretation and provenance audits.
+---
+2. Input data and provenance
+ARC-MOF-derived input data
+The original project uses ARC-MOF-derived structural and
+adsorption-related data.
+The raw source data are not included in this repository because their
+redistribution conditions must be handled according to the original
+database/source terms.
+Instead, this repository contains:
+file inventories;
+SHA-256 hashes;
+provenance manifests;
+derived processed datasets required for interpretation.
+Relevant files:
+    provenance/raw_data_sha256.csv
+provenance/phase0_frozen_input_inventory.csv
+provenance/phase0_manifest.json
 
-Draft reproducibility repository assembled from the audited Project 7B2 folders on 2026-08-22.
+The raw-data audit recorded the original source files, sizes,
+timestamps, and hashes without redistributing the source files.
+---
+3. Repository structure
+    data/
+case_selection/
+case_chemistry/
+figure_source_data/
+si_source_data/
+step4_case_chemistry/
+    scripts/
+        step1/
+        step2/
+        step3/
+        step4/
 
-## Purpose
+    figures/
+        main/
+        supplementary/
 
-This repository draft inventories and packages the verified computational assets used by Project 7B2. Existing project documentation describes the work as geometry-controlled, observational chemistry contrasts. This draft does not add a scientific claim, method, citation, license, or data-use permission.
+    tables/
+        supplementary/
 
-## Contents
+    provenance/
+    environment/
 
-- `data/`: small processed tables used by the figure, SI, case-selection, and selected-case chemistry workflows. Raw ARC-MOF-derived files and CIFs are not included.
-- `scripts/`: unmodified copies of verified Python and batch workflow scripts, organized by their original project stage.
-- `figures/`: generated main and supplementary figure files found in `Step 3 results`.
-- `tables/`: generated LaTeX supplementary tables found in `Step 3 results/si_tables`.
-- `environment/`: software versions and imports observed in scripts and run manifests. No installable environment definition was found.
-- `provenance/`: the full audit inventory, reproducibility-assets report, source hashes/manifests, and release blockers.
 
-## Audited reproduction workflow
 
-The scripts were copied without rewriting, as required by the audit. They retain their original path assumptions and therefore describe the workflow in the original `7B2` layout rather than a directly runnable layout inside this draft.
+---
+4. Step 1: Dataset construction and framework comparison
+Location:
+    scripts/step1/
 
-1. Place the required source files in the original project-root `raw/` directory after independently resolving access and redistribution terms. The exact audited basenames and computed hashes are listed in `provenance/raw_data_sha256.csv`.
-2. From `Step 1 computation`, run `RUN_STEP1.bat`. The batch file invokes scripts `01_build_cohort.py` through `25_inspect_structure_cases.py` in numeric order and writes to `analysis/`. It does not invoke `26_audit_heat_of_adsorption.py`.
-3. Run the six scripts in `Step 2 chemistry strengthening` in numeric order. They read `analysis/` and selected raw adsorption CSVs and write under `Step 2 results/`.
-4. Run the Step 3 scripts in numeric order: case preparation/freezing, charge audit, figure-source packaging, figure blueprint, figure rendering, SI registry, and SI packaging. The existing files do not prove which alternate `06` and `07` renderer produced the final files; see `provenance/02_reproducibility_assets.md`.
-5. If the Step 4 audit layer is needed, run the numbered scripts in `Step 4 extension` in order. Existing Step 4 documentation states that these scripts read upstream Steps 1-3 and write to `Step 4 results/`.
+Purpose:
+Build the analysis cohort, extract structural chemistry information,
+construct candidate comparisons, and generate the framework-pair
+datasets used downstream.
+Main workflow components:
+01_build_cohort.py
+Purpose: - assemble the framework cohort; - integrate structural
+descriptors; - connect topology, geometry, adsorption, and
+process-related information.
+Expected outputs include cohort-level datasets and analysis tables.
+02_extract_cif_chemistry.py
+Purpose: - extract chemical information from CIF structures; - identify
+framework chemistry features; - generate chemistry-level records.
+03_build_candidate_pairs.py
+Purpose: - generate candidate framework comparisons.
+04_check_metal_coordination.py
+Purpose: - audit metal coordination consistency.
+05_group_related_pairs.py
+Purpose: - organize related framework comparisons.
+Matching and robustness analysis
+Scripts include:
+reciprocal matching;
+matching robustness tests;
+topology robustness;
+geometry limit analysis;
+boundary-case audits.
+Final Step 1 outputs are stored mainly in:
+    data/case_selection/
+data/figure_source_data/
 
-The processed tables included here preserve the exact source copies associated with the quantitative figures and printed SI assets. The unmodified SI packaging script still expects the original upstream project layout. Figure 5 structure rendering also requires selected CIFs, which are deliberately excluded pending provenance and redistribution review.
+---
+5. Step 2: Chemistry strengthening and adsorption analysis
+Location:
+    scripts/step2/
 
-## Software evidence
+Purpose:
+Analyze adsorption-related contrasts and test whether observed
+differences persist under additional controls.
+Main analyses include:
+heat of adsorption analysis;
+residual geometry adjustment;
+balance/family dominance checks;
+guest-specific analysis;
+claim freezing.
+Outputs:
+    data/figure_source_data/
+data/si_source_data/
 
-An audited run recorded Windows 11, Python 3.13.13, pandas 2.3.2, NumPy 1.26.4, pymatgen 2025.10.7, and matplotlib 3.10.5. The scripts also import PyArrow, SciPy, scikit-learn, and joblib, but audited version pins for those packages were not found. `gemmi` is optional in one renderer and was recorded as unavailable. See `environment/README.md`.
+Examples:
+    hoa_condition__heat_adsorption_condition_results.csv
+hoa_pressure__heat_adsorption_pressure_results.csv
+guest__05_results.csv
+controls_primary__step3_same_chemistry_control_results.csv
 
-## Data provenance and ARC-MOF note
+---
+6. Step 3: Production analysis, figures, and SI generation
+Location:
+    scripts/step3/
 
-The project owner identified every file in the audited `raw/` folder as ARC-MOF-derived source data. No README, license, citation file, or provenance manifest was present in that folder, and no README/license/citation-named entry was found by listing the compressed archive. Consequently, this draft includes names, sizes, dates, and SHA-256 hashes only; it does not copy the raw files or selected CIFs and does not assert that they may be redistributed.
+Purpose:
+Generate the final manuscript-facing outputs.
+Case selection and freezing
+Scripts:
+    01_prepare_final_case_selection.py
+02_freeze_final_case_selection.py
 
-The existing Step 4 protocol-reconstruction script contains a literature citation and external-code candidate, but this audit did not independently validate those external sources and does not treat that script as a license for the data.
+Outputs:
+    data/case_selection/
 
-## Limitations and release blockers
+Charge and chemistry audits
+Scripts:
+    03_audit_selected_case_charges.py
 
-- No project license or explicit code/data redistribution terms were found.
-- No citation metadata file was found.
-- No `requirements.txt`, Conda environment, lockfile, `pyproject.toml`, container file, or equivalent environment definition was found.
-- The active Step 3 renderer variants cannot be proven because manifests record canonical script names but not script hashes, while alternate versions exist with nearby timestamps.
-- The copied scripts use the original directory layout. They require either restoration to that layout or a separately reviewed path refactor before this draft is directly runnable.
-- `Step 1 computation/26_audit_heat_of_adsorption.py` resolves its project root differently from neighboring Step 1 scripts and is not called by `RUN_STEP1.bat`; the corrected Step 2 copy was retained instead.
-- The existing `Step 3 production/README.md` says the folder is empty even though it contains scripts and is therefore stale.
-- Two additional top-level folders, `Step 5 results` and `Step 5 validation`, were observed but were outside the user-specified audit scope and are not represented here.
-- This audit checked file presence, metadata, script-declared paths/imports, manifests, and selected text content. It did not rerun the scientific workflow or validate numerical results.
+Outputs:
+    data/case_chemistry/
 
-No GitHub remote is configured or used by this draft.
+Figure source generation
+Scripts:
+    04_build_figure_source_package.py
+05_freeze_figure_blueprint.py
+06_render_quantitative_figures.py
+07_render_structure_case_figure.py
+
+Generated figures:
+    figures/main/
+    Figure\_01.pdf
+    Figure\_02.pdf
+    Figure\_03.pdf
+    Figure\_04.pdf
+    Figure\_05.pdf
+    Figure\_06.pdf
+
+
+
+Supplementary figures:
+    figures/supplementary/
+
+Supplementary information
+Scripts:
+    09_build_si_source_registry.py
+10_build_lean_si_package.py
+
+Tables:
+    tables/supplementary/
+
+Generated SI tables:
+Table S01 Condition Coverage
+Table S02 Control Summary
+Table S03 HOA Summary
+Table S04 Guest Specificity
+Table S05 Residual Adjustment
+Table S06 Balance
+Table S07 Family Exclusion
+Table S08 Process Translation
+Table S09 Final Cases Charges
+---
+7. Step 4: Chemistry interpretation and transparency layer
+Location:
+    scripts/step4/
+
+Purpose:
+Provide additional audits and interpretation support.
+Major components:
+frozen input audit;
+evidence audit;
+CIF chemistry preflight;
+coordination recovery;
+local chemistry analysis;
+charge-site mapping;
+case chemistry synthesis;
+dependency and exchangeability audits;
+falsification closure;
+simulation provenance feasibility;
+integration freeze.
+Outputs:
+    data/step4_case_chemistry/
+provenance/
+
+---
+8. Figures and tables
+Main figures
+Location:
+    figures/main/
+
+Contains:
+PDF versions;
+PNG versions;
+SVG versions.
+Supplementary figures
+Location:
+    figures/supplementary/
+
+Supplementary tables
+Location:
+    tables/supplementary/
+
+Source datasets:
+    data/figure_source_data/
+data/si_source_data/
+
+---
+9. Software and computational environment
+Observed workflow components include:
+Python
+pandas
+NumPy
+matplotlib
+pymatgen
+PyArrow
+SciPy
+scikit-learn
+joblib
+The audited project did not contain a complete environment lock file.
+Future release improvement:
+add requirements.txt or conda environment;
+test reproduction from a clean environment.
+---
+10. Reproduction workflow
+Recommended order:
+Obtain permitted access to required external source datasets.
+Restore the expected project directory structure.
+Install required Python dependencies.
+Execute Step 1 scripts.
+Execute Step 2 analysis.
+Generate Step 3 production outputs.
+Run Step 4 transparency and interpretation audits.
+The included scripts preserve the original analysis workflow rather than
+being rewritten into a new package.
+---
+11. Reproducibility limitations
+Current limitations:
+Raw ARC-MOF-derived source files are not included.
+Scripts retain original project-path assumptions.
+No complete environment lock file was available.
+Some renderer variants exist and require careful selection.
+The workflow has not been rerun from a clean external clone.
+These limitations are documented intentionally to preserve transparency.
+---
+12. Repository status
+This repository represents the reproducibility archive for the
+computational analysis.
+Included:
+processed datasets;
+analysis scripts;
+figure sources;
+generated figures;
+supplementary tables;
+provenance records.
+Excluded:
+raw ARC-MOF source files;
+exploratory validation branches;
+temporary intermediate files.
