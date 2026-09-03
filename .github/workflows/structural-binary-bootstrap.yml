@@ -1,0 +1,92 @@
+name: Structural panel binary bootstrap
+
+on:
+  push:
+    branches:
+      - release/paper7b-public
+
+permissions:
+  contents: write
+
+jobs:
+  reconstruct-final-artwork:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out release branch
+        uses: actions/checkout@v4
+        with:
+          ref: release/paper7b-public
+          fetch-depth: 1
+
+      - name: Reconstruct verified final PDF and PPTX
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          mkdir -p structural_panel/figures/final
+          tmpdir="$(mktemp -d)"
+          trap 'rm -rf "$tmpdir"' EXIT
+
+          fetch_chunk() {
+            local sha="$1"
+            curl --fail --silent --show-error --location \
+              -H "Authorization: Bearer $GH_TOKEN" \
+              -H "Accept: application/vnd.github+json" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/git/blobs/$sha" \
+              | jq -r '.content' | tr -d '\n' | base64 --decode
+          }
+
+          : > "$tmpdir/pdf.b64"
+          for sha in \
+            fc9b0d02cd73672a49067627d1f0c90f15aa1708 \
+            b5fe360d63dafae2d1540a65b94f31e1852522f2 \
+            7c013080306fdfbb10901286c2ab452a026c557a \
+            2a766a55f4ba2faf4eac4ef91b12f44d87309f17 \
+            4393ffc59d2a59735012710be5b451ab8d81c081 \
+            9bb0fc7cb2a7946d066e74b090994359e83414d3 \
+            a6076a205e3de8036c57830b7afe085fc685145d \
+            ed65043701415ac7a6e93c28bfcb6e2fa0b96652 \
+            b29923d2bdfaba63a1b8fff66c89816988960dcd \
+            88b392008abc806c59e1ab6460024b547473acde \
+            cbc03d69abb802a52166ffa637db656df2bc8d5b
+          do
+            fetch_chunk "$sha" >> "$tmpdir/pdf.b64"
+          done
+          base64 --decode "$tmpdir/pdf.b64" > structural_panel/figures/final/Structural_Panel_FINAL.pdf
+
+          : > "$tmpdir/pptx.b64"
+          for sha in \
+            da43912c4ceb43a5ca6dc7cc119cc2414b598cec \
+            23711641b1549a743e6b3723882625d2b15b1286 \
+            25b0a03a07f6b8786884c71d041448f911f62549 \
+            648cb696ac0b84dea850890e374dafa79cf3f44e \
+            5ab041a5c571d302e606ae0805a5cee94c9e96d3 \
+            e8a15e9b4dc69e4925ba37f8ee777beea61a0d22 \
+            45ce42501718c59fa9959d66569273c9840c2411 \
+            0bed09f1a8045991b79114c43e39760a1e4e2e2d \
+            4c1899e5a6b8db729012e138e8b92fed7de6b667 \
+            3691cb5fd59bc397c6bde8a3a6392f3744b4aaf0
+          do
+            fetch_chunk "$sha" >> "$tmpdir/pptx.b64"
+          done
+          base64 --decode "$tmpdir/pptx.b64" > structural_panel/figures/final/Structural_Panel_FINAL.pptx
+
+          echo "edc4bc06efec58ca82faa5c8386b69446c00a726b33d0a78207eaa0f6410b7d3  structural_panel/figures/final/Structural_Panel_FINAL.pdf" | sha256sum -c -
+          echo "708ab00b7fcd95912d28281f916895f1c42361ea8f1859d8caaa9de20d8a2e35  structural_panel/figures/final/Structural_Panel_FINAL.pptx" | sha256sum -c -
+
+          test "$(stat -c%s structural_panel/figures/final/Structural_Panel_FINAL.pdf)" -eq 18865856
+          test "$(stat -c%s structural_panel/figures/final/Structural_Panel_FINAL.pptx)" -eq 18194321
+
+      - name: Commit verified artwork and remove bootstrap
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add structural_panel/figures/final/Structural_Panel_FINAL.pdf
+          git add structural_panel/figures/final/Structural_Panel_FINAL.pptx
+          git rm .github/workflows/structural-binary-bootstrap.yml
+          git commit -m "fig(structural-panel): add final composite artwork"
+          git push origin HEAD:release/paper7b-public
