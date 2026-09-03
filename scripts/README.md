@@ -1,17 +1,38 @@
 # Scripts
 
-The stage subfolders contain unmodified copies of scripts whose purpose, inputs, outputs, and imports were inspected during the audit.
+The stage subfolders contain audited copies of the historical analysis and production scripts.
 
-- `step1/`: scripts `01`-`25` and `RUN_STEP1.bat` from `Step 1 computation`.
-- `step2/`: scripts `01`-`06` from `Step 2 chemistry strengthening`.
-- `step3/`: production scripts, including all observed alternate `06` and `07` renderer versions because the executing variant is unresolved.
-- `step4/`: scripts `01`-`17` from `Step 4 extension`.
+- `step1/`: scripts `01`-`25` and `RUN_STEP1.bat` from Step 1 computation.
+- `step2/`: scripts `01`-`06` from Step 2 chemistry strengthening.
+- `step3/`: production scripts, including all historically observed alternate `06` and `07` renderer variants.
+- `step4/`: scripts `01`-`17` from the Step 4 extension.
 
-The copies retain original path calculations such as `Path(__file__).resolve().parents[1]` or `.parent`. Moving them under this folder changes what those expressions resolve to. They are preserved as audited source assets, not represented as directly runnable from their draft locations.
+## Historical provenance versus publication reproduction
 
-Excluded script-like files:
+These scripts retain original path calculations such as `Path(__file__).resolve().parents[1]` or `.parent`. Moving them under this repository changes what those expressions resolve to.
 
-- `Step 1 computation/combiner.py`: a generic source concatenation utility, not part of `RUN_STEP1.bat` or a verified result/figure/table workflow.
-- `Step 1 computation/26_audit_heat_of_adsorption.py`: not called by `RUN_STEP1.bat`, duplicates the Step 2 audit, and resolves `ROOT` to its own folder rather than the project root expected by its declared paths.
+Accordingly, the historical copies are preserved as provenance assets and are **not yet represented as a clean-clone runnable package**.
 
-See `../provenance/02_reproducibility_assets.md` for per-script audit details.
+The public-release work will add a smaller Tier-1 publication-reproduction layer for the final figures/tables without rewriting the historical scientific workflow in place.
+
+## Step 3 renderer ambiguity
+
+The historical repository contains multiple quantitative and structural renderer variants. Their presence is intentional because the August audit could not prove the exact executing variant from the old manifests.
+
+No variant is declared canonical merely because it has the highest version suffix.
+
+Canonical renderer selection will be made only from the finalized figure/structural/RASPA packets by matching:
+
+- source data;
+- renderer behavior;
+- final output;
+- provenance/hashes.
+
+Superseded variants may then be moved or documented under `../archive/` while remaining available for provenance.
+
+## Excluded script-like files
+
+- `Step 1 computation/combiner.py`: generic source concatenation utility, not part of `RUN_STEP1.bat` or a verified result/figure/table workflow.
+- `Step 1 computation/26_audit_heat_of_adsorption.py`: not called by `RUN_STEP1.bat`, duplicates the Step 2 audit, and resolves its root inconsistently relative to the expected project layout.
+
+See `../provenance/02_reproducibility_assets.md` for the historical per-script audit and `../provenance/claim_boundaries.md` for the scientific freeze applied during release engineering.
