@@ -1,4 +1,5 @@
 name: Install canonical Paper 7B figure package
+# retry after complete transport
 
 on:
   push:
