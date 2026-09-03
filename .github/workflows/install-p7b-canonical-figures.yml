@@ -1,5 +1,4 @@
 name: Install canonical Paper 7B figure package
-# retry after verified complete transport
 
 on:
   push:
@@ -21,55 +20,60 @@ jobs:
           ref: release/paper7b-public
           fetch-depth: 0
 
-      - name: Reconstruct and verify canonical text payload
+      - name: Verify fresh authoritative payload
         shell: bash
         run: |
           set -euo pipefail
-          cat .release_tmp/p7b_figures/chunk_*.part > /tmp/p7b_payload.b64
-          test "$(wc -c < /tmp/p7b_payload.b64)" = "169672"
-          echo "9cb2d03445c62006d271bf5e5d6efab35198681460c35fc4e8e69d8915ca290f  /tmp/p7b_payload.b64" | sha256sum -c -
-          base64 -d /tmp/p7b_payload.b64 > /tmp/p7b_payload.tar.zst
-          test "$(stat -c%s /tmp/p7b_payload.tar.zst)" = "127252"
-          echo "665650bdd26960f4c9228da6f16aa4cb0af1d809ffcb6c69c82a8884983f9c5e  /tmp/p7b_payload.tar.zst" | sha256sum -c -
-          zstd -d -f /tmp/p7b_payload.tar.zst -o /tmp/p7b_payload.tar
-          echo "3b2d822f2dfa47a6b1caa47a321c976bdaa491aaadda3395639a08aa488f5d8d  /tmp/p7b_payload.tar" | sha256sum -c -
+          test -f .release_tmp/p7b_fresh_text_payload.tar.zst
+          test "$(stat -c%s .release_tmp/p7b_fresh_text_payload.tar.zst)" = "125215"
+          echo "5e46856d15c4672b8e8d4e727b179895a2f8fa104919868616ff103d44489f72  .release_tmp/p7b_fresh_text_payload.tar.zst" | sha256sum -c -
+          zstd -d -f .release_tmp/p7b_fresh_text_payload.tar.zst -o /tmp/p7b_fresh_text_payload.tar
+          echo "7ca9e6584f761e4bf378bb68006e0c6e5e69a1b5bd87935bed9b6546d7f65af4  /tmp/p7b_fresh_text_payload.tar" | sha256sum -c -
 
-      - name: Install canonical publication renderer/data package
+      - name: Install canonical renderer, source data and manifests
         shell: bash
         run: |
           set -euo pipefail
           rm -rf reproduce/figures
           mkdir -p reproduce/figures
-          tar -xf /tmp/p7b_payload.tar -C reproduce/figures
-          count="$(find reproduce/figures -type f | wc -l)"
-          test "$count" = "126"
-          python3 -m py_compile reproduce/figures/render_all.py reproduce/figures/render_one.py
+          tar -xf /tmp/p7b_fresh_text_payload.tar -C reproduce/figures
+          test "$(find reproduce/figures -type f | wc -l)" = "126"
+          python3 -m py_compile reproduce/figures/render_all.py reproduce/figures/render_one.py \
+            reproduce/figures/src/main_figures.py reproduce/figures/src/si_figures.py \
+            reproduce/figures/src/style.py reproduce/figures/src/utils.py \
+            reproduce/figures/src/package_tools.py
           python3 - <<'PY'
           import csv, json
           from pathlib import Path
-          root=Path("reproduce/figures")
+          root = Path("reproduce/figures")
           for p in root.rglob("*.json"):
               json.loads(p.read_text(encoding="utf-8-sig"))
           for p in root.rglob("*.csv"):
               if p.stat().st_size:
-                  with p.open("r",encoding="utf-8-sig",newline="") as f:
-                      list(csv.reader(f))
-          print("Canonical text package parse checks PASS")
+                  with p.open("r", encoding="utf-8-sig", newline="") as fh:
+                      list(csv.reader(fh))
+          manifests = sorted((root/"outputs").rglob("manifest.json"))
+          assert len(manifests) == 11, len(manifests)
+          for p in manifests:
+              obj = json.loads(p.read_text(encoding="utf-8-sig"))
+              assert obj.get("font_resolved") == "Arial", (p, obj.get("font_resolved"))
+          print("Authoritative package validation PASS: 126 files, 11 Arial manifests")
           PY
 
       - name: Remove temporary transport and installer
         shell: bash
         run: |
           rm -rf .release_tmp/p7b_figures
+          rm -f .release_tmp/p7b_fresh_text_payload.tar.zst
           rm -f .github/workflows/install-p7b-canonical-figures.yml
 
-      - name: Commit canonical renderer and source data
+      - name: Commit canonical renderer and frozen source package
         shell: bash
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add reproduce/figures
-          git add -A .release_tmp/p7b_figures .github/workflows/install-p7b-canonical-figures.yml
-          git commit -m "figures: add canonical publication renderer and source data"
+          git add -A .release_tmp .github/workflows/install-p7b-canonical-figures.yml
+          git commit -m "figures: add canonical publication renderer and frozen source data"
           git push origin HEAD:release/paper7b-public
