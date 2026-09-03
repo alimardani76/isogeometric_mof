@@ -1,0 +1,74 @@
+name: Install canonical Paper 7B figure package
+
+on:
+  push:
+    branches:
+      - release/paper7b-public
+    paths:
+      - ".github/workflows/install-p7b-canonical-figures.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out release branch
+        uses: actions/checkout@v4
+        with:
+          ref: release/paper7b-public
+          fetch-depth: 0
+
+      - name: Reconstruct and verify canonical text payload
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat .release_tmp/p7b_figures/chunk_*.part > /tmp/p7b_payload.b64
+          test "$(wc -c < /tmp/p7b_payload.b64)" = "169672"
+          echo "9cb2d03445c62006d271bf5e5d6efab35198681460c35fc4e8e69d8915ca290f  /tmp/p7b_payload.b64" | sha256sum -c -
+          base64 -d /tmp/p7b_payload.b64 > /tmp/p7b_payload.tar.zst
+          test "$(stat -c%s /tmp/p7b_payload.tar.zst)" = "127252"
+          echo "665650bdd26960f4c9228da6f16aa4cb0af1d809ffcb6c69c82a8884983f9c5e  /tmp/p7b_payload.tar.zst" | sha256sum -c -
+          zstd -d -f /tmp/p7b_payload.tar.zst -o /tmp/p7b_payload.tar
+          echo "3b2d822f2dfa47a6b1caa47a321c976bdaa491aaadda3395639a08aa488f5d8d  /tmp/p7b_payload.tar" | sha256sum -c -
+
+      - name: Install canonical publication renderer/data package
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf reproduce/figures
+          mkdir -p reproduce/figures
+          tar -xf /tmp/p7b_payload.tar -C reproduce/figures
+          count="$(find reproduce/figures -type f | wc -l)"
+          test "$count" = "126"
+          python3 -m py_compile reproduce/figures/render_all.py reproduce/figures/render_one.py
+          python3 - <<'PY'
+          import csv, json
+          from pathlib import Path
+          root=Path("reproduce/figures")
+          for p in root.rglob("*.json"):
+              json.loads(p.read_text(encoding="utf-8-sig"))
+          for p in root.rglob("*.csv"):
+              if p.stat().st_size:
+                  with p.open("r",encoding="utf-8-sig",newline="") as f:
+                      list(csv.reader(f))
+          print("Canonical text package parse checks PASS")
+          PY
+
+      - name: Remove temporary transport and installer
+        shell: bash
+        run: |
+          rm -rf .release_tmp/p7b_figures
+          rm -f .github/workflows/install-p7b-canonical-figures.yml
+
+      - name: Commit canonical renderer and source data
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reproduce/figures
+          git add -A .release_tmp/p7b_figures .github/workflows/install-p7b-canonical-figures.yml
+          git commit -m "figures: add canonical publication renderer and source data"
+          git push origin HEAD:release/paper7b-public
