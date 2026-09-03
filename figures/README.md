@@ -11,7 +11,7 @@ They must **not** be assumed to be the final manuscript-facing set until the fin
 In particular:
 
 - the finalized redesigned quantitative figures will supersede the historical renderings where applicable;
-- the finalized structural-panel handoff has now been verified and establishes the canonical Figure 5 content; the historical Figure 5 is superseded;
+- the authoritative structural-panel Git handoff has been verified; its curated public-release module is `structural_panel/`, while the historical Step 3 Figure 5 remains preserved until that module is fully committed;
 - the final Figure 6 is the selected-case RASPA validation figure and will supersede the historical Figure 6.
 
 Associated historical manifests and source hashes remain under `../provenance/`.
@@ -31,19 +31,19 @@ Alternate historical renderers are provenance assets, not competing canonical im
 
 Generated files are not, by themselves, evidence of an open-content license. Selected CIF redistribution remains conservative until source-data redistribution rights are explicitly established; see `../provenance/source_data_policy.md`.
 
+## Figure 5 structural Git-handoff status
 
-## Figure 5 structural handoff status
+The authoritative Project7B StructuralPanel GitHandoff Pack has been audited for repository integration.
 
-The finalized structural-panel handoff has been audited on the release branch.
+Verified in the handoff:
+- 100-file curated candidate repository tree;
+- 12 frozen panel CIF inputs;
+- 24 final high-resolution source PNGs;
+- final editable PowerPoint and exported PDF;
+- canonical OVITO/preflight source and final-production validation scripts;
+- candidate manifest integrity 100/100 PASS;
+- package checksum integrity 117/117 PASS.
 
-Verified:
-- 6 frozen panels / 12 framework endpoints;
-- 24 high-resolution source PNGs;
-- all source PNGs 3200 × 2400 px at approximately 600 dpi metadata;
-- one-slide editable PowerPoint source embedding the same 24 PNG byte streams;
-- package hash verification PASS for all 86 pre-manifest files;
-- final structural case, geometry-control, local-chemistry and CIF-hash records added to the repository.
+The handoff defines `structural_panel/` as the publication-facing module. Historical Step 3 Figure 5 files and renderers remain provenance until the curated module is fully committed; they must not be mistaken for the final structural-panel source.
 
-The old Step 3 Figure 5 Python renderers are historical provenance, not the canonical source of the final structural composite.
-
-See `main/Figure_05/README.md` and `../provenance/structural_panel_release_manifest.json`.
+No false-handoff `main/Figure_05/README.md` or `provenance/structural_panel_release_manifest.json` path is used.
