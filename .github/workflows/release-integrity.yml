@@ -2,9 +2,9 @@ name: Release integrity
 
 on:
   pull_request:
-  push:
     branches:
-      - release/paper7b-public
+      - main
+  workflow_dispatch:
 
 permissions:
   contents: read
