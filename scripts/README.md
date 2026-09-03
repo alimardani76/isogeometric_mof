@@ -37,18 +37,17 @@ Superseded variants may then be moved or documented under `../archive/` while re
 
 See `../provenance/02_reproducibility_assets.md` for the historical per-script audit and `../provenance/claim_boundaries.md` for the scientific freeze applied during release engineering.
 
+## Final Figure 5 structural source
 
-## Final Figure 5 production chain
+The authoritative structural-panel Git handoff resolves the publication-facing source layout.
 
-The finalized structural-panel handoff resolves the publication-facing Figure 5 source.
+The historical `scripts/step3/07_render_structure_case_figure*.py` files are provenance assets and are not the canonical source for the final structural composite.
 
-The historical `scripts/step3/07_render_structure_case_figure*.py` files are **not** the canonical renderer for the final paper Figure 5.
+The curated release module is defined under:
 
-The canonical final production chain is:
-1. frozen 12-CIF selected-case set;
-2. whole-framework and local-inset rendering using the frozen structural-view specification;
-3. 24 final 3200 × 2400 source PNGs;
-4. PowerPoint vector assembly and labeling;
-5. PDF export.
+- `structural_panel/src/ovito/panel_A/` through `panel_F/` for selected final/preflight OVITO source;
+- `structural_panel/scripts/final_production/` for final-production path/environment, collection, validation, and review-packaging utilities;
+- `structural_panel/data/` for frozen CIF inputs and scientific/provenance evidence;
+- `structural_panel/figures/` for the 24 final source PNGs and final composite artwork.
 
-The exact OVITO version used for the final local rendering environment remains unresolved in the handoff and must not be invented.
+The Git-adapted scripts must preserve scientific selections/cameras/cutoffs while using portable repository-relative paths. The exact OVITO version is not invented when it is not established by the handoff.
