@@ -5,8 +5,7 @@ on:
     branches:
       - release/paper7b-public
     paths:
-      - ".release_tmp/structural_pdf.zstpatch.b64"
-      - ".release_tmp/structural_pptx.zstpatch.b64"
+      - ".release_tmp/**"
       - ".github/workflows/apply-structural-final-assets.yml"
 
 permissions:
@@ -27,8 +26,20 @@ jobs:
         run: |
           set -euo pipefail
 
-          base64 -d .release_tmp/structural_pdf.zstpatch.b64 > /tmp/structural_pdf.zstpatch
-          base64 -d .release_tmp/structural_pptx.zstpatch.b64 > /tmp/structural_pptx.zstpatch
+          cat .release_tmp/pdf_*.part > /tmp/structural_pdf.zstpatch.b64
+          cat .release_tmp/pptx_*.part > /tmp/structural_pptx.zstpatch.b64
+
+          test "$(wc -c < /tmp/structural_pdf.zstpatch.b64)" = "9192"
+          test "$(wc -c < /tmp/structural_pptx.zstpatch.b64)" = "18828"
+
+          printf '%s' "64433bbfb93e29dc5d3200cdc94bc122e1a2b894a7059e7255fe68106d2c2c67  /tmp/structural_pdf.zstpatch.b64" | sha256sum -c -
+          printf '%s' "6cf374a61de54e3c8ce021cd2af4dd074057d07a60bf9d83b7d934294cc2f87d  /tmp/structural_pptx.zstpatch.b64" | sha256sum -c -
+
+          base64 -d /tmp/structural_pdf.zstpatch.b64 > /tmp/structural_pdf.zstpatch
+          base64 -d /tmp/structural_pptx.zstpatch.b64 > /tmp/structural_pptx.zstpatch
+
+          echo "39ffec83fbaf6b9bf8e0e17495142ceab058c86412ae32b6f9b694034373952f  /tmp/structural_pdf.zstpatch" | sha256sum -c -
+          echo "07f3065c669701f329a45d6e3800c4a58166048fc569ad086f5d8b98d94d0d93  /tmp/structural_pptx.zstpatch" | sha256sum -c -
 
           zstd -d --patch-from=structural_panel/figures/final/Structural_Panel_FINAL.pdf \
             /tmp/structural_pdf.zstpatch -o /tmp/Structural_Panel_FINAL.pdf -f
@@ -54,7 +65,6 @@ jobs:
 
           path = Path("structural_panel/data/manifests/REPO_PAYLOAD_SHA256.csv")
           rows = list(csv.DictReader(path.open("r", encoding="utf-8", newline="")))
-
           updates = {
               "figures/final/Structural_Panel_FINAL.pdf": (
                   "18865852",
@@ -65,25 +75,21 @@ jobs:
                   "16616b7a69e7a57f248210666acbadfd6c8cb62ec9fdbb21df6b72cb647d0f16",
               ),
           }
-
           seen = set()
           for row in rows:
-              p = row["path"]
-              if p in updates:
-                  row["bytes"], row["sha256"] = updates[p]
-                  seen.add(p)
-
+              if row["path"] in updates:
+                  row["bytes"], row["sha256"] = updates[row["path"]]
+                  seen.add(row["path"])
           missing = set(updates) - seen
           if missing:
               raise SystemExit(f"Manifest rows missing: {sorted(missing)}")
-
           with path.open("w", encoding="utf-8", newline="") as handle:
               writer = csv.DictWriter(handle, fieldnames=["path", "bytes", "sha256"], lineterminator="\n")
               writer.writeheader()
               writer.writerows(rows)
           PY
 
-      - name: Remove temporary patch transport
+      - name: Remove temporary transport
         run: |
           rm -rf .release_tmp
           rm -f .github/workflows/apply-structural-final-assets.yml
@@ -97,5 +103,5 @@ jobs:
           git add structural_panel/data/manifests/REPO_PAYLOAD_SHA256.csv
           git add figures/main/Figure_05.pdf
           git add -A .release_tmp .github/workflows/apply-structural-final-assets.yml
-          git commit -m "figures(structural): install exact final PDF and PPTX"
+          git commit -m "figures(structural): install exact user-supplied final assets"
           git push origin HEAD:release/paper7b-public
