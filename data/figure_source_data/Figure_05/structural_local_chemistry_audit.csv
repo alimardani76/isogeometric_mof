@@ -1,7 +1,0 @@
-case_role,mof_a,mof_b,crystalnn_shell_inventory_same,chemenv_inventory_same,method_sensitive_sites_total,all_atom_charge_wasserstein,heteroatom_charge_wasserstein,phase2c_status
-strong_linker_process_aligned,DB0-m3_o11_o17_f0_pcu.sym.32,DB0-m3_o12_o20_f0_pcu.sym.24,True,True,0,0.1104537970779221,0.2110626398601399,LINKER_CASE_NODE_CONTEXT_ONLY
-strong_metal_process_aligned,DB0-m3_o7_o7_f0_nbo.sym.48,DB0-m2_o7_o7_f0_nbo.sym.45,True,False,0,0.0817903793103448,0.1162500520833333,ROBUST_METAL_LOCAL_CHEMISTRY
-cu_zn_pressure_exception,DB0-m3_o6_o27_f0_nbo.sym.33,DB0-m2_o6_o27_f0_nbo.sym.30,False,False,8,0.0517498222891566,0.0375019375,BOUNDARY_METHOD_SENSITIVE
-near_null_comparison,DB0-m2_o23_o28_f0_nbo.sym.21,DB0-m2_o23_o28_f0_nbo.sym.4,False,True,0,0.0148741879527673,0.0072239305555555,LINKER_CASE_NODE_CONTEXT_ONLY
-process_discordant_comparison,DB0-m3_o440_o155_f0_fsc.sym.26,DB0-m3_o152_o155_f0_fsc.sym.27,True,True,0,0.0475618095238095,0.0642949285714285,LINKER_CASE_NODE_CONTEXT_ONLY
-functional_motif_example,DB0-m9_o17_o27_f0_sra.sym.117,DB0-m9_o17_o27_f0_sra.sym.116,True,True,0,0.0193134179104477,0.0413632,EXPLORATORY_STRUCTURE_ONLY
