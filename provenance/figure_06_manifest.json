@@ -10,65 +10,65 @@
     6
   ],
   "outputs": [
-    "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\main_figures\\Figure_01.pdf",
-    "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\main_figures\\Figure_01.svg",
-    "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\main_figures\\Figure_01.png",
-    "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\main_figures\\Figure_02.pdf",
-    "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\main_figures\\Figure_02.svg",
-    "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\main_figures\\Figure_02.png",
-    "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\main_figures\\Figure_03.pdf",
-    "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\main_figures\\Figure_03.svg",
-    "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\main_figures\\Figure_03.png",
-    "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\main_figures\\Figure_04.pdf",
-    "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\main_figures\\Figure_04.svg",
-    "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\main_figures\\Figure_04.png",
-    "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\main_figures\\Figure_06.pdf",
-    "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\main_figures\\Figure_06.svg",
-    "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\main_figures\\Figure_06.png"
+    "HISTORICAL_PROJECT_ROOT\\Step 3 results\\main_figures\\Figure_01.pdf",
+    "HISTORICAL_PROJECT_ROOT\\Step 3 results\\main_figures\\Figure_01.svg",
+    "HISTORICAL_PROJECT_ROOT\\Step 3 results\\main_figures\\Figure_01.png",
+    "HISTORICAL_PROJECT_ROOT\\Step 3 results\\main_figures\\Figure_02.pdf",
+    "HISTORICAL_PROJECT_ROOT\\Step 3 results\\main_figures\\Figure_02.svg",
+    "HISTORICAL_PROJECT_ROOT\\Step 3 results\\main_figures\\Figure_02.png",
+    "HISTORICAL_PROJECT_ROOT\\Step 3 results\\main_figures\\Figure_03.pdf",
+    "HISTORICAL_PROJECT_ROOT\\Step 3 results\\main_figures\\Figure_03.svg",
+    "HISTORICAL_PROJECT_ROOT\\Step 3 results\\main_figures\\Figure_03.png",
+    "HISTORICAL_PROJECT_ROOT\\Step 3 results\\main_figures\\Figure_04.pdf",
+    "HISTORICAL_PROJECT_ROOT\\Step 3 results\\main_figures\\Figure_04.svg",
+    "HISTORICAL_PROJECT_ROOT\\Step 3 results\\main_figures\\Figure_04.png",
+    "HISTORICAL_PROJECT_ROOT\\Step 3 results\\main_figures\\Figure_06.pdf",
+    "HISTORICAL_PROJECT_ROOT\\Step 3 results\\main_figures\\Figure_06.svg",
+    "HISTORICAL_PROJECT_ROOT\\Step 3 results\\main_figures\\Figure_06.png"
   ],
   "sources": [
     {
-      "path": "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\figure_source_data\\Figure_01\\04_caliper_sensitivity_support.csv",
+      "path": "HISTORICAL_PROJECT_ROOT\\Step 3 results\\figure_source_data\\Figure_01\\04_caliper_sensitivity_support.csv",
       "sha256": "579036090055629cec1ca08301baadc6403e17ebea101192f7abd8eb395ae609"
     },
     {
-      "path": "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\figure_source_data\\Figure_01\\04_final_primary_pair_counts.csv",
+      "path": "HISTORICAL_PROJECT_ROOT\\Step 3 results\\figure_source_data\\Figure_01\\04_final_primary_pair_counts.csv",
       "sha256": "c13dd2b7d65956e77190d771e21950d13cbd2fa0a0c42cacb089b34a3dbc775f"
     },
     {
-      "path": "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\figure_source_data\\Figure_02\\04_03_results.csv",
+      "path": "HISTORICAL_PROJECT_ROOT\\Step 3 results\\figure_source_data\\Figure_02\\04_03_results.csv",
       "sha256": "e6cc18bdae556700a54fea45e3b10f12fc4306bfc2cc4e16a6ac1be7df75e4d6"
     },
     {
-      "path": "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\figure_source_data\\Figure_02\\04_heat_adsorption_condition_results.csv",
+      "path": "HISTORICAL_PROJECT_ROOT\\Step 3 results\\figure_source_data\\Figure_02\\04_heat_adsorption_condition_results.csv",
       "sha256": "cc1ae1f29329c176c6b88c31bb24a1214d031cea31ad71fc0186b0e471ee0cda"
     },
     {
-      "path": "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\figure_source_data\\Figure_02\\04_step5b_symmetric_control_results.csv",
+      "path": "HISTORICAL_PROJECT_ROOT\\Step 3 results\\figure_source_data\\Figure_02\\04_step5b_symmetric_control_results.csv",
       "sha256": "790b4df026379930029f6c9bba6742ee22bcd8d34a76ba6ebf8924c4d02c6005"
     },
     {
-      "path": "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\figure_source_data\\Figure_03\\04_05_results.csv",
+      "path": "HISTORICAL_PROJECT_ROOT\\Step 3 results\\figure_source_data\\Figure_03\\04_05_results.csv",
       "sha256": "85b3440afe0ae04b13befca549041bdc1e5848c195eba2b96a1e47c35d43526f"
     },
     {
-      "path": "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\figure_source_data\\Figure_03\\04_heat_adsorption_pressure_results.csv",
+      "path": "HISTORICAL_PROJECT_ROOT\\Step 3 results\\figure_source_data\\Figure_03\\04_heat_adsorption_pressure_results.csv",
       "sha256": "b567276cb4bac47db345eae6b44629f3823f4ed0050fe4511603ec261b5edda3"
     },
     {
-      "path": "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\figure_source_data\\Figure_04\\04_04_balance.csv",
+      "path": "HISTORICAL_PROJECT_ROOT\\Step 3 results\\figure_source_data\\Figure_04\\04_04_balance.csv",
       "sha256": "f6eca5efde2e71da03167d6c6e50b33e7092ce047352f1180a3ceb5bbf81ba2a"
     },
     {
-      "path": "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\figure_source_data\\Figure_04\\04_04_family_exclusion_summary.csv",
+      "path": "HISTORICAL_PROJECT_ROOT\\Step 3 results\\figure_source_data\\Figure_04\\04_04_family_exclusion_summary.csv",
       "sha256": "9306dad61cffbd7a09c1a9a2cf7c45a375773d3edea6d42a58563d51b666c74c"
     },
     {
-      "path": "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\figure_source_data\\Figure_04\\04_step2_residual_geometry_summary.csv",
+      "path": "HISTORICAL_PROJECT_ROOT\\Step 3 results\\figure_source_data\\Figure_04\\04_step2_residual_geometry_summary.csv",
       "sha256": "a1a1bd553a90f767035f9be29b33921e6a3b7ceca8f0210437c9d4997cdbd4e5"
     },
     {
-      "path": "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\figure_source_data\\Figure_06\\04_process_translation_summary_final.csv",
+      "path": "HISTORICAL_PROJECT_ROOT\\Step 3 results\\figure_source_data\\Figure_06\\04_process_translation_summary_final.csv",
       "sha256": "1ca19c314dabb569ff96fa63f149d10dfe91f0061ef0357ab36b0687f4291b34"
     }
   ],
