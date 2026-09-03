@@ -1,0 +1,22 @@
+name: Structural panel bootstrap
+
+on:
+  push:
+    branches:
+      - release/paper7b-public
+    paths:
+      - ".bootstrap/READY"
+
+permissions:
+  contents: write
+
+jobs:
+  apply-structural-payload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: release/paper7b-public
+          fetch-depth: 0
+      - name: Apply curated structural-panel text payload
+        run: python3 .bootstrap/apply_payload.py
