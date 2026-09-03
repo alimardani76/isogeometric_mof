@@ -1,0 +1,101 @@
+name: Apply exact structural final assets
+
+on:
+  push:
+    branches:
+      - release/paper7b-public
+    paths:
+      - ".release_tmp/structural_pdf.zstpatch.b64"
+      - ".release_tmp/structural_pptx.zstpatch.b64"
+      - ".github/workflows/apply-structural-final-assets.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  apply-assets:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out release branch
+        uses: actions/checkout@v4
+        with:
+          ref: release/paper7b-public
+          fetch-depth: 0
+
+      - name: Reconstruct exact uploaded PDF and PPTX
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          base64 -d .release_tmp/structural_pdf.zstpatch.b64 > /tmp/structural_pdf.zstpatch
+          base64 -d .release_tmp/structural_pptx.zstpatch.b64 > /tmp/structural_pptx.zstpatch
+
+          zstd -d --patch-from=structural_panel/figures/final/Structural_Panel_FINAL.pdf \
+            /tmp/structural_pdf.zstpatch -o /tmp/Structural_Panel_FINAL.pdf -f
+
+          zstd -d --patch-from=structural_panel/figures/final/Structural_Panel_FINAL.pptx \
+            /tmp/structural_pptx.zstpatch -o /tmp/Structural_Panel_FINAL.pptx -f
+
+          echo "64db93251142ad685d4ab357bc4c7d75c588389dd0395d5a1d5dc687ebc2a830  /tmp/Structural_Panel_FINAL.pdf" | sha256sum -c -
+          echo "16616b7a69e7a57f248210666acbadfd6c8cb62ec9fdbb21df6b72cb647d0f16  /tmp/Structural_Panel_FINAL.pptx" | sha256sum -c -
+
+          test "$(stat -c%s /tmp/Structural_Panel_FINAL.pdf)" = "18865852"
+          test "$(stat -c%s /tmp/Structural_Panel_FINAL.pptx)" = "18194343"
+
+          cp /tmp/Structural_Panel_FINAL.pdf structural_panel/figures/final/Structural_Panel_FINAL.pdf
+          cp /tmp/Structural_Panel_FINAL.pptx structural_panel/figures/final/Structural_Panel_FINAL.pptx
+          cp /tmp/Structural_Panel_FINAL.pdf figures/main/Figure_05.pdf
+
+      - name: Update structural release manifest
+        run: |
+          python3 - <<'PY'
+          import csv
+          from pathlib import Path
+
+          path = Path("structural_panel/data/manifests/REPO_PAYLOAD_SHA256.csv")
+          rows = list(csv.DictReader(path.open("r", encoding="utf-8", newline="")))
+
+          updates = {
+              "figures/final/Structural_Panel_FINAL.pdf": (
+                  "18865852",
+                  "64db93251142ad685d4ab357bc4c7d75c588389dd0395d5a1d5dc687ebc2a830",
+              ),
+              "figures/final/Structural_Panel_FINAL.pptx": (
+                  "18194343",
+                  "16616b7a69e7a57f248210666acbadfd6c8cb62ec9fdbb21df6b72cb647d0f16",
+              ),
+          }
+
+          seen = set()
+          for row in rows:
+              p = row["path"]
+              if p in updates:
+                  row["bytes"], row["sha256"] = updates[p]
+                  seen.add(p)
+
+          missing = set(updates) - seen
+          if missing:
+              raise SystemExit(f"Manifest rows missing: {sorted(missing)}")
+
+          with path.open("w", encoding="utf-8", newline="") as handle:
+              writer = csv.DictWriter(handle, fieldnames=["path", "bytes", "sha256"], lineterminator="\n")
+              writer.writeheader()
+              writer.writerows(rows)
+          PY
+
+      - name: Remove temporary patch transport
+        run: |
+          rm -rf .release_tmp
+          rm -f .github/workflows/apply-structural-final-assets.yml
+
+      - name: Commit exact final assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add structural_panel/figures/final/Structural_Panel_FINAL.pdf
+          git add structural_panel/figures/final/Structural_Panel_FINAL.pptx
+          git add structural_panel/data/manifests/REPO_PAYLOAD_SHA256.csv
+          git add figures/main/Figure_05.pdf
+          git add -A .release_tmp .github/workflows/apply-structural-final-assets.yml
+          git commit -m "figures(structural): install exact final PDF and PPTX"
+          git push origin HEAD:release/paper7b-public
