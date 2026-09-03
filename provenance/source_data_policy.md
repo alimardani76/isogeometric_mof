@@ -33,3 +33,10 @@ The multi-gigabyte RASPA closure is not appropriate for ordinary Git history. Th
 1. compact summary/audit tables on GitHub;
 2. immutable external archive for the raw closure;
 3. persistent identifier plus archive SHA-256 and manifest in this repository.
+
+
+## Curated structural-panel CIF exception
+
+The authoritative structural-panel Git handoff explicitly freezes 12 panel-prefixed CIF files as versioned rendering inputs under `structural_panel/data/cifs/`. Those 12 files are tracked together with their source identities and SHA-256 provenance manifest.
+
+This narrow project decision does not relicense the upstream dataset and does not change the conservative policy for other raw ARC-MOF files/CIFs. The structural-panel CIFs should not be replaced with unrelated structures or expanded into a broader raw-data mirror without a separate rights/provenance review.
