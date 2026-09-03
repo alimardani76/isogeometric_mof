@@ -434,8 +434,16 @@ Current release-facing records:
 - `archive/README.md` — policy for superseded/noncanonical renderers and other
   historical assets.
 
-The structural-panel workstream is complete on this release branch. Before
-the repository as a whole is public, it still requires:
+The structural-panel workstream is complete on this release branch. The
+authoritative user-supplied final assets are frozen as:
+
+- `figures/main/Figure_05.pdf` and
+  `structural_panel/figures/final/Structural_Panel_FINAL.pdf`:
+  SHA-256 `64db93251142ad685d4ab357bc4c7d75c588389dd0395d5a1d5dc687ebc2a830`;
+- `structural_panel/figures/final/Structural_Panel_FINAL.pptx`:
+  SHA-256 `16616b7a69e7a57f248210666acbadfd6c8cb62ec9fdbb21df6b72cb647d0f16`.
+
+Before the repository as a whole is public, it still requires:
 
 1. synchronization with the finalized redesigned quantitative/SI figures;
 2. synchronization with the finalized RASPA Figure 6/source package;
