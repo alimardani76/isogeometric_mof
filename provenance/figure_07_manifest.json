@@ -4,27 +4,27 @@
   "script": "07_render_structure_case_figure.py",
   "structure_source": "analysis/final_structure_case_inspection",
   "inputs": {
-    "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\case_selection\\02_final_case_set.csv": "5e8cc002b767848321067febeb857823c615118533d0c17830e5e43c02dac24b",
-    "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\case_chemistry\\03_element_charge_summaries.csv": "bf2aec21e549c049002c18f289d66097d437e8345589e948a913f51820526f95",
-    "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\case_chemistry\\03_pair_charge_contrasts.csv": "11bf86f7feff98aaf9cc5001d50f70e52c0b16a2a793acf73ef85040a513d980",
-    "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\analysis\\final_structure_case_inspection\\candidate_pair_audit.csv": "d537918cac9f0f81f47343243c0f1991ae7400d69361182dc5aef0a3332a9c05",
-    "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\analysis\\final_structure_case_inspection\\candidate_adsorption_conditions.csv": "fb41f601f9aff9dac70b884a0a6d37c503c578a2ce45678cde85570bbfe8aa90",
-    "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\analysis\\final_structure_case_inspection\\candidate_process_results.csv": "40e4749168d872a4b42a7bc531c9690f967f243fd5637010f1efeb123e114892",
-    "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 4 results\\02_cif_chemistry\\phase2c_case_chemistry_synthesis\\phase2c_pair_case_chemistry_cards.csv": "758c0d03b87a54305187381db77059b3d4f63e14c8a855929cb72d989d5e3583",
-    "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 4 results\\02_cif_chemistry\\phase2e_chemistry_closure\\phase2e_case_manuscript_decision_map.csv": "603bf1eceaa76f4b6a97edeea5eb76cc393ed3ec68fbd9fdb1f2add50c111071"
+    "HISTORICAL_PROJECT_ROOT\\Step 3 results\\case_selection\\02_final_case_set.csv": "5e8cc002b767848321067febeb857823c615118533d0c17830e5e43c02dac24b",
+    "HISTORICAL_PROJECT_ROOT\\Step 3 results\\case_chemistry\\03_element_charge_summaries.csv": "bf2aec21e549c049002c18f289d66097d437e8345589e948a913f51820526f95",
+    "HISTORICAL_PROJECT_ROOT\\Step 3 results\\case_chemistry\\03_pair_charge_contrasts.csv": "11bf86f7feff98aaf9cc5001d50f70e52c0b16a2a793acf73ef85040a513d980",
+    "HISTORICAL_PROJECT_ROOT\\analysis\\final_structure_case_inspection\\candidate_pair_audit.csv": "d537918cac9f0f81f47343243c0f1991ae7400d69361182dc5aef0a3332a9c05",
+    "HISTORICAL_PROJECT_ROOT\\analysis\\final_structure_case_inspection\\candidate_adsorption_conditions.csv": "fb41f601f9aff9dac70b884a0a6d37c503c578a2ce45678cde85570bbfe8aa90",
+    "HISTORICAL_PROJECT_ROOT\\analysis\\final_structure_case_inspection\\candidate_process_results.csv": "40e4749168d872a4b42a7bc531c9690f967f243fd5637010f1efeb123e114892",
+    "HISTORICAL_PROJECT_ROOT\\Step 4 results\\02_cif_chemistry\\phase2c_case_chemistry_synthesis\\phase2c_pair_case_chemistry_cards.csv": "758c0d03b87a54305187381db77059b3d4f63e14c8a855929cb72d989d5e3583",
+    "HISTORICAL_PROJECT_ROOT\\Step 4 results\\02_cif_chemistry\\phase2e_chemistry_closure\\phase2e_case_manuscript_decision_map.csv": "603bf1eceaa76f4b6a97edeea5eb76cc393ed3ec68fbd9fdb1f2add50c111071"
   },
-  "cif_directory": "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\analysis\\final_structure_case_inspection\\cifs",
+  "cif_directory": "HISTORICAL_PROJECT_ROOT\\analysis\\final_structure_case_inspection\\cifs",
   "case_count": 6,
   "framework_count": 12,
   "parser_backends": [
     "pymatgen"
   ],
   "outputs": [
-    "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\main_figures\\Figure_05.pdf",
-    "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\main_figures\\Figure_05.svg",
-    "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\main_figures\\Figure_05.png",
-    "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\main_figures\\07_case_panel_source.csv",
-    "C:\\Users\\KaraPardazesh\\Desktop\\7B2\\Step 3 results\\main_figures\\07_render_report.txt"
+    "HISTORICAL_PROJECT_ROOT\\Step 3 results\\main_figures\\Figure_05.pdf",
+    "HISTORICAL_PROJECT_ROOT\\Step 3 results\\main_figures\\Figure_05.svg",
+    "HISTORICAL_PROJECT_ROOT\\Step 3 results\\main_figures\\Figure_05.png",
+    "HISTORICAL_PROJECT_ROOT\\Step 3 results\\main_figures\\07_case_panel_source.csv",
+    "HISTORICAL_PROJECT_ROOT\\Step 3 results\\main_figures\\07_render_report.txt"
   ],
   "pair_membership_changed": false,
   "mechanism_claim": false,
