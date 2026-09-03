@@ -38,6 +38,7 @@ PUBLIC_TEXT_PREFIXES = (
     "figures/",
     "provenance/",
     "validation/",
+    "structural_panel/",
 )
 
 LOCAL_PATH_MARKERS = (
