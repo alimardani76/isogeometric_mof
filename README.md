@@ -1,6 +1,15 @@
 
 # isogeometric_mof: Reproducibility and Transparency Record
 
+
+> **Publication-release preparation:** this branch is being prepared as the
+> public-release version of the Paper 7B repository. The historical analysis
+> archive is preserved, while final redesigned figures, the finalized
+> structural panel, and the final RASPA Figure 6 package are being reconciled
+> before release. Scientific values and claim boundaries are frozen during
+> this release-engineering work.
+
+
 ## Purpose
 
 This document provides a detailed record of the computational workflow
@@ -13,9 +22,10 @@ construction → statistical analysis → figure generation → supplementary
 tables.
 
 This repository contains the reproducibility assets generated from the
-audited Project 7B2 workflow. It focuses on Steps 1--4 of the analysis
-pipeline. Exploratory future validation work is maintained separately
-and is not part of this repository.
+audited Project 7B2 workflow. The historical Steps 1--4 analysis is preserved,
+and the publication release also includes a dedicated selected-case validation
+layer under `validation/raspa/`. Final manuscript-facing assets are canonicalized
+on the release branch before public release.
 
 ------------------------------------------------------------------------
 
@@ -88,6 +98,9 @@ timestamps, and hashes without redistributing the source files.
 
     provenance/
     environment/
+    validation/
+        raspa/
+    archive/
 
 ------------------------------------------------------------------------
 
@@ -397,3 +410,36 @@ Excluded:
 -   raw ARC-MOF source files;
 -   exploratory validation branches;
 -   temporary intermediate files.
+
+------------------------------------------------------------------------
+
+# 13. Publication-release preparation
+
+The public-release workflow is intentionally separated from the historical
+analysis archive.
+
+Current release-facing records:
+
+- `validation/raspa/README.md` — selected-case RASPA production scope,
+  limitations, and archival strategy;
+- `provenance/claim_boundaries.md` — interpretation boundaries that must not
+  be broadened during repository cleanup;
+- `provenance/source_data_policy.md` — conservative ARC-MOF/CIF and large-file
+  redistribution policy;
+- `archive/README.md` — policy for superseded/noncanonical renderers and other
+  historical assets.
+
+Before public release, the repository still requires:
+
+1. synchronization with the finalized redesigned figures;
+2. synchronization with the finalized structural Figure 5;
+3. synchronization with the finalized RASPA Figure 6/source package;
+4. one canonical renderer/source package per final figure;
+5. a tested environment definition;
+6. a clean-clone publication-reproduction test;
+7. final code/data licensing and citation metadata;
+8. a final release SHA-256 manifest generated only after all release files are
+   frozen.
+
+Until those checks pass, the repository should not claim complete clean-clone
+reproducibility.
