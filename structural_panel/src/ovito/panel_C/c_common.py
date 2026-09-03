@@ -1,0 +1,151 @@
+"""Shared OVITO helpers for Panel C."""
+
+from pathlib import Path
+import numpy as np
+
+from c_config import (
+    C_PAIRWISE_CUTOFFS, PALETTE, RADII,
+    BOND_WIDTH, BOND_COLOR, IMAGE_SIZE, DPI
+)
+
+def require_ovito():
+    try:
+        import ovito
+        return ovito
+    except Exception as exc:
+        raise SystemExit(
+            "Cannot import OVITO. Activate the ovito_render environment first.\n"
+            f"Original error: {exc}"
+        )
+
+def normalized(v):
+    v=np.asarray(v,dtype=float)
+    n=np.linalg.norm(v)
+    if n==0:
+        raise ValueError("zero vector")
+    return v/n
+
+def lattice_matrix(data):
+    return np.asarray(data.cell)[:3,:3]
+
+def direction_from_coeffs(data,coeffs):
+    H=lattice_matrix(data)
+    a,b,c=H[:,0],H[:,1],H[:,2]
+    h,k,l=coeffs
+    return normalized(h*a+k*b+l*c)
+
+def projected_up(data,view_coeffs,up_coeffs):
+    d=direction_from_coeffs(data,view_coeffs)
+    u=direction_from_coeffs(data,up_coeffs)
+    u=u-np.dot(u,d)*d
+    n=np.linalg.norm(u)
+    if n<1e-8:
+        raise RuntimeError("camera-up direction is parallel to camera direction")
+    return d,u/n
+
+def make_renderer():
+    require_ovito()
+    from ovito.vis import TachyonRenderer
+    r=TachyonRenderer()
+    r.ambient_occlusion=False
+    r.shadows=False
+    r.antialiasing=True
+    r.antialiasing_samples=4
+    return r
+
+def build_pipeline(cif_path,hide_h=True):
+    require_ovito()
+    from ovito.io import import_file
+    from ovito.modifiers import (
+        CreateBondsModifier,SelectTypeModifier,DeleteSelectedModifier
+    )
+    from ovito.vis import BondsVis
+
+    pipe=import_file(str(cif_path))
+    upstream=pipe.compute()
+
+    def style(frame,data):
+        prop=data.particles_.particle_types_
+        for t in prop.types_:
+            if t.name in RADII:
+                t.radius=float(RADII[t.name])
+            if t.name in PALETTE:
+                t.color=tuple(PALETTE[t.name])
+    pipe.modifiers.append(style)
+
+    if hide_h:
+        hids=[t.id for t in upstream.particles["Particle Type"].types if t.name=="H"]
+        if hids:
+            pipe.modifiers.append(
+                SelectTypeModifier(property="Particle Type",types=set(hids))
+            )
+            pipe.modifiers.append(DeleteSelectedModifier())
+
+    bonds=CreateBondsModifier()
+    if not hasattr(CreateBondsModifier.Mode,"Pairwise") or not hasattr(bonds,"set_pairwise_cutoff"):
+        raise RuntimeError(
+            "This OVITO build lacks Pairwise bond mode. "
+            "Use the same ovito_render environment used for Panels A/B/D/E/F."
+        )
+
+    bonds.mode=CreateBondsModifier.Mode.Pairwise
+    if hasattr(bonds,"discard_existing_bonds"):
+        bonds.discard_existing_bonds=True
+
+    present={t.name for t in upstream.particles["Particle Type"].types}
+    for (a,b),cut in C_PAIRWISE_CUTOFFS.items():
+        if a in present and b in present:
+            bonds.set_pairwise_cutoff(a,b,float(cut))
+
+    bonds.vis.width=float(BOND_WIDTH)
+    try:
+        bonds.vis.coloring_mode=BondsVis.ColoringMode.Uniform
+    except Exception:
+        pass
+    bonds.vis.color=tuple(BOND_COLOR)
+    pipe.modifiers.append(bonds)
+
+    if pipe.source.data.cell is not None:
+        pipe.source.data.cell.vis.render_cell=False
+
+    return pipe,upstream
+
+def auto_fov_up(pipe,direction,up,image_size=IMAGE_SIZE):
+    from ovito.vis import Viewport
+    pipe.add_to_scene()
+    try:
+        vp=Viewport(type=Viewport.Type.Ortho)
+        vp.camera_dir=tuple(direction)
+        vp.camera_up=tuple(up)
+        vp.zoom_all(size=image_size)
+        return float(vp.fov)
+    finally:
+        pipe.remove_from_scene()
+
+def render_up(pipe,direction,up,fov,outpath,image_size=IMAGE_SIZE):
+    from ovito.vis import Viewport
+    outpath=Path(outpath)
+    outpath.parent.mkdir(parents=True,exist_ok=True)
+
+    pipe.add_to_scene()
+    try:
+        vp=Viewport(type=Viewport.Type.Ortho)
+        vp.camera_dir=tuple(direction)
+        vp.camera_up=tuple(up)
+        vp.zoom_all(size=image_size)
+        vp.fov=float(fov)
+        vp.render_image(
+            filename=str(outpath),
+            size=image_size,
+            background=(1.0,1.0,1.0),
+            renderer=make_renderer()
+        )
+    finally:
+        pipe.remove_from_scene()
+
+    try:
+        from PIL import Image
+        with Image.open(outpath) as im:
+            im.save(outpath,dpi=(DPI,DPI))
+    except Exception:
+        pass
