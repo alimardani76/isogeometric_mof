@@ -1,49 +1,56 @@
 # Figures
 
-This directory currently preserves the audited historical Step 3 figure assets.
+This directory preserves the historical Step 3 paper-facing outputs while the
+publication release is canonicalized.
 
 ## Release status
 
-The files already present under `figures/main/` and `figures/supplementary/` are retained as provenance while the Paper 7B publication release is being finalized.
+- **Figures 1-4 / SI figures:** historical outputs remain until the finalized
+  redesigned-figure packet is reconciled.
+- **Figure 5:** **complete on the release branch.** The legacy paper-facing path
+  `figures/main/Figure_05.pdf` points to the same verified final PDF as
+  `structural_panel/figures/final/Structural_Panel_FINAL.pdf`.
+- **Figure 6:** historical output remains until the finalized selected-case
+  RASPA packet is reconciled.
 
-They must **not** be assumed to be the final manuscript-facing set until the finalized figure packets are reconciled on the release branch.
+The stale historical Figure 5 PNG/SVG variants were removed from the release
+branch rather than left beside the canonical PDF.
 
-In particular:
+## Canonical structural-panel module
 
-- the finalized redesigned quantitative figures will supersede the historical renderings where applicable;
-- the authoritative structural-panel Git handoff has been verified; its curated public-release module is `structural_panel/`, while the historical Step 3 Figure 5 remains preserved until that module is fully committed;
-- the final Figure 6 is the selected-case RASPA validation figure and will supersede the historical Figure 6.
+The authoritative structural-panel Git handoff is versioned under
+`../structural_panel/`.
 
-Associated historical manifests and source hashes remain under `../provenance/`.
+Verified release contents:
+
+- 101 tracked structural-panel files;
+- 12 frozen panel CIF inputs;
+- 35 Python rendering/validation source files;
+- 24 final high-resolution source PNGs;
+- final editable PowerPoint and exported PDF;
+- panel/evidence/provenance manifests;
+- final freeze and QA documentation.
+
+The structural payload is frozen by
+`structural_panel/data/manifests/REPO_PAYLOAD_SHA256.csv`. The release
+integrity workflow recomputes the listed byte sizes and SHA-256 hashes.
 
 ## Canonical figure rule
 
-For public release, every paper-facing figure must have:
+Every final paper-facing figure should have:
 
-1. one canonical final output set;
-2. one clearly identified canonical renderer;
-3. its exact compact source data or an explicit external-source provenance record;
-4. a manifest/hash record linking source, renderer, and output.
+1. one canonical final output;
+2. one clearly identified canonical renderer/source path;
+3. exact compact source data or explicit upstream provenance;
+4. a manifest/hash record linking source and output.
 
-Alternate historical renderers are provenance assets, not competing canonical implementations.
+Historical renderers are provenance assets, not competing canonical
+implementations.
 
-## Rights and structural inputs
+## Source-rights note
 
-Generated files are not, by themselves, evidence of an open-content license. Selected CIF redistribution remains conservative until source-data redistribution rights are explicitly established; see `../provenance/source_data_policy.md`.
-
-## Figure 5 structural Git-handoff status
-
-The authoritative Project7B StructuralPanel GitHandoff Pack has been audited for repository integration.
-
-Verified in the handoff:
-- 100-file curated candidate repository tree;
-- 12 frozen panel CIF inputs;
-- 24 final high-resolution source PNGs;
-- final editable PowerPoint and exported PDF;
-- canonical OVITO/preflight source and final-production validation scripts;
-- candidate manifest integrity 100/100 PASS;
-- package checksum integrity 117/117 PASS.
-
-The handoff defines `structural_panel/` as the publication-facing module. Historical Step 3 Figure 5 files and renderers remain provenance until the curated module is fully committed; they must not be mistaken for the final structural-panel source.
-
-No false-handoff `main/Figure_05/README.md` or `provenance/structural_panel_release_manifest.json` path is used.
+The authoritative structural-panel handoff includes the 12 curated CIF inputs
+as normal repository assets. Their inclusion is narrow to this frozen module
+and does not relicense or mirror the broader upstream dataset. See
+`../provenance/source_data_policy.md` for the repository-wide policy and
+remaining public-release rights gate.

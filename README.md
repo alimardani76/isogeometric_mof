@@ -4,10 +4,10 @@
 
 > **Publication-release preparation:** this branch is being prepared as the
 > public-release version of the Paper 7B repository. The historical analysis
-> archive is preserved, while final redesigned figures, the finalized
-> structural panel, and the final RASPA Figure 6 package are being reconciled
-> before release. Scientific values and claim boundaries are frozen during
-> this release-engineering work.
+> archive is preserved. The finalized structural panel is now integrated and
+> hash-verified; redesigned quantitative/SI figures and the final RASPA Figure 6
+> package remain to be reconciled before release. Scientific values and claim
+> boundaries are frozen during this release-engineering work.
 
 
 ## Purpose
@@ -98,6 +98,7 @@ timestamps, and hashes without redistributing the source files.
 
     provenance/
     environment/
+    structural_panel/
     validation/
         raspa/
     archive/
@@ -244,6 +245,10 @@ Generated figures:
     Figure_05.pdf
     Figure_06.pdf
 
+The canonical final Figure 5 is synchronized at `figures/main/Figure_05.pdf`.
+Its complete curated source/reproduction module is under `structural_panel/`;
+the historical Step 3 structural renderers remain provenance only.
+
 Supplementary figures:
 
     figures/supplementary/
@@ -312,11 +317,10 @@ Location:
 
     figures/main/
 
-Contains:
-
--   PDF versions;
--   PNG versions;
--   SVG versions.
+Contains the historical paper-facing figure set. For the release branch,
+Figure 5 is canonicalized as PDF at `figures/main/Figure_05.pdf`; its editable
+PowerPoint, 24 high-resolution source PNGs, CIF inputs, manifests, and OVITO
+sources are versioned under `structural_panel/`.
 
 ## Supplementary figures
 
@@ -420,6 +424,7 @@ analysis archive.
 
 Current release-facing records:
 
+- `structural_panel/` — completed, manifest-verified final Figure 5 module;
 - `validation/raspa/README.md` — selected-case RASPA production scope,
   limitations, and archival strategy;
 - `provenance/claim_boundaries.md` — interpretation boundaries that must not
@@ -429,16 +434,16 @@ Current release-facing records:
 - `archive/README.md` — policy for superseded/noncanonical renderers and other
   historical assets.
 
-Before public release, the repository still requires:
+The structural-panel workstream is complete on this release branch. Before
+the repository as a whole is public, it still requires:
 
-1. synchronization with the finalized redesigned figures;
-2. synchronization with the finalized structural Figure 5;
-3. synchronization with the finalized RASPA Figure 6/source package;
-4. one canonical renderer/source package per final figure;
-5. a tested environment definition;
-6. a clean-clone publication-reproduction test;
-7. final code/data licensing and citation metadata;
-8. a final release SHA-256 manifest generated only after all release files are
+1. synchronization with the finalized redesigned quantitative/SI figures;
+2. synchronization with the finalized RASPA Figure 6/source package;
+3. one canonical renderer/source package for each remaining paper-facing figure;
+4. a tested environment definition;
+5. a clean-clone publication-reproduction test;
+6. final code/data licensing, source-rights review, and citation metadata;
+7. a final release SHA-256 manifest generated only after all release files are
    frozen.
 
 Until those checks pass, the repository should not claim complete clean-clone

@@ -8,7 +8,9 @@ The public repository follows a conservative redistribution policy:
 
 - raw ARC-MOF source files are not committed;
 - source archives are not committed;
-- CIF files are not redistributed unless their redistribution rights are explicitly established;
+- raw/source CIF collections are not mirrored wholesale; only explicitly
+  curated and reviewed release inputs may be versioned as narrow exceptions
+  with provenance and hashes;
 - source filenames, identifiers, version information, hashes, and provenance records may be used to make the workflow traceable;
 - compact derived tables may be included only when their release has been reviewed for the intended public repository.
 
@@ -24,7 +26,12 @@ For structural figures, the preferred public provenance record is:
 - SHA-256 hash;
 - transformation/rendering method.
 
-If explicit redistribution permission for selected CIF files is later confirmed, those files may be added deliberately with the corresponding attribution and license notice.
+The authoritative structural-panel Git handoff explicitly supplies 12 selected
+CIFs as frozen rendering inputs. They are tracked on the private release branch
+under `structural_panel/data/cifs/` with exact SHA-256 provenance. This
+project-level inclusion decision does not itself relicense the upstream data;
+source-rights sign-off remains part of the repository-wide gate before changing
+the repository to public visibility.
 
 ## Large RASPA closure
 

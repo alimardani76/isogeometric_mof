@@ -43,7 +43,7 @@ The authoritative structural-panel Git handoff resolves the publication-facing s
 
 The historical `scripts/step3/07_render_structure_case_figure*.py` files are provenance assets and are not the canonical source for the final structural composite.
 
-The curated release module is defined under:
+The curated release module is fully committed and manifest-verified under:
 
 - `structural_panel/src/ovito/panel_A/` through `panel_F/` for selected final/preflight OVITO source;
 - `structural_panel/scripts/final_production/` for final-production path/environment, collection, validation, and review-packaging utilities;
@@ -51,3 +51,7 @@ The curated release module is defined under:
 - `structural_panel/figures/` for the 24 final source PNGs and final composite artwork.
 
 The Git-adapted scripts must preserve scientific selections/cameras/cutoffs while using portable repository-relative paths. The exact OVITO version is not invented when it is not established by the handoff.
+
+
+The release integrity workflow verifies the structural module against
+`structural_panel/data/manifests/REPO_PAYLOAD_SHA256.csv` on every PR update.
