@@ -175,13 +175,36 @@ def check_structural_panel_manifest(files: list[Path], errors: list[str]) -> Non
         errors.append(f"cannot parse structural-panel manifest: {exc}")
         return
 
+    # Keep the original private-handoff manifest unchanged as provenance.
     if len(expected) != 100:
-        errors.append(f"structural-panel manifest expected 100 payload rows, found {len(expected)}")
+        errors.append(
+            f"structural-panel original manifest expected 100 payload rows, found {len(expected)}"
+        )
 
-    for p, (expected_size, expected_hash) in expected.items():
+    external_cifs = {
+        p for p in expected
+        if p.startswith("data/cifs/") and p.lower().endswith(".cif")
+    }
+    adapted_docs = {"README.md"}
+    frozen_public = {
+        p: v for p, v in expected.items()
+        if p not in external_cifs and p not in adapted_docs
+    }
+
+    if len(external_cifs) != 12:
+        errors.append(
+            f"structural-panel expected 12 external CIF provenance rows, found {len(external_cifs)}"
+        )
+    if len(frozen_public) != 87:
+        errors.append(
+            f"structural-panel expected 87 frozen public payload rows, found {len(frozen_public)}"
+        )
+
+    # Verify all immutable public payload bytes against the original manifest.
+    for p, (expected_size, expected_hash) in frozen_public.items():
         target = module / p
         if not target.is_file():
-            errors.append(f"structural-panel manifest file missing: {p}")
+            errors.append(f"structural-panel frozen public file missing: {p}")
             continue
         actual_size = target.stat().st_size
         if actual_size != expected_size:
@@ -195,12 +218,25 @@ def check_structural_panel_manifest(files: list[Path], errors: list[str]) -> Non
                 f"structural-panel SHA-256 mismatch: {p}: {actual_hash} != {expected_hash}"
             )
 
+    # README is intentionally adapted for the public external-CIF boundary.
+    if not (module / "README.md").is_file():
+        errors.append("structural-panel release-adapted README.md is missing")
+
+    # Third-party CIF byte files must not be present in the public release.
+    for p in sorted(external_cifs):
+        if (module / p).exists():
+            errors.append(
+                f"third-party structural CIF must be external in public release: {p}"
+            )
+
     tracked = {
         rel(path).removeprefix("structural_panel/")
         for path in files
         if rel(path).startswith("structural_panel/")
     }
-    allowed = set(expected)
+
+    allowed = set(frozen_public)
+    allowed.add("README.md")
     allowed.add("data/manifests/REPO_PAYLOAD_SHA256.csv")
 
     missing_tracked = allowed - tracked
@@ -210,9 +246,10 @@ def check_structural_panel_manifest(files: list[Path], errors: list[str]) -> Non
     for p in sorted(unexpected_tracked):
         errors.append(f"structural-panel unexpected tracked file: {p}")
 
-    if len(tracked) != 101:
-        errors.append(f"structural-panel expected 101 tracked files, found {len(tracked)}")
-
+    if len(tracked) != 89:
+        errors.append(
+            f"structural-panel expected 89 tracked public files, found {len(tracked)}"
+        )
 
 def main() -> int:
     files = tracked_files()
@@ -233,7 +270,7 @@ def main() -> int:
         return 1
 
     print(f"Repository integrity check PASSED for {len(files)} tracked files.")
-    print("Structural panel: 101 tracked files; manifest size/SHA-256 verification PASS.")
+    print("Structural panel: 89 tracked public files; 87 frozen payload hashes PASS; 12 CIF provenance entries external; release README adapted.")
     print("Checked: paths/artifacts, file sizes, Python syntax, JSON, CSV, local paths.")
     return 0
 

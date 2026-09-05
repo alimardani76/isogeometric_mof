@@ -2,17 +2,15 @@
 # isogeometric_mof: Reproducibility and Transparency Record
 
 
-> **Publication-release preparation:** this branch is the staged public-release
-> version of the Paper 7B repository. The historical analysis archive is
-> preserved, while final structural Figure 5, redesigned quantitative/SI artwork,
-> the canonical publication source package, and the compact selected-case RASPA
-> Figure 6 layer are integrated. A clean shallow clone of commit
-> `38ad8b01a6b801c18e512c298e5e4814a4e40fd0` completed successfully with a
-> clean working tree. The approved manuscript binaries already committed under
-> `figures/` are authoritative; fresh figure regeneration is not a public-release
-> requirement. Remaining gates are source-rights/licensing/citation decisions,
-> final audit, review, merge, tag, and owner approval. Scientific values and
-> claim boundaries remain frozen.
+> **Publication-release candidate:** this branch contains the frozen Paper 7B
+> manuscript-facing assets, historical provenance, compact selected-case RASPA
+> validation, and publication metadata. Approved binaries under `figures/` are
+> authoritative; no fresh figure regeneration is required. The multi-GB raw
+> RASPA run tree is out of scope for this GitHub release. To avoid granting or
+> assuming third-party redistribution rights, the 12 ARC-MOF-derived structural
+> CIF byte files are not redistributed in the public Git release; their
+> identifiers and SHA-256 provenance remain recorded. Scientific values and
+> claim boundaries are frozen.
 
 
 ## Purpose
@@ -324,8 +322,10 @@ Location:
 
 Contains the historical paper-facing figure set. For the release branch,
 Figure 5 is canonicalized as PDF at `figures/main/Figure_05.pdf`; its editable
-PowerPoint, 24 high-resolution source PNGs, CIF inputs, manifests, and OVITO
-sources are versioned under `structural_panel/`.
+PowerPoint, 24 high-resolution source PNGs, manifests, and OVITO sources are
+versioned under `structural_panel/`. The 12 third-party ARC-MOF-derived CIF byte
+files are intentionally not redistributed; their identifiers/hashes remain in
+the structural provenance records.
 
 ## Supplementary figures
 
@@ -459,21 +459,23 @@ The clean-clone distribution check is complete: a shallow clone of
 `38ad8b01a6b801c18e512c298e5e4814a4e40fd0` checked out all 463 tracked files
 and reported a clean working tree.
 
-Before public visibility, the remaining release decisions are:
+The publication metadata/source-rights boundary is finalized conservatively:
 
-1. final repository-level license stance and authoritative ARC-MOF/source-rights
-   sign-off for redistributed curated inputs;
-2. citation instructions/metadata appropriate for the manuscript release;
-3. one final secret/path/large-file/orphan audit after those metadata edits;
-4. PR review/approval, merge, exact release tag, and owner/admin approval for
-   public visibility.
+1. `RIGHTS.md` records an explicit no-open-source-license / all-rights-reserved
+   stance for project-owned material unless a rights holder states otherwise;
+2. `THIRD_PARTY_NOTICES.md` records ARC-MOF and CrystalNets attribution and makes
+   clear that third-party material is not relicensed;
+3. `CITATION.md` gives repository and upstream citation instructions;
+4. the 12 ARC-MOF-derived structural CIF byte files are excluded from public Git,
+   while their identifiers and hashes remain in provenance.
 
-Fresh regeneration of the already approved figure binaries is not a release
-gate. The multi-gigabyte raw RASPA closure is intentionally outside the GitHub
-release scope and is not required to be uploaded. A separate repository-wide
-SHA-256 manifest is also not required: the Git commit/tag identifies the full
-repository state, while publication assets and the structural module already
-carry explicit hash manifests.
+The remaining repository operations are final automated audit/CI, PR merge,
+release tag, and owner/admin visibility change. Fresh regeneration of approved
+figure binaries is not a release gate. The multi-gigabyte raw RASPA closure is
+outside the GitHub release scope and is not required to be uploaded. A separate
+repository-wide SHA-256 manifest is not required: the Git commit/tag identifies
+the repository state, while publication assets and structural provenance already
+carry explicit hashes.
 
 <!-- PAPER7B_FINAL_PUBLICATION_BLOCK_START -->
 ## Final publication figures and compact reproduction

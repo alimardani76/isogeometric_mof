@@ -26,12 +26,12 @@ For structural figures, the preferred public provenance record is:
 - SHA-256 hash;
 - transformation/rendering method.
 
-The authoritative structural-panel Git handoff explicitly supplies 12 selected
-CIFs as frozen rendering inputs. They are tracked on the private release branch
-under `structural_panel/data/cifs/` with exact SHA-256 provenance. This
-project-level inclusion decision does not itself relicense the upstream data;
-source-rights sign-off remains part of the repository-wide gate before changing
-the repository to public visibility.
+The authoritative structural-panel private handoff supplied 12 selected CIFs as
+frozen rendering inputs. For the public Git release, those third-party CIF byte
+files are intentionally not redistributed. Their framework identities, source
+references, sizes, and SHA-256 values remain recorded in the structural
+manifests, so the frozen figure provenance remains auditable without this
+repository granting or assuming upstream redistribution rights.
 
 ## Large RASPA closure
 
@@ -51,8 +51,14 @@ that deposit can be linked as an optional archival supplement without changing
 the scientific identity of the GitHub release.
 
 
-## Curated structural-panel CIF exception
+## Curated structural-panel CIF provenance
 
-The authoritative structural-panel Git handoff explicitly freezes 12 panel-prefixed CIF files as versioned rendering inputs under `structural_panel/data/cifs/`. Those 12 files are intended to be tracked together with their source identities and SHA-256 provenance manifest as part of the curated `structural_panel/` module.
+The authoritative private structural-panel handoff freezes 12 panel-prefixed CIF
+identities and hashes. The public Git release retains those provenance records
+but excludes the 12 CIF byte files themselves.
 
-This narrow project decision does not relicense the upstream dataset and does not change the conservative policy for other raw ARC-MOF files/CIFs. The structural-panel CIFs should not be replaced with unrelated structures or expanded into a broader raw-data mirror without a separate rights/provenance review.
+This conservative boundary avoids treating repository publication as a grant of
+rights in upstream ARC-MOF-derived structure files. Users who wish to rerun the
+structure rendering should obtain the corresponding source structures through
+the upstream/permitted access route and match them against the recorded
+identifiers/hashes.

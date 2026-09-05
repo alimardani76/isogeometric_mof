@@ -37,19 +37,21 @@ final selected-case RASPA Figure 6.
 The authoritative structural-panel Git handoff is versioned under
 `../structural_panel/`.
 
-Verified release contents:
+Verified public-release contents:
 
-- 101 tracked structural-panel files;
-- 12 frozen panel CIF inputs;
+- 89 tracked structural-panel files in the public Git release;
+- 12 structural CIF identities/hashes retained as provenance, with the CIF byte
+  files intentionally excluded from redistribution;
 - 35 Python rendering/validation source files;
 - 24 final high-resolution source PNGs;
 - final editable PowerPoint and exported PDF;
 - panel/evidence/provenance manifests;
 - final freeze and QA documentation.
 
-The structural payload is frozen by
-`structural_panel/data/manifests/REPO_PAYLOAD_SHA256.csv`. The release
-integrity workflow recomputes the listed byte sizes and SHA-256 hashes.
+`structural_panel/data/manifests/REPO_PAYLOAD_SHA256.csv` is preserved as the
+original authoritative handoff manifest. Public-release integrity verifies the 87 frozen non-CIF/non-README payload
+entries against that manifest, verifies the release-adapted structural README is
+tracked, and verifies that the 12 CIF byte files are absent from the public tree.
 
 ## Canonical figure rule
 
@@ -65,8 +67,9 @@ implementations.
 
 ## Source-rights note
 
-The authoritative structural-panel handoff includes the 12 curated CIF inputs
-as normal repository assets. Their inclusion is narrow to this frozen module
-and does not relicense or mirror the broader upstream dataset. See
-`../provenance/source_data_policy.md` for the repository-wide policy and
-remaining public-release rights gate.
+The authoritative structural-panel handoff originally included 12 curated
+ARC-MOF-derived CIF inputs. For the public Git release, their byte files are
+excluded conservatively because this project does not independently grant or
+assume third-party redistribution rights. Their identities and SHA-256 hashes
+remain in the frozen provenance manifests. See
+`../provenance/source_data_policy.md`.

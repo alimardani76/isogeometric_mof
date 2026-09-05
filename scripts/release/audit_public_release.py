@@ -155,15 +155,24 @@ def main():
         finally:
             run(['git','reset'],repo)
 
-    if not any((repo/x).is_file() for x in ('LICENSE','LICENSE.md','LICENSE.txt')):
-        warns.append('LICENSE unresolved/absent — do not invent one before source-rights/code-data decision')
+    license_files = ('LICENSE','LICENSE.md','LICENSE.txt')
+    if not any((repo/x).is_file() for x in license_files):
+        rights = repo/'RIGHTS.md'
+        if (
+            not rights.is_file()
+            or 'No open-source or open-content license is granted' not in rights.read_text(encoding='utf-8-sig')
+        ):
+            warns.append('repository license stance unresolved')
     if not any((repo/x).is_file() for x in ('CITATION.cff','CITATION.md','CITATION')):
         warns.append('CITATION metadata not yet frozen')
+    for rel in ('RIGHTS.md','CITATION.md','THIRD_PARTY_NOTICES.md'):
+        if not (repo/rel).is_file():
+            errors.append('required publication metadata missing: '+rel)
     warns += [
         'fresh figure rerendering is intentionally not a public-release gate; approved binaries are authoritative',
         'multi-GB raw RASPA closure is intentionally out of scope for this GitHub release',
         'Git commit/tag plus existing publication/structural hash manifests are the release identity',
-        'do not merge/tag/make public until source-rights/license/citation and final-review gates are approved',
+        'publication metadata/source-rights boundary resolved conservatively; final PR/merge/tag/owner visibility remain',
     ]
 
     print('\nWARNINGS / OPEN GATES')
