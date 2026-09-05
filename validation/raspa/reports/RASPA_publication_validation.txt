@@ -1,0 +1,20 @@
+Paper 7B RASPA publication-orientation validation
+=================================================
+
+Pair actions:
+  A1: same     | A=DB0-m3_o11_o17_f0_pcu.sym.32 | B=DB0-m3_o12_o20_f0_pcu.sym.24
+  A2: same     | A=DB0-m2_o23_o28_f0_nbo.sym.21 | B=DB0-m2_o23_o28_f0_nbo.sym.4
+  A3: reversed | A=DB0-m3_o7_o7_f0_nbo.sym.48 | B=DB0-m2_o7_o7_f0_nbo.sym.45
+  A4: reversed | A=DB0-m3_o6_o27_f0_nbo.sym.33 | B=DB0-m2_o6_o27_f0_nbo.sym.30
+  B1: same     | A=DB0-m3_o14_o22_f0_nbo.sym.46 | B=DB0-m3_o1_o9_f0_nbo.sym.133
+  B2: same     | A=DB1-Zn2O8N2-AZO_A-BDC_A_No205 | B=DB1-Zn2O8N2-AZO_A-irmof6_A_No152
+  C1: reversed | A=DB0-m3_o440_o155_f0_fsc.sym.26 | B=DB0-m3_o152_o155_f0_fsc.sym.27
+  C2: reversed | A=DB0-m9_o17_o27_f0_sra.sym.117 | B=DB0-m9_o17_o27_f0_sra.sym.116
+
+Publication-oriented Pearson correlations:
+  Henry vs 0.1 bar: r = 0.995979 (n=8)
+  Henry vs 1 bar: r = 0.995274 (n=8)
+
+PASS: Figure 5/Table S09 convention is enforced for A1/A2/A3/A4/C1/C2.
+PASS: B1/B2 retain native RASPA comparator orientation.
+PASS: all orientation-dependent quantities are transformed mathematically, not cosmetically.

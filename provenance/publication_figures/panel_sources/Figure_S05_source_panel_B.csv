@@ -1,0 +1,7 @@
+selection_category,role_label,maximum_fraction_of_limit
+strong_linker_process_aligned,Strong linker / process aligned,0.8966675970468596
+strong_metal_process_aligned,Strong metal / process aligned,0.6659999999999999
+cu_zn_pressure_exception,Cu-Zn pressure exception,0.8421358251548156
+near_null_comparison,Near-null comparison,0.1473333333333326
+process_discordant_comparison,Process-discordant comparison,0.7901356923800409
+functional_motif_example,Functional-motif example,0.4493025945629137

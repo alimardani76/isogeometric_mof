@@ -1,0 +1,45 @@
+{
+  "figure": "Figure_S02",
+  "font_resolved": "Arial",
+  "inputs": [
+    {
+      "path": "data\\si\\hoa_condition__heat_adsorption_condition_results.csv",
+      "sha256": "cc1ae1f29329c176c6b88c31bb24a1214d031cea31ad71fc0186b0e471ee0cda"
+    },
+    {
+      "path": "data\\si\\hoa_pressure__heat_adsorption_pressure_results.csv",
+      "sha256": "b567276cb4bac47db345eae6b44629f3823f4ed0050fe4511603ec261b5edda3"
+    }
+  ],
+  "panel_sources": [
+    {
+      "path": "outputs\\si\\Figure_S02\\source_panel_A.csv",
+      "sha256": "545792e59395f7c3ea57a25249ab4c823365a4a2cc3b74bafb28bf61b2ed93db"
+    },
+    {
+      "path": "outputs\\si\\Figure_S02\\source_panel_B.csv",
+      "sha256": "7b34fcc662a0da73dce6f0c31b470c3b79cc566bbc537231f6e2285055b80ec0"
+    },
+    {
+      "path": "outputs\\si\\Figure_S02\\source_panel_C.csv",
+      "sha256": "545792e59395f7c3ea57a25249ab4c823365a4a2cc3b74bafb28bf61b2ed93db"
+    },
+    {
+      "path": "outputs\\si\\Figure_S02\\source_panel_D.csv",
+      "sha256": "0242e2ec60753f6deac4df1e82143a3a40916aa9d6d19094ab7748c7b89861d0"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "outputs\\si\\Figure_S02\\Figure_S02_HOA_Associations.pdf",
+      "sha256": "404fa758d392657566df3c649c9f46e3d82271049087827d48870550c80765a3"
+    },
+    {
+      "path": "outputs\\si\\Figure_S02\\Figure_S02_HOA_Associations_200dpi.png",
+      "sha256": "a807afb921f1ef7529e3f42aa99fdec8e734f94cb6c3b6575131d3c51ce2080f"
+    }
+  ],
+  "notes": {
+    "interpretation": "energetic coordinate; not a resolved mechanism"
+  }
+}

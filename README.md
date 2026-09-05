@@ -1,6 +1,18 @@
 
 # isogeometric_mof: Reproducibility and Transparency Record
 
+
+> **Publication-release candidate:** this branch contains the frozen Paper 7B
+> manuscript-facing assets, historical provenance, compact selected-case RASPA
+> validation, and publication metadata. Approved binaries under `figures/` are
+> authoritative; no fresh figure regeneration is required. The multi-GB raw
+> RASPA run tree is out of scope for this GitHub release. To avoid granting or
+> assuming third-party redistribution rights, the 12 ARC-MOF-derived structural
+> CIF byte files are not redistributed in the public Git release; their
+> identifiers and SHA-256 provenance remain recorded. Scientific values and
+> claim boundaries are frozen.
+
+
 ## Purpose
 
 This document provides a detailed record of the computational workflow
@@ -13,9 +25,10 @@ construction → statistical analysis → figure generation → supplementary
 tables.
 
 This repository contains the reproducibility assets generated from the
-audited Project 7B2 workflow. It focuses on Steps 1--4 of the analysis
-pipeline. Exploratory future validation work is maintained separately
-and is not part of this repository.
+audited Project 7B2 workflow. The historical Steps 1--4 analysis is preserved,
+and the publication release also includes a dedicated selected-case validation
+layer under `validation/raspa/`. Final manuscript-facing assets are canonicalized
+on the release branch before public release.
 
 ------------------------------------------------------------------------
 
@@ -88,6 +101,10 @@ timestamps, and hashes without redistributing the source files.
 
     provenance/
     environment/
+    structural_panel/
+    validation/
+        raspa/
+    archive/
 
 ------------------------------------------------------------------------
 
@@ -231,6 +248,10 @@ Generated figures:
     Figure_05.pdf
     Figure_06.pdf
 
+The canonical final Figure 5 is synchronized at `figures/main/Figure_05.pdf`.
+Its complete curated source/reproduction module is under `structural_panel/`;
+the historical Step 3 structural renderers remain provenance only.
+
 Supplementary figures:
 
     figures/supplementary/
@@ -299,11 +320,12 @@ Location:
 
     figures/main/
 
-Contains:
-
--   PDF versions;
--   PNG versions;
--   SVG versions.
+Contains the historical paper-facing figure set. For the release branch,
+Figure 5 is canonicalized as PDF at `figures/main/Figure_05.pdf`; its editable
+PowerPoint, 24 high-resolution source PNGs, manifests, and OVITO sources are
+versioned under `structural_panel/`. The 12 third-party ARC-MOF-derived CIF byte
+files are intentionally not redistributed; their identifiers/hashes remain in
+the structural provenance records.
 
 ## Supplementary figures
 
@@ -338,12 +360,14 @@ Observed workflow components include:
 -   scikit-learn
 -   joblib
 
-The audited project did not contain a complete environment lock file.
-
-Future release improvement:
-
--   add requirements.txt or conda environment;
--   test reproduction from a clean environment.
+The historical full analysis project did not contain one complete validated
+environment lock, so `environment/` remains an evidence record rather than a
+fabricated lock. For the publication-figure support layer, installable
+definitions exist at `reproduce/figures/environment.yml` and
+`reproduce/figures/requirements.txt`. These are retained for users who wish to
+rerender from the frozen compact source tables, but fresh-environment
+rerendering is not required to publish this repository because the approved
+manuscript binaries are already frozen and hash-tracked.
 
 ------------------------------------------------------------------------
 
@@ -397,3 +421,81 @@ Excluded:
 -   raw ARC-MOF source files;
 -   exploratory validation branches;
 -   temporary intermediate files.
+
+------------------------------------------------------------------------
+
+# 13. Publication-release preparation
+
+The public-release workflow is intentionally separated from the historical
+analysis archive.
+
+Current release-facing records:
+
+- `structural_panel/` — completed, manifest-verified final Figure 5 module;
+- `validation/raspa/README.md` — selected-case RASPA production scope,
+  limitations, and archival strategy;
+- `provenance/claim_boundaries.md` — interpretation boundaries that must not
+  be broadened during repository cleanup;
+- `provenance/source_data_policy.md` — conservative ARC-MOF/CIF and large-file
+  redistribution policy;
+- `archive/README.md` — policy for superseded/noncanonical renderers and other
+  historical assets.
+
+The structural-panel workstream is complete on this release branch. The
+authoritative user-supplied final assets are frozen as:
+
+- `figures/main/Figure_05.pdf` and
+  `structural_panel/figures/final/Structural_Panel_FINAL.pdf`:
+  SHA-256 `64db93251142ad685d4ab357bc4c7d75c588389dd0395d5a1d5dc687ebc2a830`;
+- `structural_panel/figures/final/Structural_Panel_FINAL.pptx`:
+  SHA-256 `16616b7a69e7a57f248210666acbadfd6c8cb62ec9fdbb21df6b72cb647d0f16`.
+
+The three publication-content workstreams are integrated: (1) structural Figure
+5, (2) redesigned quantitative/SI artwork plus canonical renderer, and (3) the
+compact selected-case RASPA Figure 6/S06 provenance layer.
+
+The clean-clone distribution check is complete: a shallow clone of
+`release/paper7b-public` at
+`38ad8b01a6b801c18e512c298e5e4814a4e40fd0` checked out all 463 tracked files
+and reported a clean working tree.
+
+The publication metadata/source-rights boundary is finalized conservatively:
+
+1. `RIGHTS.md` records an explicit no-open-source-license / all-rights-reserved
+   stance for project-owned material unless a rights holder states otherwise;
+2. `THIRD_PARTY_NOTICES.md` records ARC-MOF and CrystalNets attribution and makes
+   clear that third-party material is not relicensed;
+3. `CITATION.md` gives repository and upstream citation instructions;
+4. the 12 ARC-MOF-derived structural CIF byte files are excluded from public Git,
+   while their identifiers and hashes remain in provenance.
+
+The remaining repository operations are final automated audit/CI, PR merge,
+release tag, and owner/admin visibility change. Fresh regeneration of approved
+figure binaries is not a release gate. The multi-gigabyte raw RASPA closure is
+outside the GitHub release scope and is not required to be uploaded. A separate
+repository-wide SHA-256 manifest is not required: the Git commit/tag identifies
+the repository state, while publication assets and structural provenance already
+carry explicit hashes.
+
+<!-- PAPER7B_FINAL_PUBLICATION_BLOCK_START -->
+## Final publication figures and compact reproduction
+
+Frozen main architecture: Figure 1 matched design/support; Figure 2 chemistry,
+HOA context and residual-adjustment sensitivity; Figure 3 guest/pressure
+dependence; Figure 4 process translation/applicability; Figure 5 structural
+selected cases; Figure 6 selected-case RASPA validation.
+
+Final artwork: `figures/main/` and `figures/supplementary/`.
+Portable publication-level renderer and frozen compact tables:
+`reproduce/figures/`.
+
+This reproduces publication figures from compact frozen source tables; it does
+not claim clean-clone reproduction of the entire historical raw-data pipeline.
+
+Compact RASPA provenance is in `validation/raspa/`. The multi-GB raw closure
+tree is intentionally excluded from this GitHub publication release; the compact
+audited summaries, hashes, protocol records, and final Figure 6/S06 provenance
+are the public release layer. RASPA is selected-case validation, not
+population-wide mechanistic proof; charge-off is electrostatic sensitivity,
+not standalone proof of mechanism.
+<!-- PAPER7B_FINAL_PUBLICATION_BLOCK_END -->

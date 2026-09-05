@@ -1,0 +1,69 @@
+{
+  "figure": "Figure_S04",
+  "font_resolved": "Arial",
+  "inputs": [
+    {
+      "path": "data\\si\\04_reciprocal_covariance_matching_summary.csv",
+      "sha256": "a143ef8d2814bf1d0b386e1f2ce47dcfbc73e480949531b037c8250891caa0a9"
+    },
+    {
+      "path": "data\\si\\04_step1_topology_robustness_summary.csv",
+      "sha256": "76250d9fd96c4a4e55e100cf446d83840a2a1a892f6553b88cca4236583b9d72"
+    },
+    {
+      "path": "data\\si\\balance__04_balance.csv",
+      "sha256": "f6eca5efde2e71da03167d6c6e50b33e7092ce047352f1180a3ceb5bbf81ba2a"
+    },
+    {
+      "path": "data\\si\\04_step2_residual_geometry_summary.csv",
+      "sha256": "a1a1bd553a90f767035f9be29b33921e6a3b7ceca8f0210437c9d4997cdbd4e5"
+    },
+    {
+      "path": "data\\si\\family__04_family_exclusion_summary.csv",
+      "sha256": "9306dad61cffbd7a09c1a9a2cf7c45a375773d3edea6d42a58563d51b666c74c"
+    },
+    {
+      "path": "data\\si\\adjustment__03_results.csv",
+      "sha256": "e6cc18bdae556700a54fea45e3b10f12fc4306bfc2cc4e16a6ac1be7df75e4d6"
+    }
+  ],
+  "panel_sources": [
+    {
+      "path": "outputs\\si\\Figure_S04\\source_panel_A.csv",
+      "sha256": "521e331d88eee733b1a20e0e75c71eee4922da8fb835672b5bfca15720fbee79"
+    },
+    {
+      "path": "outputs\\si\\Figure_S04\\source_panel_B.csv",
+      "sha256": "76250d9fd96c4a4e55e100cf446d83840a2a1a892f6553b88cca4236583b9d72"
+    },
+    {
+      "path": "outputs\\si\\Figure_S04\\source_panel_C.csv",
+      "sha256": "cb0b467e7faea9e97bb8ee36a79fedaac7e530246ea4d1190a0bc6337842620d"
+    },
+    {
+      "path": "outputs\\si\\Figure_S04\\source_panel_D.csv",
+      "sha256": "80f4ea3b5e4daaf82017e46eb8ea856a7be99e1c410f33399b73ee11d82a15b4"
+    },
+    {
+      "path": "outputs\\si\\Figure_S04\\source_panel_E.csv",
+      "sha256": "19b903c70a12866a4c844c6ff677dfcbe9da57f972d202b3cf00a8653093e7ea"
+    },
+    {
+      "path": "outputs\\si\\Figure_S04\\source_panel_F.csv",
+      "sha256": "1c655dc64d84f9268cabde1e7594abf49340c69121830b9da744ae03b3caec7a"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "outputs\\si\\Figure_S04\\Figure_S04_Robustness_Geometry_Sensitivity.pdf",
+      "sha256": "96586da0e5e93ff233763a727eba4755f81a9855c2fbe4a7ed5c5a5ba6bb4a89"
+    },
+    {
+      "path": "outputs\\si\\Figure_S04\\Figure_S04_Robustness_Geometry_Sensitivity_200dpi.png",
+      "sha256": "e6b6ba679823edf2db1c95429f4f9b1f5cd0b970a7a490a86d399c3221778bd1"
+    }
+  ],
+  "notes": {
+    "purpose": "old audit-style robustness evidence consolidated into SI"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "figure": "Figure_04",
+  "font_resolved": "Arial",
+  "inputs": [
+    {
+      "path": "data\\main\\04_process_translation_summary_final.csv",
+      "sha256": "1ca19c314dabb569ff96fa63f149d10dfe91f0061ef0357ab36b0687f4291b34"
+    },
+    {
+      "path": "data\\main\\04_02_final_case_set.csv",
+      "sha256": "5e8cc002b767848321067febeb857823c615118533d0c17830e5e43c02dac24b"
+    },
+    {
+      "path": "data\\main\\04_candidate_process_results.csv",
+      "sha256": "d3e6b524be5dbbb655e3a8e7819e263904ac86a0630273484932216ef3ade5f2"
+    }
+  ],
+  "panel_sources": [
+    {
+      "path": "outputs\\main\\Figure_04\\source_panel_A.csv",
+      "sha256": "7fe41d72f81b2ee19f6b493b4b28a60e4d0110e9e810b16afe47f87188669fd0"
+    },
+    {
+      "path": "outputs\\main\\Figure_04\\source_panel_B.csv",
+      "sha256": "78286ca0fbf9cac4fef37c5ccb282aa413ea862412c09e9d2d7dc9426dfee28d"
+    },
+    {
+      "path": "outputs\\main\\Figure_04\\source_panel_C.csv",
+      "sha256": "bfd0b8d56f3569556abceba7b0e80a9e626e5d3da6e72905690fcb8eb820e434"
+    },
+    {
+      "path": "outputs\\main\\Figure_04\\source_panel_D.csv",
+      "sha256": "4551d3bf6f960322692539494e66bd0833e82f36936d9cba2f9e24b20afb1e47"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "outputs\\main\\Figure_04\\Figure_04.pdf",
+      "sha256": "0f287f987716407c16fdf62dd873df3ff810dad0abfa920e272f664822ce39b9"
+    },
+    {
+      "path": "outputs\\main\\Figure_04\\Figure_04_200dpi.png",
+      "sha256": "e923f95f63ae60af362a5a578292bd7e3792300ed035c19c57edcf92794b66f3"
+    }
+  ],
+  "notes": {
+    "science": "process translation; old robustness dashboard moved to SI"
+  }
+}

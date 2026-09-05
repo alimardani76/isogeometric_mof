@@ -1,0 +1,45 @@
+{
+  "figure": "Figure_01",
+  "font_resolved": "Arial",
+  "inputs": [
+    {
+      "path": "data\\main\\04_final_primary_pair_counts.csv",
+      "sha256": "c13dd2b7d65956e77190d771e21950d13cbd2fa0a0c42cacb089b34a3dbc775f"
+    },
+    {
+      "path": "data\\main\\04_caliper_sensitivity_support.csv",
+      "sha256": "579036090055629cec1ca08301baadc6403e17ebea101192f7abd8eb395ae609"
+    }
+  ],
+  "panel_sources": [
+    {
+      "path": "outputs\\main\\Figure_01\\source_panel_A_SUPPORT.csv",
+      "sha256": "f85ab7985bcf199c7c95d741ad88b4ad9aaf194c578599290fba351ed2c1c4d0"
+    },
+    {
+      "path": "outputs\\main\\Figure_01\\source_panel_B.csv",
+      "sha256": "f85ab7985bcf199c7c95d741ad88b4ad9aaf194c578599290fba351ed2c1c4d0"
+    },
+    {
+      "path": "outputs\\main\\Figure_01\\source_panel_C.csv",
+      "sha256": "425c6a729f73606a27bb64e5a7182c0883a969dc29d9b73a76fdfce143f73206"
+    },
+    {
+      "path": "outputs\\main\\Figure_01\\source_panel_D.csv",
+      "sha256": "3c78559039eca8ddbe0bb483d530f78688f38bf94b318c4bf34e6767407dc376"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "outputs\\main\\Figure_01\\Figure_01.pdf",
+      "sha256": "0e676da4c8fd6b3847a2beca6d699b3e322d1f013664147f78fd976b2a915184"
+    },
+    {
+      "path": "outputs\\main\\Figure_01\\Figure_01_200dpi.png",
+      "sha256": "ff77d4724997e2651a8e89871fe98a1be27bc013a3fc25e51041455987deda75"
+    }
+  ],
+  "notes": {
+    "science": "frozen support only; no refitting"
+  }
+}

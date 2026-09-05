@@ -1,0 +1,13 @@
+role,endpoint,mof_id,metal,mean_metal_charge
+strong_linker_process_aligned,A,DB0-m3_o11_o17_f0_pcu.sym.32,Zn,1.0598805
+strong_linker_process_aligned,B,DB0-m3_o12_o20_f0_pcu.sym.24,Zn,1.013788
+strong_metal_process_aligned,A,DB0-m3_o7_o7_f0_nbo.sym.48,Zn,1.2955186666666667
+strong_metal_process_aligned,B,DB0-m2_o7_o7_f0_nbo.sym.45,Cu,0.7828461666666667
+cu_zn_pressure_exception,A,DB0-m3_o6_o27_f0_nbo.sym.33,Zn,1.3277140833333332
+cu_zn_pressure_exception,B,DB0-m2_o6_o27_f0_nbo.sym.30,Cu,0.993256
+near_null_comparison,A,DB0-m2_o23_o28_f0_nbo.sym.21,Cu,1.037058
+near_null_comparison,B,DB0-m2_o23_o28_f0_nbo.sym.4,Cu,1.02874425
+process_discordant_comparison,A,DB0-m3_o440_o155_f0_fsc.sym.26,Zn,1.0426345
+process_discordant_comparison,B,DB0-m3_o152_o155_f0_fsc.sym.27,Zn,1.0409115
+functional_motif_example,A,DB0-m9_o17_o27_f0_sra.sym.117,V,1.3373075
+functional_motif_example,B,DB0-m9_o17_o27_f0_sra.sym.116,V,1.34997975

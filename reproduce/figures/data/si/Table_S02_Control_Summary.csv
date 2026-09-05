@@ -1,0 +1,19 @@
+design,intervention,measure,conditions,positive_medians,intervals_above_zero,intervals_below_zero
+Primary,Functional motif,absolute_log_difference,18,4,1,1
+Primary,Functional motif,absolute_uptake_difference,18,6,2,1
+Primary,Functional motif,standardized_absolute_difference,18,6,2,1
+Primary,Linker family,absolute_log_difference,18,18,17,0
+Primary,Linker family,absolute_uptake_difference,18,18,18,0
+Primary,Linker family,standardized_absolute_difference,18,18,18,0
+Primary,Metal substitution,absolute_log_difference,18,17,8,0
+Primary,Metal substitution,absolute_uptake_difference,18,14,7,1
+Primary,Metal substitution,standardized_absolute_difference,18,14,7,1
+Symmetric,Functional motif,absolute_log_difference,18,5,1,1
+Symmetric,Functional motif,absolute_uptake_difference,18,5,2,1
+Symmetric,Functional motif,standardized_absolute_difference,18,5,2,1
+Symmetric,Linker family,absolute_log_difference,18,18,18,0
+Symmetric,Linker family,absolute_uptake_difference,18,18,18,0
+Symmetric,Linker family,standardized_absolute_difference,18,18,18,0
+Symmetric,Metal substitution,absolute_log_difference,18,16,10,0
+Symmetric,Metal substitution,absolute_uptake_difference,18,14,6,0
+Symmetric,Metal substitution,standardized_absolute_difference,18,14,6,0

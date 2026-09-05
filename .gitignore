@@ -7,3 +7,50 @@ raw/
 *.tar.gz
 *.zip
 *.log
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Notebook/cache/build artifacts
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+build/
+dist/
+*.egg-info/
+
+# LaTeX build products
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.out
+*.synctex.gz
+
+# Large/local simulation material
+validation/raspa/raw/
+validation/raspa/runs/
+validation/raspa/closure/
+**/restart/
+
+# Conservative source-structure policy.
+# Deliberately force-add reviewed CIFs only after redistribution rights are resolved.
+*.cif
+
+# Structural-panel curated release inputs
+!structural_panel/data/cifs/**/*.cif
+structural_panel/OVITO_screening/
+structural_panel/OVITO_final_HR/contact_sheets/
+structural_panel/OVITO_final_insets_tight/
+structural_panel/**/contact_sheets/
+structural_panel/**/xyz_fragments/
+structural_panel/**/*_REVIEW.zip
+Project7B_OVITO_*Round*.zip
+Project7B_OVITO_Screening_Pack*.zip
+~$*.pptx
+*.swp
+*.tmp

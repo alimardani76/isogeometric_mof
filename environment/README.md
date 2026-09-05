@@ -28,3 +28,11 @@ The Step 3 figure manifest records matplotlib 3.10.5.
 Standard-library modules and Windows batch execution are also used.
 
 Do not convert this list into a pinned requirements file without testing the workflow. Package compatibility, especially Python 3.13 support and the pymatgen stack, has not been reproduced during this inventory audit.
+
+## Public-release rule
+
+This evidence must not be converted mechanically into a pinned `requirements.txt` or `environment.yml`.
+
+The publication release will freeze an installable environment only after the actual final figure/table reproduction workflow succeeds in a clean environment. The tested environment definition and clean-clone result will then be added alongside this historical evidence.
+
+RASPA production provenance is documented separately under `../validation/raspa/`; the audited production outputs report RASPA 3.0.29.

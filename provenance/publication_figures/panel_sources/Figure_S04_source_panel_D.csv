@@ -1,0 +1,7 @@
+intervention,effect_measure,conditions,median_absolute_rho,maximum_absolute_rho,positive_rho_intervals_excluding_zero,negative_rho_intervals_excluding_zero,quartile_intervals_excluding_zero
+linker_family_change,absolute_log_difference,18,0.1398145708144343,0.2278168460639015,18,0,17
+linker_family_change,absolute_uptake_difference,18,0.1180344906190876,0.2198145299149532,18,0,18
+linker_family_change,standardized_absolute_difference,18,0.1180344906190876,0.2198145299149532,18,0,18
+metal_substitution,absolute_log_difference,18,0.0747176633057952,0.278050815054136,8,0,8
+metal_substitution,absolute_uptake_difference,18,0.0620926359058574,0.2639671001545938,6,0,3
+metal_substitution,standardized_absolute_difference,18,0.0620884716884452,0.2639671001545938,6,0,3

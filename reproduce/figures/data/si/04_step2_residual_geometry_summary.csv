@@ -1,0 +1,10 @@
+intervention,effect_measure,conditions,median_absolute_rho,maximum_absolute_rho,positive_rho_intervals_excluding_zero,negative_rho_intervals_excluding_zero,quartile_intervals_excluding_zero
+functional_motif_change,absolute_log_difference,18,0.4285714285714286,0.8285714285714287,0,0,0
+functional_motif_change,absolute_uptake_difference,18,0.5142857142857143,0.7714285714285715,0,0,0
+functional_motif_change,standardized_absolute_difference,18,0.5142857142857143,0.7714285714285715,0,0,0
+linker_family_change,absolute_log_difference,18,0.13981457081443432,0.22781684606390154,18,0,17
+linker_family_change,absolute_uptake_difference,18,0.11803449061908769,0.21981452991495323,18,0,18
+linker_family_change,standardized_absolute_difference,18,0.11803449061908769,0.21981452991495323,18,0,18
+metal_substitution,absolute_log_difference,18,0.07471766330579524,0.278050815054136,8,0,8
+metal_substitution,absolute_uptake_difference,18,0.06209263590585741,0.2639671001545938,6,0,3
+metal_substitution,standardized_absolute_difference,18,0.06208847168844528,0.2639671001545938,6,0,3

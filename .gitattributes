@@ -1,0 +1,9 @@
+# PAPER7B_STRUCTURAL_BYTE_STABILITY_START
+# Structural-panel manifests verify exact byte sizes/SHA-256.
+# Keep structural text-like files LF-stable on every OS.
+structural_panel/**/*.cif text eol=lf
+structural_panel/**/*.csv text eol=lf
+structural_panel/**/*.md text eol=lf
+structural_panel/**/*.py text eol=lf
+structural_panel/**/*.bat text eol=lf
+# PAPER7B_STRUCTURAL_BYTE_STABILITY_END

@@ -1,0 +1,4 @@
+intervention,eligible_stringent_pairs,eligible_exact_changes,eligible_framework_variants,selected_pairs,selected_exact_changes,median_covariance_distance,maximum_covariance_distance,selected_fraction
+functional_motif_change,6,6,6,6,6,0.2353013360305849,0.35806328959823785,1.0
+linker_family_change,12392,8540,5742,9095,8540,0.36753481475699074,4.770252102038612,0.7339412524209167
+metal_substitution,674,35,526,579,35,0.24132883253578571,3.322557309669435,0.8590504451038575

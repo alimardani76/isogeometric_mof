@@ -1,0 +1,37 @@
+{
+  "figure": "Figure_S05",
+  "font_resolved": "Arial",
+  "inputs": [
+    {
+      "path": "data\\main\\04_02_final_case_set.csv",
+      "sha256": "5e8cc002b767848321067febeb857823c615118533d0c17830e5e43c02dac24b"
+    },
+    {
+      "path": "data\\main\\04_candidate_process_results.csv",
+      "sha256": "d3e6b524be5dbbb655e3a8e7819e263904ac86a0630273484932216ef3ade5f2"
+    }
+  ],
+  "panel_sources": [
+    {
+      "path": "outputs\\si\\Figure_S05\\source_panel_A.csv",
+      "sha256": "bbf0c36a73d7b3b382187ca9354776347af7c8325107ceb613f9a33ca33e6b6e"
+    },
+    {
+      "path": "outputs\\si\\Figure_S05\\source_panel_B.csv",
+      "sha256": "31218c5df078dc3dc9a5c16e1250ca9b52333ee9dacd8af95e24dff0f12574e2"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "outputs\\si\\Figure_S05\\Figure_S05_Structural_Geometry_Control.pdf",
+      "sha256": "a01ab3d1c3122f1cff663c9043ac53ffb41083591bc1104968c31cfa172b74ae"
+    },
+    {
+      "path": "outputs\\si\\Figure_S05\\Figure_S05_Structural_Geometry_Control_200dpi.png",
+      "sha256": "f9c0614590259673ad9d9d629a636486ab318e05e1ac452a9661fdd4b9b04546"
+    }
+  ],
+  "notes": {
+    "note": "companion only; main structural Figure 5 remains externally finalized"
+  }
+}

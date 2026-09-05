@@ -1,0 +1,9 @@
+selection_category,role_label,process,selectivity_change_oriented_by_uptake,uptake_selectivity_concordant
+strong_linker_process_aligned,Strong linker / process aligned,landfill-gas-vpsa,0.4046669999999999,True
+strong_linker_process_aligned,Strong linker / process aligned,natural-gas-purification,0.4922370000000002,True
+strong_linker_process_aligned,Strong linker / process aligned,post-combustion-vsa,6.780925,True
+strong_linker_process_aligned,Strong linker / process aligned,pre-combustion-40-40,90.24083399999998,True
+process_discordant_comparison,Process-discordant comparison,landfill-gas-vpsa,-0.2191900000000002,False
+process_discordant_comparison,Process-discordant comparison,natural-gas-purification,-0.4187519999999995,False
+process_discordant_comparison,Process-discordant comparison,post-combustion-vsa,3.1234350000000006,True
+process_discordant_comparison,Process-discordant comparison,pre-combustion-40-40,-3.223694999999992,False
