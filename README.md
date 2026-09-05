@@ -456,3 +456,24 @@ Before the repository as a whole is public, it still requires:
 
 Until those checks pass, the repository should not claim complete clean-clone
 reproducibility.
+
+<!-- PAPER7B_FINAL_PUBLICATION_BLOCK_START -->
+## Final publication figures and compact reproduction
+
+Frozen main architecture: Figure 1 matched design/support; Figure 2 chemistry,
+HOA context and residual-adjustment sensitivity; Figure 3 guest/pressure
+dependence; Figure 4 process translation/applicability; Figure 5 structural
+selected cases; Figure 6 selected-case RASPA validation.
+
+Final artwork: `figures/main/` and `figures/supplementary/`.
+Portable publication-level renderer and frozen compact tables:
+`reproduce/figures/`.
+
+This reproduces publication figures from compact frozen source tables; it does
+not claim clean-clone reproduction of the entire historical raw-data pipeline.
+
+Compact RASPA provenance is in `validation/raspa/`. The multi-GB raw closure
+tree is intentionally external. RASPA is selected-case validation, not
+population-wide mechanistic proof; charge-off is electrostatic sensitivity,
+not standalone proof of mechanism.
+<!-- PAPER7B_FINAL_PUBLICATION_BLOCK_END -->
