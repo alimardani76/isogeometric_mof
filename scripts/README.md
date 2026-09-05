@@ -4,31 +4,41 @@ The stage subfolders contain audited copies of the historical analysis and produ
 
 - `step1/`: scripts `01`-`25` and `RUN_STEP1.bat` from Step 1 computation.
 - `step2/`: scripts `01`-`06` from Step 2 chemistry strengthening.
-- `step3/`: production scripts, including all historically observed alternate `06` and `07` renderer variants.
+- `step3/`: historical production/source-generation scripts. Superseded quantitative `06` renderer variants are now archived under `../archive/legacy_renderers/quantitative/`; historical structural `07` variants remain provenance only.
 - `step4/`: scripts `01`-`17` from the Step 4 extension.
 
 ## Historical provenance versus publication reproduction
 
 These scripts retain original path calculations such as `Path(__file__).resolve().parents[1]` or `.parent`. Moving them under this repository changes what those expressions resolve to.
 
-Accordingly, the historical copies are preserved as provenance assets and are **not yet represented as a clean-clone runnable package**.
+Accordingly, the historical copies are preserved as provenance assets rather
+than rewritten in place.
 
-The public-release work will add a smaller Tier-1 publication-reproduction layer for the final figures/tables without rewriting the historical scientific workflow in place.
+A separate Tier-1 publication-figure reproduction layer is now present at
+`../reproduce/figures/`. It uses frozen compact source tables and generates the
+final quantitative/RASPA main and SI figures without re-fitting the core study
+or rebuilding the matched population. Its clean-clone/fresh-environment test
+remains a release gate.
 
-## Step 3 renderer ambiguity
+## Step 3 renderer canonicalization
 
-The historical repository contains multiple quantitative and structural renderer variants. Their presence is intentional because the August audit could not prove the exact executing variant from the old manifests.
+The August historical archive contained competing quantitative and structural
+renderer variants because the old manifests alone did not prove which variant
+produced every final manuscript asset.
 
-No variant is declared canonical merely because it has the highest version suffix.
+That ambiguity is now resolved for the publication layer without rewriting the
+historical science:
 
-Canonical renderer selection will be made only from the finalized figure/structural/RASPA packets by matching:
+- final quantitative/RASPA publication rendering is canonicalized under
+  `../reproduce/figures/`;
+- superseded quantitative `06` variants are retained under
+  `../archive/legacy_renderers/quantitative/` for provenance only;
+- final structural Figure 5 is canonicalized under `../structural_panel/`;
+- historical structural `07` renderer variants remain provenance and are not
+  the canonical source of the final structural composite.
 
-- source data;
-- renderer behavior;
-- final output;
-- provenance/hashes.
-
-Superseded variants may then be moved or documented under `../archive/` while remaining available for provenance.
+Canonical selection is based on finalized source data, renderer behavior,
+approved final output, and manifests/hashes — not on version-number suffixes.
 
 ## Excluded script-like files
 
@@ -55,3 +65,10 @@ The Git-adapted scripts must preserve scientific selections/cameras/cutoffs whil
 
 The release integrity workflow verifies the structural module against
 `structural_panel/data/manifests/REPO_PAYLOAD_SHA256.csv` on every PR update.
+
+## Release audit helpers
+
+- `release/check_repository_integrity.py`: CI-facing integrity check.
+- `release/audit_public_release.py`: broader pre-publication audit helper for
+  final assets, paths, syntax/data readability, RASPA invariants, and open
+  release gates.

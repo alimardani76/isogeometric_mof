@@ -12,7 +12,25 @@ Audit artifacts:
 - `frozen_run_manifest.json`: existing frozen-package run manifest.
 - `phase0_frozen_input_inventory.csv` and `phase0_manifest.json`: existing Step 4 input inventory and audit decision.
 - `phase2a_toolchain.json`: existing runtime/toolchain record.
-- `figure_06_manifest.json` and `figure_07_manifest.json`: existing main-figure source/output manifests.
+- `figure_06_manifest.json`: current canonical selected-case RASPA Figure 6 source/output manifest.
+- `figure_07_manifest.json`: historical script-numbered manifest for the older
+  structure-resolved Figure 5 renderer (`07_render_structure_case_figure.py`);
+  it does **not** imply that the manuscript has a Figure 7 and is not canonical
+  Figure 5 provenance.
+
+## Canonical publication provenance
+
+- `publication_figures/`: final per-figure manifests, exact panel-level source
+  CSVs, and compact selected-case RASPA provenance used for manuscript-facing
+  Figures 1-4, 6 and SI figures.
+- `final_publication_asset_hashes.csv`: hashes for the finalized
+  publication-facing asset/reproduction layer. This is **not** the final
+  repository-wide release manifest; the repository-wide manifest must be
+  generated only after the complete release tree is frozen.
+- canonical Figure 5 provenance/reproduction is under `../structural_panel/`.
+
+Historical records remain preserved below and in the other provenance files;
+current canonical publication assets do not erase the historical audit trail.
 
 ## Raw ARC-MOF-derived source location
 

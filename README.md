@@ -2,12 +2,14 @@
 # isogeometric_mof: Reproducibility and Transparency Record
 
 
-> **Publication-release preparation:** this branch is being prepared as the
-> public-release version of the Paper 7B repository. The historical analysis
-> archive is preserved. The finalized structural panel is now integrated and
-> hash-verified; redesigned quantitative/SI figures and the final RASPA Figure 6
-> package remain to be reconciled before release. Scientific values and claim
-> boundaries are frozen during this release-engineering work.
+> **Publication-release preparation:** this branch is the staged public-release
+> version of the Paper 7B repository. The historical analysis archive is
+> preserved, while final structural Figure 5, redesigned quantitative/SI artwork,
+> the canonical publication renderer, and the compact selected-case RASPA Figure 6
+> layer are integrated. Remaining gates are clean-clone testing, source-rights/
+> licensing/citation decisions, external raw-closure archiving, final audit/
+> manifest, review, merge, tag, and owner approval. Scientific values and claim
+> boundaries remain frozen.
 
 
 ## Purpose
@@ -355,12 +357,12 @@ Observed workflow components include:
 -   scikit-learn
 -   joblib
 
-The audited project did not contain a complete environment lock file.
-
-Future release improvement:
-
--   add requirements.txt or conda environment;
--   test reproduction from a clean environment.
+The historical full analysis project did not contain one complete validated
+environment lock, so `environment/` remains an evidence record rather than a
+fabricated lock. For the canonical publication-figure layer, installable
+definitions now exist at `reproduce/figures/environment.yml` and
+`reproduce/figures/requirements.txt`. A genuinely clean-clone/fresh-environment
+reproduction test remains a release gate.
 
 ------------------------------------------------------------------------
 
@@ -443,19 +445,26 @@ authoritative user-supplied final assets are frozen as:
 - `structural_panel/figures/final/Structural_Panel_FINAL.pptx`:
   SHA-256 `16616b7a69e7a57f248210666acbadfd6c8cb62ec9fdbb21df6b72cb647d0f16`.
 
-Before the repository as a whole is public, it still requires:
+The three publication-content workstreams are integrated: (1) structural Figure
+5, (2) redesigned quantitative/SI artwork plus canonical renderer, and (3) the
+compact selected-case RASPA Figure 6/S06 provenance layer.
 
-1. synchronization with the finalized redesigned quantitative/SI figures;
-2. synchronization with the finalized RASPA Figure 6/source package;
-3. one canonical renderer/source package for each remaining paper-facing figure;
-4. a tested environment definition;
-5. a clean-clone publication-reproduction test;
-6. final code/data licensing, source-rights review, and citation metadata;
-7. a final release SHA-256 manifest generated only after all release files are
-   frozen.
+Before merge/tag/public visibility, the repository still requires:
+
+1. a clean-clone/fresh-environment publication reproduction test and recorded
+   result;
+2. final code/data licensing, authoritative ARC-MOF/source-rights review, and
+   citation metadata;
+3. persistent external archival identification for the multi-GB raw RASPA
+   closure if required for the release;
+4. a final secret/path/large-file/orphan audit;
+5. a repository-wide final SHA-256 release manifest generated **last**, after
+   the complete tree is frozen;
+6. PR review/approval, merge, exact release tag, and owner/admin approval for
+   public visibility.
 
 Until those checks pass, the repository should not claim complete clean-clone
-reproducibility.
+release readiness.
 
 <!-- PAPER7B_FINAL_PUBLICATION_BLOCK_START -->
 ## Final publication figures and compact reproduction

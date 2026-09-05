@@ -1,6 +1,6 @@
-# Paper 7B — Main + SI Figure Redesign Package
+# Paper 7B — Publication Figure Reproduction Package
 
-This is a **standalone rendering package** built from the frozen source tables supplied for Paper 7B.
+This is the canonical portable publication-figure renderer built from the frozen source tables supplied for Paper 7B. It does not re-fit the core study.
 
 ## What it generates
 
@@ -29,13 +29,13 @@ A 200-dpi PNG is saved beside every PDF for quick inspection/editing.
 
 ### Option A — clean Conda environment (safest)
 
-1. Unzip this package to a normal folder, for example:
-   `<author-local-path>`
+1. Use a clean clone of this repository and enter the package folder, for example:
+   `C:\\path\\to\\isogeometric_mof\\reproduce\\figures`
 2. Open **Anaconda Prompt**.
 3. Go to the package folder:
 
 ```bat
-cd /d "<author-local-path>
+cd /d "C:\\path\\to\\isogeometric_mof\\reproduce\\figures"
 ```
 
 4. Create the environment once:
@@ -67,14 +67,7 @@ pip install -r requirements.txt
 python render_all.py --set all
 ```
 
-### Option C — double-click batch files
-
-If `python` is already available in your Windows PATH/environment, you can double-click:
-- `RUN_ALL_WINDOWS.bat`
-- `RUN_MAIN_WINDOWS.bat`
-- `RUN_SI_WINDOWS.bat`
-
-For reproducibility, Option A is preferred.
+For reproducibility, the clean-Conda route above is preferred.
 
 ## Commands you will use later
 
@@ -158,6 +151,11 @@ The scripts request **Arial first**. On a normal Windows installation, Matplotli
 
 No font files are included in this package.
 
+The approved manuscript binaries under `../../figures/` remain authoritative.
+A clean-clone render on another platform is expected to preserve the plotted
+science and frozen source tables, but byte-identical PDF/PNG files are not
+promised when fonts or rendering stacks differ.
+
 ## What to edit when changing appearance
 
 Global colors/fonts/style:
@@ -186,3 +184,13 @@ PNG DPI can be changed in `config.json`. It is currently fixed at **200 dpi** as
 All plots are generated from the frozen CSV tables in `data/`. The renderer does not re-fit the core study, create new matched pairs, alter case selection, or perform outcome-driven filtering.
 
 The main RASPA Figure 6 and SI Figure S06 use the supplied RASPA 3.0.29 closure summary tables. The density-map analysis is deliberately not reproduced.
+
+## Release-test status
+
+The environment definition is present (`environment.yml` and
+`requirements.txt`), but the clean-clone/fresh-environment release gate remains
+open until this workflow is actually run successfully in a separate fresh
+clone/environment and the result is recorded.
+
+The canonical renderer must not be confused with historical Step 3 renderer
+variants retained under `../../archive/legacy_renderers/quantitative/`.
