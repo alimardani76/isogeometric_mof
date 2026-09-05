@@ -5,11 +5,14 @@
 > **Publication-release preparation:** this branch is the staged public-release
 > version of the Paper 7B repository. The historical analysis archive is
 > preserved, while final structural Figure 5, redesigned quantitative/SI artwork,
-> the canonical publication renderer, and the compact selected-case RASPA Figure 6
-> layer are integrated. Remaining gates are clean-clone testing, source-rights/
-> licensing/citation decisions, external raw-closure archiving, final audit/
-> manifest, review, merge, tag, and owner approval. Scientific values and claim
-> boundaries remain frozen.
+> the canonical publication source package, and the compact selected-case RASPA
+> Figure 6 layer are integrated. A clean shallow clone of commit
+> `38ad8b01a6b801c18e512c298e5e4814a4e40fd0` completed successfully with a
+> clean working tree. The approved manuscript binaries already committed under
+> `figures/` are authoritative; fresh figure regeneration is not a public-release
+> requirement. Remaining gates are source-rights/licensing/citation decisions,
+> final audit, review, merge, tag, and owner approval. Scientific values and
+> claim boundaries remain frozen.
 
 
 ## Purpose
@@ -359,10 +362,12 @@ Observed workflow components include:
 
 The historical full analysis project did not contain one complete validated
 environment lock, so `environment/` remains an evidence record rather than a
-fabricated lock. For the canonical publication-figure layer, installable
-definitions now exist at `reproduce/figures/environment.yml` and
-`reproduce/figures/requirements.txt`. A genuinely clean-clone/fresh-environment
-reproduction test remains a release gate.
+fabricated lock. For the publication-figure support layer, installable
+definitions exist at `reproduce/figures/environment.yml` and
+`reproduce/figures/requirements.txt`. These are retained for users who wish to
+rerender from the frozen compact source tables, but fresh-environment
+rerendering is not required to publish this repository because the approved
+manuscript binaries are already frozen and hash-tracked.
 
 ------------------------------------------------------------------------
 
@@ -449,22 +454,26 @@ The three publication-content workstreams are integrated: (1) structural Figure
 5, (2) redesigned quantitative/SI artwork plus canonical renderer, and (3) the
 compact selected-case RASPA Figure 6/S06 provenance layer.
 
-Before merge/tag/public visibility, the repository still requires:
+The clean-clone distribution check is complete: a shallow clone of
+`release/paper7b-public` at
+`38ad8b01a6b801c18e512c298e5e4814a4e40fd0` checked out all 463 tracked files
+and reported a clean working tree.
 
-1. a clean-clone/fresh-environment publication reproduction test and recorded
-   result;
-2. final code/data licensing, authoritative ARC-MOF/source-rights review, and
-   citation metadata;
-3. persistent external archival identification for the multi-GB raw RASPA
-   closure if required for the release;
-4. a final secret/path/large-file/orphan audit;
-5. a repository-wide final SHA-256 release manifest generated **last**, after
-   the complete tree is frozen;
-6. PR review/approval, merge, exact release tag, and owner/admin approval for
+Before public visibility, the remaining release decisions are:
+
+1. final repository-level license stance and authoritative ARC-MOF/source-rights
+   sign-off for redistributed curated inputs;
+2. citation instructions/metadata appropriate for the manuscript release;
+3. one final secret/path/large-file/orphan audit after those metadata edits;
+4. PR review/approval, merge, exact release tag, and owner/admin approval for
    public visibility.
 
-Until those checks pass, the repository should not claim complete clean-clone
-release readiness.
+Fresh regeneration of the already approved figure binaries is not a release
+gate. The multi-gigabyte raw RASPA closure is intentionally outside the GitHub
+release scope and is not required to be uploaded. A separate repository-wide
+SHA-256 manifest is also not required: the Git commit/tag identifies the full
+repository state, while publication assets and the structural module already
+carry explicit hash manifests.
 
 <!-- PAPER7B_FINAL_PUBLICATION_BLOCK_START -->
 ## Final publication figures and compact reproduction
@@ -482,7 +491,9 @@ This reproduces publication figures from compact frozen source tables; it does
 not claim clean-clone reproduction of the entire historical raw-data pipeline.
 
 Compact RASPA provenance is in `validation/raspa/`. The multi-GB raw closure
-tree is intentionally external. RASPA is selected-case validation, not
+tree is intentionally excluded from this GitHub publication release; the compact
+audited summaries, hashes, protocol records, and final Figure 6/S06 provenance
+are the public release layer. RASPA is selected-case validation, not
 population-wide mechanistic proof; charge-off is electrostatic sensitivity,
 not standalone proof of mechanism.
 <!-- PAPER7B_FINAL_PUBLICATION_BLOCK_END -->

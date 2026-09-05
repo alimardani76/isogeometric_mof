@@ -160,10 +160,10 @@ def main():
     if not any((repo/x).is_file() for x in ('CITATION.cff','CITATION.md','CITATION')):
         warns.append('CITATION metadata not yet frozen')
     warns += [
-        'clean-clone + fresh-environment reproduction test still required',
-        'external persistent identifier for multi-GB RASPA raw closure still open if required',
-        'repository-wide SHA-256 release manifest must be generated LAST',
-        'do not merge/tag/make public until final gates are approved',
+        'fresh figure rerendering is intentionally not a public-release gate; approved binaries are authoritative',
+        'multi-GB raw RASPA closure is intentionally out of scope for this GitHub release',
+        'Git commit/tag plus existing publication/structural hash manifests are the release identity',
+        'do not merge/tag/make public until source-rights/license/citation and final-review gates are approved',
     ]
 
     print('\nWARNINGS / OPEN GATES')

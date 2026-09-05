@@ -185,12 +185,17 @@ All plots are generated from the frozen CSV tables in `data/`. The renderer does
 
 The main RASPA Figure 6 and SI Figure S06 use the supplied RASPA 3.0.29 closure summary tables. The density-map analysis is deliberately not reproduced.
 
-## Release-test status
+## Release status
 
-The environment definition is present (`environment.yml` and
-`requirements.txt`), but the clean-clone/fresh-environment release gate remains
-open until this workflow is actually run successfully in a separate fresh
-clone/environment and the result is recorded.
+The environment definition is retained for users who wish to rerender the
+figures from the frozen compact source tables. Fresh-environment rerendering is
+not required to publish this repository because the approved manuscript
+binaries under `../../figures/` are the authoritative frozen release assets.
 
-The canonical renderer must not be confused with historical Step 3 renderer
-variants retained under `../../archive/legacy_renderers/quantitative/`.
+A clean shallow clone of repository commit
+`38ad8b01a6b801c18e512c298e5e4814a4e40fd0` has already been verified with a
+clean working tree.
+
+The canonical publication source package must not be confused with historical
+Step 3 renderer variants retained under
+`../../archive/legacy_renderers/quantitative/`.

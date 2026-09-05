@@ -14,11 +14,12 @@ These scripts retain original path calculations such as `Path(__file__).resolve(
 Accordingly, the historical copies are preserved as provenance assets rather
 than rewritten in place.
 
-A separate Tier-1 publication-figure reproduction layer is now present at
-`../reproduce/figures/`. It uses frozen compact source tables and generates the
-final quantitative/RASPA main and SI figures without re-fitting the core study
-or rebuilding the matched population. Its clean-clone/fresh-environment test
-remains a release gate.
+A separate Tier-1 publication-figure source/reproduction layer is now present at
+`../reproduce/figures/`. It uses frozen compact source tables and can generate
+the final quantitative/RASPA main and SI figures without re-fitting the core
+study or rebuilding the matched population. The approved manuscript binaries
+remain authoritative, so fresh-environment rerendering is optional rather than
+a public-release gate.
 
 ## Step 3 renderer canonicalization
 

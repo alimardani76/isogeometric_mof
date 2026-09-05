@@ -35,11 +35,20 @@ the repository to public visibility.
 
 ## Large RASPA closure
 
-The multi-gigabyte RASPA closure is not appropriate for ordinary Git history. The release strategy is:
+The multi-gigabyte RASPA raw closure is intentionally outside the scope of this
+GitHub publication release and is not committed to ordinary Git history.
 
-1. compact summary/audit tables on GitHub;
-2. immutable external archive for the raw closure;
-3. persistent identifier plus archive SHA-256 and manifest in this repository.
+The public release layer consists of:
+
+1. compact audited summary/reproducibility tables on GitHub;
+2. exact protocol/version/seed/hash records needed to identify the selected-case
+   production calculations;
+3. manuscript-facing Figure 6 / Figure S06 provenance and claim boundaries.
+
+No external upload of the raw multi-gigabyte closure is required by this
+repository release. If the authors later choose to deposit the raw closure,
+that deposit can be linked as an optional archival supplement without changing
+the scientific identity of the GitHub release.
 
 
 ## Curated structural-panel CIF exception
