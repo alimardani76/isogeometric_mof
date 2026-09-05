@@ -1,0 +1,41 @@
+{
+  "figure": "Figure_S01",
+  "font_resolved": "Arial",
+  "inputs": [
+    {
+      "path": "data\\si\\controls_primary__step3_same_chemistry_control_results.csv",
+      "sha256": "e6ca9c0823e739df68979ce783480bb76c308ee0d1592ba2011218f25455417e"
+    },
+    {
+      "path": "data\\si\\controls_symmetric__step5b_symmetric_control_results.csv",
+      "sha256": "790b4df026379930029f6c9bba6742ee22bcd8d34a76ba6ebf8924c4d02c6005"
+    }
+  ],
+  "panel_sources": [
+    {
+      "path": "outputs\\si\\Figure_S01\\source_panel_A.csv",
+      "sha256": "515d7351f68151e76ac095b2d822557a86810142356935a197810ae1fbd1f510"
+    },
+    {
+      "path": "outputs\\si\\Figure_S01\\source_panel_B.csv",
+      "sha256": "3728c511704271df3c334c4e9fb0c586d546c2a8d23247892555f1cbff39ceb3"
+    },
+    {
+      "path": "outputs\\si\\Figure_S01\\source_panel_C.csv",
+      "sha256": "12a472d363bff0dcd4b85ed25f5fd3c19938fb8e9abe35d4f7166287916a863b"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "outputs\\si\\Figure_S01\\Figure_S01_Additional_Controls.pdf",
+      "sha256": "8209aa3086500c80802efdc9e19b81c4b45922019714dd99d341dcb47e6e3a30"
+    },
+    {
+      "path": "outputs\\si\\Figure_S01\\Figure_S01_Additional_Controls_200dpi.png",
+      "sha256": "1a43d0d7754878ad4f6012920b84251f002ad40b3e4e94a9d79968be12aa2c90"
+    }
+  ],
+  "notes": {
+    "purpose": "additional control-scale and exploratory motif detail"
+  }
+}

@@ -1,0 +1,11 @@
+selection_category,role_label,process,working_capacity_change_oriented_by_uptake,uptake_working_capacity_concordant
+strong_linker_process_aligned,Strong linker / process aligned,landfill-gas-vpsa,2.950651,True
+strong_linker_process_aligned,Strong linker / process aligned,methane-storage-psa,1.7487899999999996,True
+strong_linker_process_aligned,Strong linker / process aligned,natural-gas-purification,2.3386690000000003,True
+strong_linker_process_aligned,Strong linker / process aligned,post-combustion-vsa,0.319603,True
+strong_linker_process_aligned,Strong linker / process aligned,pre-combustion-40-40,3.4686960000000013,True
+process_discordant_comparison,Process-discordant comparison,landfill-gas-vpsa,-0.1252049999999993,False
+process_discordant_comparison,Process-discordant comparison,methane-storage-psa,-0.2453859999999998,False
+process_discordant_comparison,Process-discordant comparison,natural-gas-purification,-0.0973329999999998,False
+process_discordant_comparison,Process-discordant comparison,post-combustion-vsa,0.3635580000000002,True
+process_discordant_comparison,Process-discordant comparison,pre-combustion-40-40,-0.4607930000000007,False

@@ -1,0 +1,45 @@
+{
+  "figure": "Figure_03",
+  "font_resolved": "Arial",
+  "inputs": [
+    {
+      "path": "data\\main\\04_heat_adsorption_pressure_results.csv",
+      "sha256": "b567276cb4bac47db345eae6b44629f3823f4ed0050fe4511603ec261b5edda3"
+    },
+    {
+      "path": "data\\main\\04_05_results.csv",
+      "sha256": "85b3440afe0ae04b13befca549041bdc1e5848c195eba2b96a1e47c35d43526f"
+    }
+  ],
+  "panel_sources": [
+    {
+      "path": "outputs\\main\\Figure_03\\source_panel_A.csv",
+      "sha256": "72563ed3a9a955232484e28abdefce2c3f069ee1c1e4dcb5ffae886ec8b5bda9"
+    },
+    {
+      "path": "outputs\\main\\Figure_03\\source_panel_B.csv",
+      "sha256": "10b63b6dbe8ba889540b41cbf54c76ea9962ef28d40c6fbd6d36f0267c0126af"
+    },
+    {
+      "path": "outputs\\main\\Figure_03\\source_panel_C.csv",
+      "sha256": "708ab82de94ace365a45c2d6505dd021d329540306e3b075168d22177f4722f0"
+    },
+    {
+      "path": "outputs\\main\\Figure_03\\source_panel_D.csv",
+      "sha256": "ed5b94a1921abe82ef434d598c1eef2078303e6f53e1ed5692ba97d5cad5794a"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "outputs\\main\\Figure_03\\Figure_03.pdf",
+      "sha256": "c72a3766832bc666909216447e7cd87d07c320f0e7254f74b5dd7a0f602e5f56"
+    },
+    {
+      "path": "outputs\\main\\Figure_03\\Figure_03_200dpi.png",
+      "sha256": "409016a700cc29a59617c20185d3a164582a0ec1557d53cea459cdfef6398982"
+    }
+  ],
+  "notes": {
+    "boundary": "plots chemistry-associated separation, not raw uptake"
+  }
+}

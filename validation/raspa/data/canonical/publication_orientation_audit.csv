@@ -1,0 +1,9 @@
+pair_id,role,canonical_A_mof,canonical_B_mof,orientation_source,group,A_mof,B_mof,orientation_action
+A1,strong_linker,DB0-m3_o11_o17_f0_pcu.sym.32,DB0-m3_o12_o20_f0_pcu.sym.24,Figure 5 / Table S09 structural convention,linker_family,DB0-m3_o11_o17_f0_pcu.sym.32,DB0-m3_o12_o20_f0_pcu.sym.24,same
+A2,near_null_linker,DB0-m2_o23_o28_f0_nbo.sym.21,DB0-m2_o23_o28_f0_nbo.sym.4,Figure 5 / Table S09 structural convention,linker_family,DB0-m2_o23_o28_f0_nbo.sym.21,DB0-m2_o23_o28_f0_nbo.sym.4,same
+A3,strong_metal,DB0-m3_o7_o7_f0_nbo.sym.48,DB0-m2_o7_o7_f0_nbo.sym.45,Figure 5 / Table S09 structural convention,metal_substitution,DB0-m2_o7_o7_f0_nbo.sym.45,DB0-m3_o7_o7_f0_nbo.sym.48,reversed
+A4,cu_zn_pressure_exception,DB0-m3_o6_o27_f0_nbo.sym.33,DB0-m2_o6_o27_f0_nbo.sym.30,Figure 5 / Table S09 structural convention,metal_substitution,DB0-m2_o6_o27_f0_nbo.sym.30,DB0-m3_o6_o27_f0_nbo.sym.33,reversed
+B1,confirmatory_strong_linker,DB0-m3_o14_o22_f0_nbo.sym.46,DB0-m3_o1_o9_f0_nbo.sym.133,RASPA native comparator convention,linker_family,DB0-m3_o14_o22_f0_nbo.sym.46,DB0-m3_o1_o9_f0_nbo.sym.133,same
+B2,confirmatory_near_null_linker,DB1-Zn2O8N2-AZO_A-BDC_A_No205,DB1-Zn2O8N2-AZO_A-irmof6_A_No152,RASPA native comparator convention,linker_family,DB1-Zn2O8N2-AZO_A-BDC_A_No205,DB1-Zn2O8N2-AZO_A-irmof6_A_No152,same
+C1,process_discordant_linker,DB0-m3_o440_o155_f0_fsc.sym.26,DB0-m3_o152_o155_f0_fsc.sym.27,Figure 5 / Table S09 structural convention,linker_family,DB0-m3_o152_o155_f0_fsc.sym.27,DB0-m3_o440_o155_f0_fsc.sym.26,reversed
+C2,exploratory_functional_motif,DB0-m9_o17_o27_f0_sra.sym.117,DB0-m9_o17_o27_f0_sra.sym.116,Figure 5 / Table S09 structural convention,functional_motif,DB0-m9_o17_o27_f0_sra.sym.116,DB0-m9_o17_o27_f0_sra.sym.117,reversed

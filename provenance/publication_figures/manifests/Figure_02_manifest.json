@@ -1,0 +1,53 @@
+{
+  "figure": "Figure_02",
+  "font_resolved": "Arial",
+  "inputs": [
+    {
+      "path": "data\\main\\04_step3_same_chemistry_control_results.csv",
+      "sha256": "e6ca9c0823e739df68979ce783480bb76c308ee0d1592ba2011218f25455417e"
+    },
+    {
+      "path": "data\\main\\04_step5b_symmetric_control_results.csv",
+      "sha256": "790b4df026379930029f6c9bba6742ee22bcd8d34a76ba6ebf8924c4d02c6005"
+    },
+    {
+      "path": "data\\main\\04_heat_adsorption_condition_results.csv",
+      "sha256": "cc1ae1f29329c176c6b88c31bb24a1214d031cea31ad71fc0186b0e471ee0cda"
+    },
+    {
+      "path": "data\\main\\04_03_results.csv",
+      "sha256": "e6cc18bdae556700a54fea45e3b10f12fc4306bfc2cc4e16a6ac1be7df75e4d6"
+    }
+  ],
+  "panel_sources": [
+    {
+      "path": "outputs\\main\\Figure_02\\source_panel_A.csv",
+      "sha256": "4cf651efbc7db0e89ae45a3d64dd1db2a2eb1b8ee53d135790afc4c977adf577"
+    },
+    {
+      "path": "outputs\\main\\Figure_02\\source_panel_B.csv",
+      "sha256": "3fdca7a49504abe050345c7f1dab54390b8ebe0747af2ae90862c468bda4e817"
+    },
+    {
+      "path": "outputs\\main\\Figure_02\\source_panel_C.csv",
+      "sha256": "545792e59395f7c3ea57a25249ab4c823365a4a2cc3b74bafb28bf61b2ed93db"
+    },
+    {
+      "path": "outputs\\main\\Figure_02\\source_panel_D.csv",
+      "sha256": "98591fe1d91ec1d056684319f209c05844042046047a0d454d01c194061ea819"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "outputs\\main\\Figure_02\\Figure_02.pdf",
+      "sha256": "b575aeddff7736820f49b1aa3891e1738fb20fab19f99f799f803f07c7222f08"
+    },
+    {
+      "path": "outputs\\main\\Figure_02\\Figure_02_200dpi.png",
+      "sha256": "86395acacedb9397ddf426bd309790f443f71ccc0cc4231daa243b0d93434359"
+    }
+  ],
+  "notes": {
+    "focus": "absolute-log main-text evidence; standardized detail moved to SI"
+  }
+}

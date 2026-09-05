@@ -1,0 +1,41 @@
+{
+  "figure": "Figure_S06",
+  "font_resolved": "Arial",
+  "inputs": [
+    {
+      "path": "data\\raspa\\final_pair_statistics.csv",
+      "sha256": "097dd684176a9de3608a5bdd3772a76447c78b556ff770d6923e2eb967e7212c"
+    }
+  ],
+  "panel_sources": [
+    {
+      "path": "outputs\\si\\Figure_S06\\source_panel_A.csv",
+      "sha256": "2153337b9c4ba5315757b07c05b134a3922a819454a44c18e4684d9c890ac218"
+    },
+    {
+      "path": "outputs\\si\\Figure_S06\\source_panel_B.csv",
+      "sha256": "25efdb2068f8adb25ba12f3859db601dd7ef2effd10eadf87fadb5327003964a"
+    },
+    {
+      "path": "outputs\\si\\Figure_S06\\source_panel_C.csv",
+      "sha256": "6151f45251634726af080a5e663a8c77136d3ab446552b34285e2bcab896deaa"
+    },
+    {
+      "path": "outputs\\si\\Figure_S06\\source_panel_D.csv",
+      "sha256": "2dcc9814abc920e45cac14633701d203975ea6b8cd84d381cb2fb45af93f5037"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "outputs\\si\\Figure_S06\\Figure_S06_RASPA_Eight_Pair_Detail.pdf",
+      "sha256": "19ef8dfb410cd9fae655f3dcedbe39b4f79433c6257390adca690fa4abad1d69"
+    },
+    {
+      "path": "outputs\\si\\Figure_S06\\Figure_S06_RASPA_Eight_Pair_Detail_200dpi.png",
+      "sha256": "8bef057d9717bdfe2468e31531ed88991caa479db214e03319740828c9ad83b5"
+    }
+  ],
+  "notes": {
+    "exclusions": "no RASPA density map; raw grids/generation code unavailable"
+  }
+}

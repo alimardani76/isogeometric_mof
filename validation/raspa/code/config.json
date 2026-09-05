@@ -1,0 +1,8 @@
+{
+  "png_dpi": 200,
+  "font_primary": "Arial",
+  "font_fallbacks": ["Liberation Sans", "Helvetica", "DejaVu Sans"],
+  "save_pdf": true,
+  "save_png": true,
+  "transparent": false
+}

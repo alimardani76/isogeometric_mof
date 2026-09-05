@@ -1,0 +1,45 @@
+{
+  "figure": "Figure_S03",
+  "font_resolved": "Arial",
+  "inputs": [
+    {
+      "path": "data\\si\\guest__05_results.csv",
+      "sha256": "85b3440afe0ae04b13befca549041bdc1e5848c195eba2b96a1e47c35d43526f"
+    },
+    {
+      "path": "data\\si\\hoa_pressure__heat_adsorption_pressure_results.csv",
+      "sha256": "b567276cb4bac47db345eae6b44629f3823f4ed0050fe4511603ec261b5edda3"
+    }
+  ],
+  "panel_sources": [
+    {
+      "path": "outputs\\si\\Figure_S03\\source_panel_A.csv",
+      "sha256": "d1de966f7e3b04a784960fee68dd59ba2625885159a6c548bdd3f576a1f84fe8"
+    },
+    {
+      "path": "outputs\\si\\Figure_S03\\source_panel_B.csv",
+      "sha256": "176db0f639e341066963a0635b5fea2c7e59a638fcc360df5a41ecd434eb6cf2"
+    },
+    {
+      "path": "outputs\\si\\Figure_S03\\source_panel_C.csv",
+      "sha256": "e80a3215a940b540650804a8a013d2eb49ce1aa2481d89ea6361de6d1a03ead7"
+    },
+    {
+      "path": "outputs\\si\\Figure_S03\\source_panel_D.csv",
+      "sha256": "2ffc82b402c0577dfcc88ffd6bf9d3634da0691fc52a5b69a127ef38ad935937"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "outputs\\si\\Figure_S03\\Figure_S03_Guest_Pressure_Specificity.pdf",
+      "sha256": "cce0283f7b98c539382ae641fd7a9548a7008cdb0be9293e5c8e9993be8c5a0d"
+    },
+    {
+      "path": "outputs\\si\\Figure_S03\\Figure_S03_Guest_Pressure_Specificity_200dpi.png",
+      "sha256": "8f7c17d546d0671a2d00aee0c71e384404ce9f924876c17030211e076648c0f9"
+    }
+  ],
+  "notes": {
+    "note": "paired process-regime comparisons; not equal-pressure thermodynamic comparisons"
+  }
+}

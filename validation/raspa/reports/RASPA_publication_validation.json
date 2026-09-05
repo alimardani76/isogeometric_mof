@@ -1,0 +1,52 @@
+{
+  "publication_pair_order": [
+    "A1",
+    "A2",
+    "A3",
+    "A4",
+    "B1",
+    "B2",
+    "C1",
+    "C2"
+  ],
+  "orientation_actions": {
+    "A1": "same",
+    "A2": "same",
+    "A3": "reversed",
+    "A4": "reversed",
+    "B1": "same",
+    "B2": "same",
+    "C1": "reversed",
+    "C2": "reversed"
+  },
+  "reversed_pairs": [
+    "A3",
+    "A4",
+    "C1",
+    "C2"
+  ],
+  "unchanged_pairs": [
+    "A1",
+    "A2",
+    "B1",
+    "B2"
+  ],
+  "finite_pressure_correlations": {
+    "gcmc_0p1bar": {
+      "label": "0.1 bar",
+      "pearson_r": 0.9959788136881239,
+      "n_pairs": 8
+    },
+    "gcmc_1bar": {
+      "label": "1 bar",
+      "pearson_r": 0.9952739964113686,
+      "n_pairs": 8
+    }
+  },
+  "checks": {
+    "canonical_pairs_match_native_unordered_pairs": true,
+    "six_structural_cases_match_Table_S09": true,
+    "absolute_fold_difference_preserved": true,
+    "signed_log2_consistent_with_publication_ratio": true
+  }
+}
