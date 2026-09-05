@@ -1,0 +1,25 @@
+figure,panel,scientific_job,analysis_layer,source,placement,notes
+Figure 1,A,Matched-comparison concept / design,conceptual + frozen counts,04_final_primary_pair_counts.csv; manuscript design rules,main,New visual; no report cards
+Figure 1,B,Cohort/support funnel,frozen support counts,04_corrected_effect_run_summary.csv,main,Keep numerical hierarchy exact
+Figure 1,C,Geometry-tier support,caliper support,04_caliper_sensitivity_support.csv,main,Outcome-blind
+Figure 1,D,Dependence structure,frozen dependence groups,final counts / manuscript values,main,"Families, not raw rows"
+Figure 2,A,Chemistry vs same-chemistry background,primary controls,04_step3_same_chemistry_control_results.csv,main,Linker central
+Figure 2,B,Symmetric design,symmetric controls,04_step5b_symmetric_control_results.csv,main,Prefer compact forest/interval plot
+Figure 2,C,HOA association,condition HOA results,04_heat_adsorption_condition_results.csv,main,"Energetic coordinate, not mechanism"
+Figure 2,D,Residual-geometry adjustment,adjustment results,04_03_results.csv,main,Show attenuation + persistence
+Figure 3,A,Guest-specific chemistry sensitivity,guest results,04_05_results.csv,main,Paired regimes
+Figure 3,B,Guest summary,guest summary,04_05_summary.csv,main,CO2 vs co-guest
+Figure 3,C,Pressure dependence of energetic/adsorption contrast,pressure HOA results,04_heat_adsorption_pressure_results.csv,main,Avoid raw uptake ordering ambiguity
+Figure 3,D,Representative boundary,same source,same as above,main,Precombustion boundary
+Figure 4,A,Working-capacity concordance,process translation,04_process_translation_summary_final.csv,main,Process implication
+Figure 4,B,Selectivity concordance,process translation,04_process_translation_summary_final.csv,main,Weaker than WC
+Figure 4,C,Applicability boundary / selected process cases,candidate process,04_candidate_process_results.csv,main,No causal explanation
+Figure 4,D,Compact robustness summary,family/topology/balance,Figure_04 source tables,main or SI,Most robustness moves to SI
+Figure 5,A-F,Structure-resolved six cases,handled in structural workstream,separate structural pack,main,Do not render here
+Figure 6,A-D,Selected-case RASPA validation,RASPA compact,pair_summary/final_pair_statistics/framework_summary,main,Science locked by RASPA workstream first
+Figure S1,A-D,Matching/controls robustness,Figure_04 source tables,balance/family/reciprocal/topology,SI,Absorb old audit Figure 4
+Figure S2,A-D,Detailed HOA associations,SI source,hoa condition/pressure,SI,Full details
+Figure S3,A-D,Guest/pressure detailed specificity,SI source,guest results,SI,Full 18-condition detail
+Figure S4,A-C,Residual geometry/family sensitivity,SI source,adjustment/family,SI,Optional if not redundant
+Figure S5,A-F,Structural geometry-control proof,structural pack,geometry proof CSV,SI,Optional companion
+Figure S6,A-D,RASPA full eight-pair detail,RASPA pack,full pair statistics,SI,No density maps

@@ -1,0 +1,4 @@
+intervention,pressure_comparisons,log_magnitude_increased,log_magnitude_decreased,standardized_magnitude_increased,standardized_magnitude_decreased,maximum_epsilon_sensitivity_change_low,maximum_epsilon_sensitivity_change_high
+functional_motif_change,9,1,8,2,7,5.721773921329998e-08,2.3889353828465687e-08
+linker_family_change,9,1,8,2,7,7.210815244906854e-08,3.442988105728517e-08
+metal_substitution,9,2,7,3,6,7.377419475318447e-08,5.246916379153532e-08

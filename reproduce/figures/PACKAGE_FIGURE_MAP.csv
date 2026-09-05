@@ -1,0 +1,13 @@
+figure,panels,placement,scientific_job,primary_frozen_sources,status
+Figure_01,A-D,main,Matched comparison design and support,"04_final_primary_pair_counts.csv; 04_caliper_sensitivity_support.csv",READY
+Figure_02,A-D,main,Chemistry above same-chemistry background + energetic association + adjustment,"04_step3_same_chemistry_control_results.csv; 04_step5b_symmetric_control_results.csv; 04_heat_adsorption_condition_results.csv; 04_03_results.csv",READY
+Figure_03,A-D,main,Guest and pressure dependence + pre-combustion boundary,"04_heat_adsorption_pressure_results.csv; 04_05_results.csv",READY
+Figure_04,A-D,main,Working-capacity/selectivity translation + selected aligned/discordant examples,"04_process_translation_summary_final.csv; 04_02_final_case_set.csv; 04_candidate_process_results.csv",READY
+Figure_05,A-F,main,Already-finalized structural panel,separate structural workstream,KEEP_EXISTING
+Figure_06,A-D,main,RASPA selected-case validation replacing old process Figure 6,final_pair_statistics.csv,READY
+Figure_S01,A-C,SI,Additional control scales and symmetric-design detail,"controls_primary__step3_same_chemistry_control_results.csv; controls_symmetric__step5b_symmetric_control_results.csv",READY
+Figure_S02,A-D,SI,Detailed HOA associations + pressure-change associations,"hoa_condition__heat_adsorption_condition_results.csv; hoa_pressure__heat_adsorption_pressure_results.csv",READY
+Figure_S03,A-D,SI,Detailed guest/pressure specificity,"guest__05_results.csv; hoa_pressure__heat_adsorption_pressure_results.csv",READY
+Figure_S04,A-F,SI,Robustness and measured-geometry sensitivity,"reciprocal matching; topology robustness; balance; residual geometry; family exclusion; adjustment tables",READY
+Figure_S05,A-B,SI,Selected-case structural geometry-control companion,"04_02_final_case_set.csv; 04_candidate_process_results.csv",READY
+Figure_S06,A-D,SI,Full eight-pair RASPA detail without density maps,final_pair_statistics.csv,READY

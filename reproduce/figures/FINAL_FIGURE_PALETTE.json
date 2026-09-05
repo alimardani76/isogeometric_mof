@@ -1,0 +1,19 @@
+{
+  "linker_family": "#2F5D9B",
+  "linker_light": "#AFC4E3",
+  "metal_substitution": "#D46A1F",
+  "metal_light": "#F0B77C",
+  "functional_motif_exploratory": "#756AA6",
+  "functional_light": "#C3BCDB",
+  "control_graphite": "#707985",
+  "control_light": "#D8DDE3",
+  "co2_energetic": "#1B7F79",
+  "coguest_warm": "#B58228",
+  "raspa_full": "#214E7A",
+  "raspa_charge_off": "#B8C0CA",
+  "vdw": "#648DBA",
+  "coulomb": "#D98233",
+  "total_energy": "#7B858F",
+  "ink": "#1F2732",
+  "grid": "#E7EAEE"
+}
