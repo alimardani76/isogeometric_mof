@@ -2,7 +2,8 @@
 # isogeometric_mof: Reproducibility and Transparency Record
 
 
-> **Publication-release candidate:** this branch contains the frozen Paper 7B
+> **Publication submission snapshot:** the frozen scientific release is identified
+> by commit `eb04aab61606281bee201a0c9f54a1b66b5ade11` and annotated tag `v1.0-submission`. It contains the
 > manuscript-facing assets, historical provenance, compact selected-case RASPA
 > validation, and publication metadata. Approved binaries under `figures/` are
 > authoritative; no fresh figure regeneration is required. The multi-GB raw
@@ -10,7 +11,8 @@
 > assuming third-party redistribution rights, the 12 ARC-MOF-derived structural
 > CIF byte files are not redistributed in the public Git release; their
 > identifiers and SHA-256 provenance remain recorded. Scientific values and
-> claim boundaries are frozen.
+> claim boundaries are frozen. Later `main`-branch changes should be limited to
+> documentation/release engineering unless a new scientific snapshot is declared.
 
 
 ## Purpose
@@ -27,8 +29,8 @@ tables.
 This repository contains the reproducibility assets generated from the
 audited Project 7B2 workflow. The historical Steps 1--4 analysis is preserved,
 and the publication release also includes a dedicated selected-case validation
-layer under `validation/raspa/`. Final manuscript-facing assets are canonicalized
-on the release branch before public release.
+layer under `validation/raspa/`. Final manuscript-facing assets are canonicalized in the tagged submission
+snapshot.
 
 ------------------------------------------------------------------------
 
@@ -396,7 +398,9 @@ Current limitations:
 -   Scripts retain original project-path assumptions.
 -   No complete environment lock file was available.
 -   Some renderer variants exist and require careful selection.
--   The workflow has not been rerun from a clean external clone.
+-   The historical raw-data pipeline has not been rerun end-to-end from a clean
+    external clone; the frozen publication snapshot itself is hash-tracked and
+    independently checkable as a clean Git checkout.
 
 These limitations are documented intentionally to preserve transparency.
 
@@ -441,7 +445,7 @@ Current release-facing records:
 - `archive/README.md` — policy for superseded/noncanonical renderers and other
   historical assets.
 
-The structural-panel workstream is complete on this release branch. The
+The structural-panel workstream is complete in the frozen submission snapshot. The
 authoritative user-supplied final assets are frozen as:
 
 - `figures/main/Figure_05.pdf` and
@@ -454,10 +458,11 @@ The three publication-content workstreams are integrated: (1) structural Figure
 5, (2) redesigned quantitative/SI artwork plus canonical renderer, and (3) the
 compact selected-case RASPA Figure 6/S06 provenance layer.
 
-The clean-clone distribution check is complete: a shallow clone of
-`release/paper7b-public` at
-`38ad8b01a6b801c18e512c298e5e4814a4e40fd0` checked out all 463 tracked files
-and reported a clean working tree.
+The manuscript-cited scientific snapshot is commit
+`eb04aab61606281bee201a0c9f54a1b66b5ade11`, also identified by annotated tag `v1.0-submission`. A clean
+checkout of this snapshot passes the repository-integrity checks, and the frozen
+manuscript-facing publication assets are SHA-256 tracked in
+`provenance/final_publication_asset_hashes.csv`.
 
 The publication metadata/source-rights boundary is finalized conservatively:
 
@@ -469,13 +474,16 @@ The publication metadata/source-rights boundary is finalized conservatively:
 4. the 12 ARC-MOF-derived structural CIF byte files are excluded from public Git,
    while their identifiers and hashes remain in provenance.
 
-The remaining repository operations are final automated audit/CI, PR merge,
-release tag, and owner/admin visibility change. Fresh regeneration of approved
-figure binaries is not a release gate. The multi-gigabyte raw RASPA closure is
-outside the GitHub release scope and is not required to be uploaded. A separate
-repository-wide SHA-256 manifest is not required: the Git commit/tag identifies
-the repository state, while publication assets and structural provenance already
-carry explicit hashes.
+The scientific submission release is already frozen: the repository is public,
+the release work has been merged to `main`, and `v1.0-submission` points to
+`eb04aab61606281bee201a0c9f54a1b66b5ade11`. Subsequent cleanup should be limited to documentation, release
+engineering, CI, or packaging. Do not move or rewrite the submission tag, and do
+not alter frozen scientific assets without creating an explicitly new scientific
+snapshot. Fresh regeneration of approved figure binaries is not a release gate.
+The multi-gigabyte raw RASPA closure is outside the GitHub release scope and is
+not required to be uploaded. A separate repository-wide SHA-256 manifest is not
+required: the Git commit/tag identifies the repository state, while publication
+assets and structural provenance already carry explicit hashes.
 
 <!-- PAPER7B_FINAL_PUBLICATION_BLOCK_START -->
 ## Final publication figures and compact reproduction

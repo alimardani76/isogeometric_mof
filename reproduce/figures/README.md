@@ -192,9 +192,10 @@ figures from the frozen compact source tables. Fresh-environment rerendering is
 not required to publish this repository because the approved manuscript
 binaries under `../../figures/` are the authoritative frozen release assets.
 
-A clean shallow clone of repository commit
-`38ad8b01a6b801c18e512c298e5e4814a4e40fd0` has already been verified with a
-clean working tree.
+The manuscript-cited frozen scientific snapshot is repository commit
+`eb04aab61606281bee201a0c9f54a1b66b5ade11`, identified by annotated tag `v1.0-submission`. This snapshot is
+the reference state for publication-facing assets; later documentation or CI
+maintenance on `main` does not redefine the frozen scientific release.
 
 The canonical publication source package must not be confused with historical
 Step 3 renderer variants retained under

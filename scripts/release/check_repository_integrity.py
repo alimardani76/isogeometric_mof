@@ -251,6 +251,96 @@ def check_structural_panel_manifest(files: list[Path], errors: list[str]) -> Non
             f"structural-panel expected 89 tracked public files, found {len(tracked)}"
         )
 
+
+def check_publication_asset_manifest(errors: list[str]) -> None:
+    """Verify the 12 canonical manuscript-facing publication PDFs."""
+    manifest = ROOT / "provenance" / "final_publication_asset_hashes.csv"
+
+    if not manifest.is_file():
+        errors.append("publication-asset SHA-256 manifest is missing")
+        return
+
+    expected_paths = {
+        "figures/main/Figure_01.pdf",
+        "figures/main/Figure_02.pdf",
+        "figures/main/Figure_03.pdf",
+        "figures/main/Figure_04.pdf",
+        "figures/main/Figure_05.pdf",
+        "figures/main/Figure_06.pdf",
+        "figures/supplementary/Figure_S01_Additional_Controls.pdf",
+        "figures/supplementary/Figure_S02_HOA_Associations.pdf",
+        "figures/supplementary/Figure_S03_Guest_Pressure_Specificity.pdf",
+        "figures/supplementary/Figure_S04_Robustness_Geometry_Sensitivity.pdf",
+        "figures/supplementary/Figure_S05_Structural_Geometry_Control.pdf",
+        "figures/supplementary/Figure_S06_RASPA_Eight_Pair_Detail.pdf",
+    }
+
+    rows: dict[str, dict[str, str]] = {}
+
+    try:
+        with manifest.open("r", encoding="utf-8-sig", newline="") as handle:
+            reader = csv.DictReader(handle)
+            required = {"path", "bytes", "sha256"}
+
+            if not reader.fieldnames or not required.issubset(reader.fieldnames):
+                errors.append(
+                    "publication-asset manifest must contain path, bytes, and sha256 columns"
+                )
+                return
+
+            for row in reader:
+                relpath = row["path"].strip().replace("\\", "/")
+                if relpath in expected_paths:
+                    if relpath in rows:
+                        errors.append(
+                            f"duplicate publication-asset manifest path: {relpath}"
+                        )
+                    else:
+                        rows[relpath] = row
+
+    except Exception as exc:
+        errors.append(f"cannot parse publication-asset manifest: {exc}")
+        return
+
+    missing = expected_paths - set(rows)
+    for relpath in sorted(missing):
+        errors.append(
+            f"canonical publication PDF missing from manifest: {relpath}"
+        )
+
+    for relpath in sorted(expected_paths & set(rows)):
+        row = rows[relpath]
+        target = ROOT / relpath
+
+        if not target.is_file():
+            errors.append(f"canonical publication PDF missing: {relpath}")
+            continue
+
+        try:
+            expected_size = int(row["bytes"])
+        except Exception:
+            errors.append(
+                f"invalid publication-PDF byte count in manifest: {relpath}"
+            )
+            continue
+
+        expected_hash = row["sha256"].strip().lower()
+        actual_size = target.stat().st_size
+
+        if actual_size != expected_size:
+            errors.append(
+                f"publication-PDF size mismatch: {relpath}: "
+                f"{actual_size} != {expected_size}"
+            )
+            continue
+
+        actual_hash = sha256_file(target)
+        if actual_hash != expected_hash:
+            errors.append(
+                f"publication-PDF SHA-256 mismatch: {relpath}: "
+                f"{actual_hash} != {expected_hash}"
+            )
+
 def main() -> int:
     files = tracked_files()
     errors: list[str] = []
@@ -262,6 +352,7 @@ def main() -> int:
     check_csv(files, errors)
     check_public_text_for_local_paths(files, errors)
     check_structural_panel_manifest(files, errors)
+    check_publication_asset_manifest(errors)
 
     if errors:
         print("Repository integrity check FAILED:")
@@ -271,7 +362,7 @@ def main() -> int:
 
     print(f"Repository integrity check PASSED for {len(files)} tracked files.")
     print("Structural panel: 89 tracked public files; 87 frozen payload hashes PASS; 12 CIF provenance entries external; release README adapted.")
-    print("Checked: paths/artifacts, file sizes, Python syntax, JSON, CSV, local paths.")
+    print("Checked: paths/artifacts, file sizes, Python syntax, JSON, CSV, local paths, canonical publication-PDF SHA-256 manifest.")
     return 0
 
 
