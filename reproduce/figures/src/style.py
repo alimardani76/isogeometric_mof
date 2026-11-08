@@ -36,14 +36,20 @@ COLORS = {
 }
 
 INTERVENTION_LABEL = {
-    "linker_family_change": "Linker family",
+    "linker_family_change": "Linker-family",
     "metal_substitution": "Metal substitution",
-    "functional_motif_change": "Functional motif",
+    "functional_motif_change": "Functional-motif",
 }
 INTERVENTION_COLOR = {
     "linker_family_change": COLORS["linker"],
     "metal_substitution": COLORS["metal"],
     "functional_motif_change": COLORS["functional"],
+}
+
+INTERVENTION_MARKER = {
+    "linker_family_change": "o",     # circle
+    "metal_substitution": "s",      # square
+    "functional_motif_change": "^", # triangle
 }
 
 PROCESS_LABEL = {
@@ -189,14 +195,14 @@ def save_figure(fig, output_base: Path) -> list[Path]:
     return out
 
 
-def legend_handles_interventions(include_functional: bool = False):
+def legend_handles_interventions(include_functional: bool = False, distinguish_by_shape: bool = False):
     from matplotlib.lines import Line2D
     keys = ["linker_family_change", "metal_substitution"]
     if include_functional:
         keys.append("functional_motif_change")
     return [
         Line2D(
-            [0], [0], marker="o", color="none",
+            [0], [0], marker=INTERVENTION_MARKER[k] if distinguish_by_shape else "o", color="none",
             markerfacecolor=INTERVENTION_COLOR[k], markeredgecolor=INTERVENTION_COLOR[k],
             markersize=6.4, label=INTERVENTION_LABEL[k],
         )

@@ -7,7 +7,7 @@ from matplotlib.patches import FancyArrowPatch, FancyBboxPatch
 
 from .style import (
     apply_style, clean_axis, panel_label, title_left, save_figure,
-    COLORS, INTERVENTION_COLOR, INTERVENTION_LABEL, PROCESS_LABEL,
+    COLORS, INTERVENTION_COLOR, INTERVENTION_LABEL, INTERVENTION_MARKER, PROCESS_LABEL,
     TARGET_LABEL, TARGET_ORDER, ROLE_LABEL, legend_handles_interventions,
 )
 from .utils import (
@@ -127,7 +127,7 @@ def render_figure_01():
     tier_tbl = cal[["tier_order", "tier"]].drop_duplicates().sort_values("tier_order")
     for inter in order:
         g = cal[cal["intervention"].astype(str).eq(inter)].sort_values("tier_order")
-        c.plot(g["tier_order"], g["raw_pairs"], "-o", lw=1.8, ms=5.4,
+        c.plot(g["tier_order"], g["raw_pairs"], "-", marker=INTERVENTION_MARKER[inter], lw=1.8, ms=5.4,
                color=INTERVENTION_COLOR[inter])
         last = g.iloc[-1]
         c.annotate(
@@ -151,8 +151,8 @@ def render_figure_01():
         inter = str(r["intervention"])
         x1, x2 = float(r["raw_pairs"]), float(r["related_groups"])
         d.plot([x2, x1], [yi, yi], color=COLORS["control_light"], lw=3.2, solid_capstyle="round")
-        d.scatter([x1], [yi], s=48, color=INTERVENTION_COLOR[inter], zorder=3)
-        d.scatter([x2], [yi], s=48, facecolor="white", edgecolor=INTERVENTION_COLOR[inter], linewidth=1.35, zorder=3)
+        d.scatter([x1], [yi], s=48, marker=INTERVENTION_MARKER[inter], color=INTERVENTION_COLOR[inter], zorder=3)
+        d.scatter([x2], [yi], s=48, marker=INTERVENTION_MARKER[inter], facecolor="white", edgecolor=INTERVENTION_COLOR[inter], linewidth=1.35, zorder=3)
     d.set_xscale("log")
     d.set_xlabel("Count (log scale)")
     d.set_yticks(y, [INTERVENTION_LABEL[str(i)] for i in counts["intervention"]])
@@ -209,7 +209,7 @@ def render_figure_02():
     for inter, off in zip(ints, [-0.16, 0.16]):
         g = p[p.intervention == inter].sort_values("y")
         _errorbar_rows(a, g, "median_chemistry_minus_control", "bootstrap_95_low", "bootstrap_95_high", "y",
-                       INTERVENTION_COLOR[inter], offset=off)
+                       INTERVENTION_COLOR[inter], marker=INTERVENTION_MARKER[inter], offset=off)
     a.set_xlabel(r"Chemistry minus control · $|\Delta\log q|$")
     a.set_yticks(range(n), cond["condition_label"]); a.invert_yaxis(); clean_axis(a, "x")
 
@@ -217,7 +217,7 @@ def render_figure_02():
     for inter, off in zip(ints, [-0.16, 0.16]):
         g = s[s.intervention == inter].sort_values("y")
         _errorbar_rows(b, g, "median_chemistry_minus_control", "bootstrap_95_low", "bootstrap_95_high", "y",
-                       INTERVENTION_COLOR[inter], offset=off)
+                       INTERVENTION_COLOR[inter], marker=INTERVENTION_MARKER[inter], offset=off)
     b.set_xlabel(r"Chemistry minus control · $|\Delta\log q|$")
     b.set_yticks(range(n), []); b.set_ylim(n - 0.5, -0.5); clean_axis(b, "x")
 
@@ -225,7 +225,7 @@ def render_figure_02():
     for inter, off in zip(ints, [-0.16, 0.16]):
         g = h[h.intervention == inter].sort_values("y")
         _errorbar_rows(c, g, "spearman_rho_heat_vs_adsorption_separation", "bootstrap_95_low_rho", "bootstrap_95_high_rho", "y",
-                       INTERVENTION_COLOR[inter], offset=off)
+                       INTERVENTION_COLOR[inter], marker=INTERVENTION_MARKER[inter], offset=off)
     c.set_xlabel(r"Spearman $\rho$: $|\Delta HOA|$ vs $|\Delta\log q|$")
     c.set_yticks(range(n), cond["condition_label"]); c.set_ylim(n - 0.5, -0.5); clean_axis(c, "x")
 
@@ -243,7 +243,7 @@ def render_figure_02():
     d.set_yticks(range(n), []); d.set_ylim(n - 0.5, -0.5); clean_axis(d, "x")
 
     # One clean figure-level legend; no legends sitting on the data.
-    handles = legend_handles_interventions(False) + [
+    handles = legend_handles_interventions(False, distinguish_by_shape=True) + [
         Line2D([0], [0], marker="o", color="none", markerfacecolor="white", markeredgecolor=COLORS["control"], markersize=6.8, label="Unadjusted (panel D)"),
         Line2D([0], [0], marker="o", color="none", markerfacecolor=COLORS["linker"], markeredgecolor=COLORS["linker"], markersize=6.8, label="Adjusted (panel D)"),
     ]
@@ -298,7 +298,7 @@ def render_figure_03():
     for inter, off in [("linker_family_change", -0.15), ("metal_substitution", 0.15)]:
         gg = g[g.intervention == inter].sort_values("y")
         _errorbar_rows(c, gg, "median_paired_difference_CO2_minus_coguest", "median_bootstrap_95_low", "median_bootstrap_95_high", "y",
-                       INTERVENTION_COLOR[inter], offset=off)
+                       INTERVENTION_COLOR[inter], marker=INTERVENTION_MARKER[inter], offset=off)
     c.set_yticks(range(len(rows)), [f"{_comparison_label(co)} · {reg}" for co, reg in rows]); c.invert_yaxis()
     c.set_xlabel(r"Paired $\mathrm{CO_2}$ minus co-guest · $|\Delta\log q|$")
     clean_axis(c, "x")
@@ -317,7 +317,7 @@ def render_figure_03():
     d.axvline(0, color=COLORS["control"], lw=0.85)
     for _, r in bd.iterrows():
         col = INTERVENTION_COLOR[r.intervention]
-        _errorbar_rows(d, pd.DataFrame([r]), "median_paired_difference_CO2_minus_coguest", "median_bootstrap_95_low", "median_bootstrap_95_high", "y", col, ms=5.3)
+        _errorbar_rows(d, pd.DataFrame([r]), "median_paired_difference_CO2_minus_coguest", "median_bootstrap_95_low", "median_bootstrap_95_high", "y", col, marker=INTERVENTION_MARKER[r.intervention], ms=5.3)
     d.set_yticks(bd.y, bd.row_label); d.invert_yaxis()
     d.set_xlabel(r"Paired $\mathrm{CO_2}$ minus $\mathrm{H_2}$ difference")
     clean_axis(d, "x")
@@ -325,7 +325,7 @@ def render_figure_03():
     fig.legend(handles=[
         Line2D([0], [0], marker="o", color="none", markerfacecolor="white", markeredgecolor=COLORS["control"], markersize=7, label="Low pressure"),
         Line2D([0], [0], marker="o", color="none", markerfacecolor=COLORS["control"], markeredgecolor=COLORS["control"], markersize=7, label="High pressure"),
-        *legend_handles_interventions(False),
+        *legend_handles_interventions(False, distinguish_by_shape=True),
     ], frameon=False, ncol=4, loc="lower center", bbox_to_anchor=(0.59, 0.010), columnspacing=1.5)
     fig.subplots_adjust(left=0.205, right=0.985, top=0.94, bottom=0.115)
     fig_dir = OUT_MAIN / "Figure_03"; fig_dir.mkdir(parents=True, exist_ok=True)
@@ -348,7 +348,7 @@ def _process_concordance_panel(ax, df, metric, title, letter):
     g = g[g.process.isin(proc_order)]; g["y"] = g.process.map(ymap)
     for inter, off in [("linker_family_change", -0.14), ("metal_substitution", 0.14)]:
         gg = g[g.intervention == inter].sort_values("y")
-        _errorbar_rows(ax, gg, "estimate", "bootstrap_95_low", "bootstrap_95_high", "y", INTERVENTION_COLOR[inter], offset=off, ms=5.2)
+        _errorbar_rows(ax, gg, "estimate", "bootstrap_95_low", "bootstrap_95_high", "y", INTERVENTION_COLOR[inter], marker=INTERVENTION_MARKER[inter], offset=off, ms=5.2)
     ax.set_yticks(range(len(proc_order)), [PROCESS_LABEL[p] for p in proc_order]); ax.invert_yaxis()
     ax.set_xlim(0.6, 1.0); ax.set_xlabel("Concordance fraction"); clean_axis(ax, "x")
     return g
@@ -406,7 +406,7 @@ def render_figure_04():
         Line2D([0], [0], marker="D", linestyle="none", color=COLORS["linker"], markersize=6.5, label="Process-aligned linker case"),
         Line2D([0], [0], marker="s", linestyle="none", color=COLORS["control"], markersize=7, label="Process-discordant linker case"),
     ]
-    fig.legend(handles=legend_handles_interventions(False) + case_handles, frameon=False, ncol=4,
+    fig.legend(handles=legend_handles_interventions(False, distinguish_by_shape=True) + case_handles, frameon=False, ncol=4,
                loc="lower center", bbox_to_anchor=(0.59, 0.010), columnspacing=1.6, handletextpad=0.5)
 
     fig.subplots_adjust(left=0.205, right=0.985, top=0.95, bottom=0.125)
