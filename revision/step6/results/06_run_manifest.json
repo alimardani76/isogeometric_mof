@@ -1,0 +1,48 @@
+{
+  "project": "7B2",
+  "task": "Ashleigh review C011/C012",
+  "utc_run_time": "2026-11-08T16:35:38.110709+00:00",
+  "mode": "all",
+  "bootstrap_replicates_new": 1000,
+  "rng_seed": 61108,
+  "input_files": {
+    "analysis\\process_translation_pair_results_final.parquet": {
+      "bytes": 9109391,
+      "sha256": "2d97f97d08eee4a70d6a65c7a0d2d7058136dab0fee6c6a545efbabe488c8e48"
+    },
+    "analysis\\process_translation_summary_final.csv": {
+      "bytes": 16403,
+      "sha256": "1ca19c314dabb569ff96fa63f149d10dfe91f0061ef0357ab36b0687f4291b34"
+    },
+    "Step 2 results\\residual_adjustment\\03_cohort.csv": {
+      "bytes": 55352907,
+      "sha256": "26459f1cf4b2f8cb75ecfe7f07aa05628fb4e4bce02350f79d4bfccc32eef98d"
+    },
+    "Step 2 results\\residual_adjustment\\03_results.csv": {
+      "bytes": 9758,
+      "sha256": "e6cc18bdae556700a54fea45e3b10f12fc4306bfc2cc4e16a6ac1be7df75e4d6"
+    }
+  },
+  "frozen_process_reproduced": true,
+  "frozen_geometry_reproduced": true,
+  "nonlinear_model_features": {
+    "quadratic": "7 original g plus 7 g^2 terms",
+    "piecewise_linear_spline": "7 original g plus 7 max(0,g-1/3) and 7 max(0,g-2/3) terms"
+  },
+  "support_cell_weighting": "same equal-weight cell Frisch-Waugh-Lovell estimator as original",
+  "bootstrap_unit": "whole support cell after family-median aggregation",
+  "pair_reselection": false,
+  "causal_inference_claim": false,
+  "original_inputs_edited": false,
+  "outputs": [
+    "06_review_report.md",
+    "C011_frozen_linear_reconciliation.csv",
+    "C011_nonlinear_geometry_by_condition.csv",
+    "C011_nonlinear_geometry_summary.csv",
+    "C012_exact_process_reversals.csv",
+    "C012_reconciliation_failures.csv"
+  ],
+  "python": "3.13.13 (tags/v3.13.13:01104ce, Apr  7 2026, 19:25:48) [MSC v.1944 64 bit (AMD64)]",
+  "numpy": "1.26.4",
+  "pandas": "2.3.2"
+}

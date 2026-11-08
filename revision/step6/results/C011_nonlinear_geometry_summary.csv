@@ -1,0 +1,9 @@
+effect_measure,model,conditions,stable_full_rank_conditions,positive_stable_conditions,nonlinear_intervals_above_zero,conditions_with_nonlin_ci,median_attenuation_fraction_stable,max_design_condition_number
+absolute_log_difference,linear,18,18,18,0,0,0.357343023244,11.8069356356
+absolute_log_difference,piecewise_linear_spline,18,18,18,16,18,0.204940239753,813.875505757
+absolute_log_difference,quadratic,18,18,18,16,18,0.227360887921,309.752773602
+absolute_log_difference,unadjusted,18,18,18,0,0,0,1
+standardized_absolute_difference,linear,18,18,17,0,0,0.404398894836,11.8069356356
+standardized_absolute_difference,piecewise_linear_spline,18,18,18,15,18,0.261381526304,813.875505757
+standardized_absolute_difference,quadratic,18,18,18,16,18,0.27072721506,309.752773602
+standardized_absolute_difference,unadjusted,18,18,18,0,0,0,1
