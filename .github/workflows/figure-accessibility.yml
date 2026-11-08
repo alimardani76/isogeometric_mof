@@ -1,0 +1,189 @@
+name: Regenerate accessible Figures 1-4
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'reproduce/figures/src/main_figures.py'
+      - 'reproduce/figures/src/style.py'
+      - '.github/workflows/figure-accessibility.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: paper7b-accessible-figures
+  cancel-in-progress: false
+
+jobs:
+  render-and-publish:
+    if: github.ref == 'refs/heads/main'
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install figure renderer and QA libraries
+        shell: bash
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install 'numpy==1.26.4' 'pandas==2.2.3' 'matplotlib==3.10.8' 'pymupdf==1.24.14' 'Pillow==11.3.0'
+      - name: Verify Arial and render Figures 1-4
+        shell: bash
+        run: |
+          cd reproduce/figures
+          python -c 'from src.style import RESOLVED_FONT; assert RESOLVED_FONT == "Arial", RESOLVED_FONT'
+          for i in 01 02 03 04; do
+            python render_all.py --only "Figure_$i"
+          done
+      - name: Verify scientific inputs, publish assets and refresh hashes
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import csv, json, hashlib, shutil, math
+          import fitz
+          from PIL import Image, ImageDraw
+          
+          root=Path.cwd()
+          package=root/'reproduce'/'figures'
+          provenance=root/'provenance'/'publication_figures'
+          figures=[f'Figure_{n:02d}' for n in range(1,5)]
+          
+          def digest(p):
+              h=hashlib.sha256()
+              with p.open('rb') as f:
+                  for part in iter(lambda:f.read(1048576),b''):
+                      h.update(part)
+              return h.hexdigest()
+          
+          def rows(p):
+              with p.open('r',encoding='utf-8-sig',newline='') as f:
+                  return list(csv.DictReader(f))
+          
+          def same_numeric_table(a,b):
+              ra,rb=rows(a),rows(b)
+              if len(ra)!=len(rb) or (ra and list(ra[0])!=list(rb[0])):
+                  return False
+              for x,y in zip(ra,rb):
+                  for key,va in x.items():
+                      vb=y[key]
+                      if va==vb: continue
+                      try: fa,fb=float(va),float(vb)
+                      except (ValueError,TypeError): return False
+                      if math.isnan(fa) and math.isnan(fb): continue
+                      if not math.isclose(fa,fb,rel_tol=1e-11,abs_tol=1e-12): return False
+              return True
+          
+          def refresh_index(p,updates):
+              with p.open('r',encoding='utf-8-sig',newline='') as f:
+                  reader=csv.DictReader(f)
+                  headers=reader.fieldnames
+                  data=list(reader)
+              seen=set()
+              for r in data:
+                  name=r['path'].replace('\\','/')
+                  if name in updates:
+                      f=updates[name]
+                      r['sha256']=digest(f)
+                      if 'bytes' in r: r['bytes']=str(f.stat().st_size)
+                      seen.add(name)
+              if seen!=set(updates):
+                  raise RuntimeError(f'{p}: index missing {set(updates)-seen}')
+              with p.open('w',encoding='utf-8',newline='') as f:
+                  w=csv.DictWriter(f,fieldnames=headers,lineterminator='\n')
+                  w.writeheader();w.writerows(data)
+          
+          old_index=root/'provenance'/'final_publication_asset_hashes.csv'
+          old_hashes={r['path'].replace('\\','/'):r['sha256'] for r in rows(old_index)}
+          asset_changes={}
+          source_map_changes={}
+          for figure in figures:
+              folder=package/'outputs'/'main'/figure
+              original=json.loads((provenance/'manifests'/f'{figure}_manifest.json').read_text(encoding='utf-8'))
+              generated=json.loads((folder/'manifest.json').read_text(encoding='utf-8'))
+              assert generated['font_resolved']=='Arial',f'{figure}: final figure must use Arial'
+              for item in original['inputs']:
+                  source=package/item['path'].replace('\\','/')
+                  assert digest(source)==item['sha256'],f'{figure}: scientific input changed {source}'
+              for item in original['panel_sources']:
+                  filename=Path(item['path'].replace('\\','/')).name
+                  source=folder/filename
+                  frozen=provenance/'panel_sources'/f'{figure}_{filename}'
+                  assert source.is_file() and frozen.is_file(),f'{figure}: missing panel source {filename}'
+                  assert digest(source)==digest(frozen) or same_numeric_table(source,frozen),f'{figure}: panel numbers changed {filename}'
+              for ext,filename in [('pdf',f'{figure}.pdf'),('png',f'{figure}_200dpi.png')]:
+                  src=folder/filename
+                  assert src.is_file() and src.stat().st_size>1000
+                  if ext=='pdf':
+                      with fitz.open(src) as doc:
+                          assert len(doc)==1
+                          txt=doc[0].get_text()
+                      expected=('Linker-family','Functional-motif') if figure=='Figure_01' else ('Linker-family','Metal substitution')
+                      assert all(term in txt for term in expected),f'{figure}: PDF label verification failed'
+                  dest=root/'figures'/'main'/f'{figure}.{ext}'
+                  shutil.copyfile(src,dest)
+                  asset_changes[f'figures/main/{figure}.{ext}']=dest
+                  source_map_changes[f'outputs/main/{figure}/{filename}']=src
+              canonical=provenance/'manifests'/f'{figure}_manifest.json'
+              canonical.write_text(json.dumps(generated,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+              asset_changes[f'provenance/publication_figures/manifests/{figure}_manifest.json']=canonical
+          
+          mapfile=provenance/'FIGURE_SOURCE_HASH_MAP.csv'
+          refresh_index(mapfile,source_map_changes)
+          asset_changes['provenance/publication_figures/FIGURE_SOURCE_HASH_MAP.csv']=mapfile
+          refresh_index(old_index,asset_changes)
+          
+          preview=[]
+          for figure in figures:
+              with fitz.open(root/'figures'/'main'/f'{figure}.pdf') as doc:
+                  pix=doc[0].get_pixmap(matrix=fitz.Matrix(1.1,1.1),colorspace=fitz.csGRAY,alpha=False)
+              im=Image.frombytes('L',(pix.width,pix.height),pix.samples)
+              im.thumbnail((1180,900))
+              preview.append((figure,im))
+          w=max(im.width for _,im in preview)
+          h=max(im.height for _,im in preview)
+          sheet=Image.new('L',(2*w+72,2*(h+55)+36),255)
+          draw=ImageDraw.Draw(sheet)
+          for i,(figure,im) in enumerate(preview):
+              x=24+(i%2)*(w+24)
+              y=18+(i//2)*(h+55)
+              draw.text((x,y),figure+' grayscale QA',fill=0)
+              sheet.paste(im,(x,y+23))
+          qa=root/'figures'/'accessibility'/'Grayscale_QA_Figures_01_04.png'
+          qa.parent.mkdir(parents=True,exist_ok=True)
+          sheet.save(qa,optimize=True)
+          audit=root/'provenance'/'figure_accessibility_revision_2026-11-08.json'
+          audit.write_text(json.dumps({
+              'scope':'Figures 1-4: style and labeling only, frozen numerical source data',
+              'scientific_snapshot':'v1.0-submission',
+              'font':'Arial',
+              'input_sha256':'verified against source manifests',
+              'panel_numeric_values':'verified against frozen source tables',
+              'figure_sha256':{k:{'before':old_hashes.get(k),'after':digest(v)} for k,v in sorted(asset_changes.items()) if k.startswith('figures/main/')},
+              'grayscale_QA':{'path':qa.relative_to(root).as_posix(),'sha256':digest(qa)}
+          },indent=2)+'\n',encoding='utf-8')
+          print('PASS: input checksums, panel numbers, PDF text, Arial; refreshed 8 canonical figure files and indexes')
+          print('Grayscale QA:',qa)
+          PY
+          python scripts/release/check_repository_integrity.py
+      - name: Commit checked assets
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add figures/main/Figure_0[1-4].pdf figures/main/Figure_0[1-4].png
+          git add figures/accessibility/Grayscale_QA_Figures_01_04.png
+          git add provenance/final_publication_asset_hashes.csv provenance/publication_figures/FIGURE_SOURCE_HASH_MAP.csv
+          git add provenance/publication_figures/manifests/Figure_0[1-4]_manifest.json
+          git add provenance/figure_accessibility_revision_2026-11-08.json
+          if git diff --cached --quiet; then
+            echo 'Already up to date'
+          else
+            git commit -m 'Publish accessible Figures 1-4 from frozen scientific data'
+            git push origin HEAD:main
+          fi
