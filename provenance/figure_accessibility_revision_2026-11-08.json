@@ -1,0 +1,45 @@
+{
+  "scope": "Figures 1-4: style and labeling only, frozen numerical source data",
+  "scientific_snapshot": "v1.0-submission",
+  "font": "Arial",
+  "input_sha256": "verified against source manifests",
+  "panel_numeric_values": "verified against frozen source tables",
+  "figure_sha256": {
+    "figures/main/Figure_01.pdf": {
+      "before": "0e676da4c8fd6b3847a2beca6d699b3e322d1f013664147f78fd976b2a915184",
+      "after": "34c5ea76b9625582dc60ec7ca63ee9696f7b43c3cac4c07f9461c79eb1be1cf2"
+    },
+    "figures/main/Figure_01.png": {
+      "before": "ff77d4724997e2651a8e89871fe98a1be27bc013a3fc25e51041455987deda75",
+      "after": "8a1c1fb4dca30ffc1afe853bafed58335879330b53ee30be66153d3c5482bc84"
+    },
+    "figures/main/Figure_02.pdf": {
+      "before": "b575aeddff7736820f49b1aa3891e1738fb20fab19f99f799f803f07c7222f08",
+      "after": "65a879f7d0e17a4cfd75f72ebe6307cd94912efe7eb5e8ffcdaa1eb6076e9b86"
+    },
+    "figures/main/Figure_02.png": {
+      "before": "86395acacedb9397ddf426bd309790f443f71ccc0cc4231daa243b0d93434359",
+      "after": "5892fbfb2a70b524d982975205410f2e3e73f95551fb4c75883287348b6155de"
+    },
+    "figures/main/Figure_03.pdf": {
+      "before": "c72a3766832bc666909216447e7cd87d07c320f0e7254f74b5dd7a0f602e5f56",
+      "after": "f9912914a972ad53d7d1d8ba65ab9ca421f156b54c9eca4e4032af5f1ad16069"
+    },
+    "figures/main/Figure_03.png": {
+      "before": "409016a700cc29a59617c20185d3a164582a0ec1557d53cea459cdfef6398982",
+      "after": "f6ae44ce45a126dcd2b6f5c27528502ee64f8ee96f5e6c94993f6adc766b5ad5"
+    },
+    "figures/main/Figure_04.pdf": {
+      "before": "0f287f987716407c16fdf62dd873df3ff810dad0abfa920e272f664822ce39b9",
+      "after": "f443205474a0a230f4be2619428c927aca68142fc2a473aedcb05fdafff44d28"
+    },
+    "figures/main/Figure_04.png": {
+      "before": "e923f95f63ae60af362a5a578292bd7e3792300ed035c19c57edcf92794b66f3",
+      "after": "ec0e1f5b0b7f18bdca27e2d24f60a91332d382a222ec91514bd6d42255f06cd8"
+    }
+  },
+  "grayscale_QA": {
+    "path": "figures/accessibility/Grayscale_QA_Figures_01_04.png",
+    "sha256": "a6676c268f4cdb9db21a1e252b3079260820573faec74f27543168e5b3702846"
+  }
+}

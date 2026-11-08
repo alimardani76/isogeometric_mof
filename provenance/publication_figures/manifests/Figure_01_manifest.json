@@ -32,11 +32,11 @@
   "outputs": [
     {
       "path": "outputs\\main\\Figure_01\\Figure_01.pdf",
-      "sha256": "0e676da4c8fd6b3847a2beca6d699b3e322d1f013664147f78fd976b2a915184"
+      "sha256": "34c5ea76b9625582dc60ec7ca63ee9696f7b43c3cac4c07f9461c79eb1be1cf2"
     },
     {
       "path": "outputs\\main\\Figure_01\\Figure_01_200dpi.png",
-      "sha256": "ff77d4724997e2651a8e89871fe98a1be27bc013a3fc25e51041455987deda75"
+      "sha256": "8a1c1fb4dca30ffc1afe853bafed58335879330b53ee30be66153d3c5482bc84"
     }
   ],
   "notes": {
